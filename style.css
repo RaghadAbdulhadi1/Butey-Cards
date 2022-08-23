@@ -1,0 +1,97 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  
+    #butey-cards-header {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 0, 0, 0),
+        rgb(60, 53, 124)
+      );
+      padding: 20px;
+      margin-bottom: 2em;
+    }
+  
+    #title {
+      font-size: 1.5em;
+      padding-left: 25px;
+    }
+  
+    #cards-count,
+    #cards-colors {
+      font-size: 1em;
+      padding-left: 25px;
+    }
+  
+    #cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 23em;
+      height: 35em;
+      box-shadow: 0 0 4px 3px rgb(164, 163, 170);
+      margin-bottom: 2em;
+      transition: 1s;
+    }
+  
+    .card:hover {
+      transform: scale(0.9);
+      z-index: 2;
+    }
+  
+    .card img{
+      width: 100%;
+      height: 100%;
+      align-self: center;
+      transition: 1s;
+    }
+  
+    .card:hover {
+    transform: scale(0.9);
+    z-index: 2;
+    }
+  
+    .card-title {
+      font-size: 0.8em;
+      padding-left: 4%;
+      margin-top: 1.5%;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+  
+    .card-description {
+      font-size: 0.8em;
+      padding-left: 4%;
+      padding-bottom: 5px;
+    }
+  
+    .card button {
+      background-color: #003049;
+      color: rgb(242, 242, 243);
+      width: 7em;
+      height: 4em;
+      margin: 2.5%;
+    }
+  
+  .card button:hover {
+    background-color: #828f96;
+  }
+  
+  @media only screen and (max-width: 394px) {
+    #cards {
+      flex-direction: column;
+    }
+    .card {
+      width: 50%;
+      height: 30em;
+      margin-bottom: 2em;
+    }
+  }
