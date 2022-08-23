@@ -57,7 +57,6 @@ async function addColorsToCards() {
         }
         count.innerHTML = "Count of Selected Cards: " + counter;
         cardsColors.innerHTML = "Selected Colors:" + colorNames;
-        console.log(colorNames)
       })
     );
 
