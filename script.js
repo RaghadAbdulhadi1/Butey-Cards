@@ -45,7 +45,7 @@ async function addColorsToCards() {
       "onClick",
       cardButton.addEventListener("click", function () {
         isClicked = !isClicked;
-        const selected = colorsSelected(hexCode);
+        const selected = colorsName[hexCode];
         if (isClicked) {
           colorNames.push(selected);
           counter = counter + 1;
@@ -75,7 +75,3 @@ async function addColorsToCards() {
   });
 }
 addColorsToCards();
-
-function colorsSelected(hexCode) {
-  return colorsName[hexCode];
-  };
