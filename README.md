@@ -39,8 +39,9 @@ Run the server, either by the live server extension or directly from the menu ba
 
 ## Usage
 
-### Overview of the cards
+### Mobile View
 ![Mobile View](./images/mobile-view.png)
+### Website View
 ![Website View](./images/website%20view.png)
 
 ### Adding colors
