@@ -30,11 +30,9 @@ Live Server
 
 Clone this repository to your local machine.
 
-```
-$ git clone git@github.com:RaghadAbdulhadi1/Butey-Cards.git
-```
-cd YourRepo/YourProject
-```
+`git clone git@github.com:RaghadAbdulhadi1/Butey-Cards.git
+cd YourRepo/YourProject`
+
 Run the server, either by the live server extension or directly from the menu bar.
 ---
 
@@ -70,5 +68,3 @@ Regarding the css, Mobile-first design approch was implemented which we started 
 
 ## Authors
 Raghad Ayman Abdulhadi
-
----
