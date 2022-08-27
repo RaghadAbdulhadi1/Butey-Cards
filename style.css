@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+.main{
+  
+}
+.onClick {
+  box-shadow: 0px 5px 9px 3px rgb(171, 171, 172);
+  background-color: #669bbc;
+}
+
 .page-header {
   background-image: linear-gradient(
     to right,
@@ -27,9 +35,10 @@
 
 .cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
+  gap: 20px;
 }
 
 .card {
@@ -38,7 +47,7 @@
   width: 23em;
   height: 35em;
   margin-bottom: 2em;
-  border: 0.5px solid rgb(180, 177, 177); 
+  border: 0.5px solid rgb(180, 177, 177);
 }
 
 .card img {
@@ -49,9 +58,9 @@
 
 .card-title {
   font-size: 1.2em;
-  padding-left: 4%;
   margin-top: 1.5%;
   padding-bottom: 5px;
+  padding-left: 4%;
   padding-top: 5px;
 }
 
@@ -63,12 +72,12 @@
 
 .card button {
   background-color: #003049;
-  color: rgb(242, 242, 243);
-  width: 7em;
-  height: 4em;
-  margin: 2.5%;
-  margin-bottom: 5%;
   box-shadow: 0px 5px 4px 3px rgb(171, 171, 172);
+  color: rgb(242, 242, 243);
+  height: 4em;
+  margin-bottom: 5%;
+  margin: 2.5%;
+  width: 7em;
 }
 
 .card button:hover {

@@ -26,6 +26,7 @@ class FetchData {
   }
 }
 
+
 class CardsTrack {
   constructor() {
     this.colorsCount = document.createElement("h2");
@@ -98,21 +99,23 @@ class Card extends CardsTrack {
     this.isClicked = !this.isClicked;
     if (this.isClicked) {
       this.colorsNameList.push(this.cardName[this.hexCode]);
-      this.cardsCounter++;
+      console.log(this.cardButton);
+      // this.cardButton.classList.add("onClick")
       this.cardButton.style.backgroundColor = "#669bbc";
-      this.card.style.boxShadow = "0px 5px 9px 3px rgb(171, 171, 172)"
+      this.card.style.boxShadow = "0px 5px 9px 3px rgb(171, 171, 172)";
     } else {
       this.colorsNameList.splice(
         this.colorsNameList.indexOf(this.cardName[this.hexCode]),
         1
       );
-      this.cardsCounter--;
+      this.cardButton.classList.remove("onClick");
       this.cardButton.style.backgroundColor = "#003049";
-      this.card.style.boxShadow = "5px 5px 4px 3px rgb(255, 255, 255)"
+      this.card.style.boxShadow = "5px 5px 4px 3px rgb(255, 255, 255)";
     }
-    this.colorsCount = document.querySelector('.colors-count');
-    this.colorsCount.innerHTML = "Count of Selected Cards: " + this.colorsNameList.length;
-    this.colorsName = document.querySelector('.colors-name');
+    this.colorsCount = document.querySelector(".colors-count");
+    this.colorsCount.innerHTML =
+      "Count of Selected Cards: " + this.colorsNameList.length;
+    this.colorsName = document.querySelector(".colors-name");
     this.colorsName.innerHTML = "Selected Colors: " + this.colorsNameList;
   };
   getCard() {
@@ -138,11 +141,7 @@ class Cards {
     this.cardsData = await this.fetchedData.fetchData();
     this.cardsData?.forEach((card) => {
       this.cards.appendChild(
-        new Card(
-          card,
-          this.colorsName,
-          this.colorsNameList
-        ).getCard()
+        new Card(card, this.colorsName, this.colorsNameList).getCard()
       );
     });
   }
