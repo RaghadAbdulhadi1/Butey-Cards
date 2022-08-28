@@ -26,7 +26,6 @@ class FetchData {
   }
 }
 
-
 class CardsTrack {
   constructor() {
     this.colorsCount = document.createElement("h2");
@@ -58,9 +57,6 @@ class PageHeader extends CardsTrack {
     this.body = document.querySelector("body");
     this.body.appendChild(this.header);
   }
-  getHeader() {
-    return this.header;
-  }
 }
 
 class Card extends CardsTrack {
@@ -84,6 +80,7 @@ class Card extends CardsTrack {
     this.cardTitle.textContent = card.title;
     this.cardDescription.textContent = card.title;
     this.cardButton.textContent = "Button";
+    this.cardButton.classList.add("card-button");
 
     this.card.appendChild(this.cardImage);
     this.card.appendChild(this.cardTitle);
@@ -99,18 +96,15 @@ class Card extends CardsTrack {
     this.isClicked = !this.isClicked;
     if (this.isClicked) {
       this.colorsNameList.push(this.cardName[this.hexCode]);
-      console.log(this.cardButton);
-      // this.cardButton.classList.add("onClick")
-      this.cardButton.style.backgroundColor = "#669bbc";
-      this.card.style.boxShadow = "0px 5px 9px 3px rgb(171, 171, 172)";
+      this.cardButton.classList.add("clicked-button");
+      this.card.classList.add("clicked-card");
     } else {
       this.colorsNameList.splice(
         this.colorsNameList.indexOf(this.cardName[this.hexCode]),
         1
       );
-      this.cardButton.classList.remove("onClick");
-      this.cardButton.style.backgroundColor = "#003049";
-      this.card.style.boxShadow = "5px 5px 4px 3px rgb(255, 255, 255)";
+      this.cardButton.classList.remove("clicked-button");
+      this.card.classList.remove("clicked-card");
     }
     this.colorsCount = document.querySelector(".colors-count");
     this.colorsCount.innerHTML =
@@ -118,7 +112,7 @@ class Card extends CardsTrack {
     this.colorsName = document.querySelector(".colors-name");
     this.colorsName.innerHTML = "Selected Colors: " + this.colorsNameList;
   };
-  getCard() {
+  get getCard() {
     return this.card;
   }
 }
@@ -141,7 +135,7 @@ class Cards {
     this.cardsData = await this.fetchedData.fetchData();
     this.cardsData?.forEach((card) => {
       this.cards.appendChild(
-        new Card(card, this.colorsName, this.colorsNameList).getCard()
+        new Card(card, this.colorsName, this.colorsNameList).getCard
       );
     });
   }
@@ -151,7 +145,6 @@ class RenderPage {
   constructor() {
     this.header = new PageHeader();
     this.body = new Cards();
-    this.header.getHeader();
     this.body.renderCards();
   }
 }

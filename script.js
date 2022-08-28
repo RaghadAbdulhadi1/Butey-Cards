@@ -8,7 +8,7 @@ class CardDetails {
     this.colorsCount.innerText = "Selected Colors: ";
   }
 
-  getCardDetails() {
+  get cardDetails() {
     return this.colorsCount, this.colorsName;
   }
 }
