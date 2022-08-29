@@ -21,6 +21,8 @@ class SideBarOption {
 class PageSideBar extends PageBackground {
   constructor() {
     super();
+    this.sideContainer = document.createElement("div"); 
+    this.sideContainer.setAttribute("class", "side-container");
     this.sideBar = document.createElement("div");
     this.sideBar.setAttribute("class", "side-bar");
     this.sideBarOptions = document.createElement("ul");
@@ -32,13 +34,13 @@ class PageSideBar extends PageBackground {
     this.sideBarOptions.appendChild(this.likeOption.option);
     this.sideBarOptions.appendChild(this.saveOption.option);
     this.sideBar.appendChild(this.sideBarOptions);
-    this.pageLayout.appendChild(this.sideBar);
-    this.sideBar.addEventListener("mouseover", this.onMouseOver);
-    this.sideBar.addEventListener("mouseout", this.onMouseOut);
+    this.pageLayout.appendChild(this.sideContainer);
+    this.sideContainer.appendChild(this.sideBar);
+    this.sideContainer.addEventListener("mouseover", this.onMouseOver);
+    this.sideContainer.addEventListener("mouseout", this.onMouseOut);
   }
   onMouseOver() {
     this.sideBar = document.querySelector(".side-bar");
-    this.pageBackground = document.querySelector(".page-background");
     this.sideBar.classList.add("show-bar");
     this.pageBackground.classList.add("shrink-img");
   }
