@@ -37,6 +37,8 @@ class PageSideBar extends PageBackground {
     this.sideBar.addEventListener("mouseout", this.onMouseOut);
   }
   onMouseOver() {
+    this.sideBar = document.querySelector(".side-bar");
+    this.pageBackground = document.querySelector(".page-background");
     this.sideBar.classList.add("show-bar");
     this.pageBackground.classList.add("shrink-img");
   }
