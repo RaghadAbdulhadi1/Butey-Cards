@@ -2,59 +2,54 @@ class PageBackground {
   constructor() {
     this.pageLayout = document.getElementById("container");
     this.pageBackground = document.createElement("img");
+    this.pageBackground.className = "page-background";
     this.pageBackground.setAttribute("src", "./images/sunset.jpg");
     this.pageLayout.appendChild(this.pageBackground);
   }
 }
 
-class DownloadOption {
-  constructor() {
-    this.downloadOption = document.createElement("li");
-    this.downloadOption.setAttribute("class", "options");
-    this.downloadOptionLink = document.createElement("a");
-    this.downloadOptionLink.setAttribute("href", "#");
-    this.downloadOption.appendChild(this.downloadOptionLink);
+class SideBarOption {
+  constructor(iconClass) {
+    this.option = document.createElement("li");
+    this.option.setAttribute("class", "options");
+    this.optionLink = document.createElement("i");
+    this.optionLink.setAttribute("class", iconClass);
+    this.option.appendChild(this.optionLink);
   }
 }
 
-class LikeOption {
+class PageSideBar extends PageBackground {
   constructor() {
-    this.likeOption = document.createElement("li");
-    this.likeOption.setAttribute("class", "options");
-    this.likeOptionLink = document.createElement("a");
-    this.likeOptionLink.setAttribute("href", "#");
-    this.likeOption.appendChild(this.likeOptionLink);
-  }
-}
-
-class SaveOption {
-  constructor() {
-    this.saveOption = document.createElement("li");
-    this.saveOption.setAttribute("class", "options");
-    this.saveOptionLink = document.createElement("a");
-    this.saveOptionLink.setAttribute("href", "#");
-    this.saveOption.appendChild(this.saveOptionLink);
-  }
-}
-
-class PageSideBar {
-  constructor() {
-    this.pageLayout = document.getElementById("container");
-    this.sideBar = document.createElement("ul");
-    this.sideBar.setAttribute("class", "sidebar");
+    super();
+    this.sideBar = document.createElement("div");
+    this.sideBar.setAttribute("class", "side-bar");
+    this.sideBarOptions = document.createElement("ul");
+    this.sideBarOptions.setAttribute("class", "side-bar-options");
+    this.downloadOption = new SideBarOption("fa fa-download");
+    this.likeOption = new SideBarOption("fa fa-heart-o");
+    this.saveOption = new SideBarOption("fa-solid fa-bookmark");
+    this.sideBarOptions.appendChild(this.downloadOption.option);
+    this.sideBarOptions.appendChild(this.likeOption.option);
+    this.sideBarOptions.appendChild(this.saveOption.option);
+    this.sideBar.appendChild(this.sideBarOptions);
     this.pageLayout.appendChild(this.sideBar);
-    this.downloadOption = new DownloadOption();
-    this.likeOption = new LikeOption();
-    this.saveOption = new SaveOption();
-    this.sideBar.appendChild(this.likeOption.likeOption);
-    this.sideBar.appendChild(this.saveOption.saveOption);
-    this.sideBar.appendChild(this.downloadOption.downloadOption);
+    this.sideBar.addEventListener("mouseover", this.onMouseOver);
+    this.sideBar.addEventListener("mouseout", this.onMouseOut);
+  }
+  onMouseOver() {
+    this.sideBar.classList.add("show-bar");
+    this.pageBackground.classList.add("shrink-img");
+  }
+  onMouseOut() {
+    this.sideBar = document.querySelector(".side-bar");
+    this.pageBackground = document.querySelector(".page-background");
+    this.sideBar.classList.remove("show-bar");
+    this.pageBackground.classList.remove("shrink-img");
   }
 }
 
 class RenderPage {
   constructor() {
-    const pageLayout = new PageBackground();
     const pageSideBar = new PageSideBar();
   }
 }
