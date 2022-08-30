@@ -1,60 +1,85 @@
-class PageBackground {
+class ClockComponents {
   constructor() {
-    this.pageLayout = document.getElementById("container");
-    this.pageBackground = document.createElement("img");
-    this.pageBackground.className = "page-background";
-    this.pageBackground.setAttribute("src", "./images/sunset.jpg");
-    this.pageLayout.appendChild(this.pageBackground);
+    this.center = document.createElement("div");
+    this.center.setAttribute("class", "clock-center");
+
+    this.twelve = document.createElement("div");
+    this.twelve.setAttribute("class", "clock-12");
+    this.twelve.innerHTML = "12";
+
+    this.nine = document.createElement("div");
+    this.nine.setAttribute("class", "clock-9");
+    this.nine.innerHTML = "9";
+
+    this.three = document.createElement("div");
+    this.three.setAttribute("class", "clock-3");
+    this.three.innerHTML = "3";
+
+    this.six = document.createElement("div");
+    this.six.setAttribute("class", "clock-6");
+    this.six.innerHTML = "6";
   }
 }
 
-class SideBarOption {
-  constructor(iconClass) {
-    this.option = document.createElement("li");
-    this.option.setAttribute("class", "options");
-    this.optionLink = document.createElement("i");
-    this.optionLink.setAttribute("class", iconClass);
-    this.option.appendChild(this.optionLink);
+class HoursHand {
+  constructor() {
+    this.hoursHand = document.createElement("div");
+    this.hoursHand.setAttribute("class", "hours-hand");
+  }
+  get HoursHand() {
+    return this.hoursHand;
   }
 }
 
-class PageSideBar extends PageBackground {
+class MinutesHand {
+  constructor() {
+    this.minutesHand = document.createElement("div");
+    this.minutesHand.setAttribute("class", "minutes-hand");
+  }
+  get MinutesHand() {
+    return this.minutesHand;
+  }
+}
+
+class SecondsHand {
+  constructor() {
+    this.secondsHand = document.createElement("div");
+    this.secondsHand.setAttribute("class", "seconds-hand");
+  }
+  get SecondsHand() {
+    return this.secondsHand;
+  }
+}
+
+class Clock extends ClockComponents {
   constructor() {
     super();
-    this.sideContainer = document.createElement("div"); 
-    this.sideContainer.setAttribute("class", "side-container");
-    this.sideBar = document.createElement("div");
-    this.sideBar.setAttribute("class", "side-bar");
-    this.sideBarOptions = document.createElement("ul");
-    this.sideBarOptions.setAttribute("class", "side-bar-options");
-    this.downloadOption = new SideBarOption("fa fa-download");
-    this.likeOption = new SideBarOption("fa fa-heart-o");
-    this.saveOption = new SideBarOption("fa-solid fa-bookmark");
-    this.sideBarOptions.appendChild(this.downloadOption.option);
-    this.sideBarOptions.appendChild(this.likeOption.option);
-    this.sideBarOptions.appendChild(this.saveOption.option);
-    this.sideBar.appendChild(this.sideBarOptions);
-    this.pageLayout.appendChild(this.sideContainer);
-    this.sideContainer.appendChild(this.sideBar);
-    this.sideContainer.addEventListener("mouseover", this.onMouseOver);
-    this.sideContainer.addEventListener("mouseout", this.onMouseOut);
-  }
-  onMouseOver() {
-    this.sideBar = document.querySelector(".side-bar");
-    this.sideBar.classList.add("show-bar");
-    this.pageBackground.classList.add("shrink-img");
-  }
-  onMouseOut() {
-    this.sideBar = document.querySelector(".side-bar");
-    this.pageBackground = document.querySelector(".page-background");
-    this.sideBar.classList.remove("show-bar");
-    this.pageBackground.classList.remove("shrink-img");
+    this.container = document.getElementById("container");
+    this.clock = document.createElement("div");
+    this.clock.setAttribute("class", "clock-container");
+
+    this.hoursHand = new HoursHand().HoursHand;
+    this.minutesHand = new MinutesHand().MinutesHand;
+    this.secondsHand = new SecondsHand().SecondsHand;
+
+    this.clock.appendChild(this.center);
+    this.clock.appendChild(this.twelve);
+    this.clock.appendChild(this.nine);
+    this.clock.appendChild(this.three);
+    this.clock.appendChild(this.six);
+
+    this.clock.appendChild(this.hoursHand);
+    this.clock.appendChild(this.minutesHand);
+    this.clock.appendChild(this.secondsHand);
+
+    this.container.appendChild(this.clock);
+    console.log(this.clock);
   }
 }
 
 class RenderPage {
   constructor() {
-    const pageSideBar = new PageSideBar();
+    const clock = new Clock();
   }
 }
 
