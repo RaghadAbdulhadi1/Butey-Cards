@@ -1,128 +1,135 @@
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    background-color: #EEEEEE;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: #eeeeee;
 }
 
 #container {
-    width: 23rem;
-    height: 23rem;
-    border: 10px solid white;
-    border-radius: 20%;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
+  border: 10px solid white;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
 }
 
 .clock-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(10px, 1fr));
-    grid-template-rows:  repeat(3, minmax(10px, 1fr));
-    width: 20rem;
-    height: 20rem;
-    border: 10px solid white;
-    border-radius: 50%;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-}
-
-.clock-center {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    border-radius: 50%;
-    width: 1.5em;
-    height: 1.5em;
-    align-self: center;
-    justify-self: center;
-    background-color: rgb(228, 64, 15);
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) minmax(30px, 1fr) minmax(
+      100px,
+      1fr
+    );
+  grid-template-rows: minmax(100px, 1fr) minmax(30px, 600px) minmax(100px, 1fr);
+  grid-template-areas: ". twelve ." "nine mid three" ". six .";
+  width: 100%;
+  height: 100%;
+  border: 10px solid white;
+  border-radius: 50%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
 }
 
 .clock-12 {
-    color: gray;
-    font-weight: bold;
-    font-size: 200%;
-    background-color: transparent;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    align-self: start;
-    justify-self: center;
+  color: gray;
+  font-weight: bold;
+  font-size: 6vw;
+  background-color: transparent;
+  grid-area: twelve;
+  align-self: start;
+  justify-self: center;
+  z-index: 1;
 }
 
 .clock-9 {
-    color: gray;
-    font-weight: bold;
-    font-size: 200%;
-    background-color: transparent;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    align-self: center;
-    justify-self: start;
+  color: gray;
+  font-weight: bold;
+  font-size: 6vw;
+  background-color: transparent;
+  grid-area: nine;
+  align-self: center;
+  justify-self: start;
+  z-index: 1;
 }
 
 .clock-3 {
-    color: gray;
-    font-weight: bold;
-    font-size: 200%;
-    background-color: transparent;
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-    align-self: center;
-    justify-self: end;
+  color: gray;
+  font-weight: bold;
+  font-size: 6vw;
+  background-color: transparent;
+  grid-area: three;
+  align-self: center;
+  justify-self: end;
+  z-index: 1;
 }
 
 .clock-6 {
-    color: gray;
-    font-weight: bold;
-    font-size: 200%;
-    background-color: transparent;
-    grid-column: 2 / 3;
-    align-self: end;
-    justify-self: center;
+  color: gray;
+  font-weight: bold;
+  font-size: 6vw;
+  background-color: transparent;
+  grid-area: six;
+  align-self: end;
+  justify-self: center;
+  z-index: 1;
 }
 
-.minutes-hand {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    border: 4px solid black;
-    border-radius: 5px;
-    width: 0px;
-    height: 95px;
-    align-self: center;
-    transform: rotate(8deg);
-    justify-self: center;
-    margin-left: 20px;
-    margin-bottom: 25px;
+.clock-center {
+  background-color: transparent;
+  grid-area: mid;
+  display: grid;
+  grid-template-columns: minmax(50px, 15vw) minmax(30px, 30px) minmax(50px, 15vw);
+  grid-template-rows: minmax(50px, 1fr) minmax(30px, 30px) minmax(50px, 1fr);
+  grid-template-areas: ". minutes ." 
+  ". dotCenter hours" 
+  ". pointer .";
+}
+
+.dot-center {
+  grid-area: dotCenter;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .hours-hand {
-    grid-column: 2 / 4;
-    grid-row: 2 / 3;
-    border: 4px solid black;
-    border-radius: 5px;
-    width: 0px;
-    height: 70px;
-    align-self: center;
-    transform: rotate(90deg);
-    justify-self: center;
-    margin-left: 2px;
+  grid-area: hours;
+  border-radius: 5px;
+  background-color: black;
+  width: 100%;
+  height: 30%;
+  align-self: center;
+  transform-origin: left;
+  transform: rotate(calc(var(--rotation)));
+  margin: -15px;
+
+}
+
+.minutes-hand {
+  grid-area: minutes;
+  background-color: black;
+  border-radius: 5px;
+  width: 30%;
+  height: 100%;
+  justify-self: center;
+  transform-origin: bottom;
+  transform: rotate(calc(var(--rotation) *1deg));
+  margin: 15px;
 }
 
 .seconds-hand {
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-    border: 3px solid rgb(212, 0, 0);
-    border-radius: 5px;
-    width: 0px;
-    height: 110px;
-    align-self: center;
-    transform: rotate(60deg);
-    justify-self: center;
-    margin-right: 20px;
-    margin-top: 80px;
+  grid-area: pointer;
+  background-color: rgb(180, 55, 55);
+  border-radius: 5px;
+  width: 30%;
+  height: 100%;
+  justify-self: center;
+  transform-origin: top;
+  transform: rotate(calc(var(--rotation) *1deg));
+  margin: -15px;
 }

@@ -3,6 +3,9 @@ class ClockComponents {
     this.center = document.createElement("div");
     this.center.setAttribute("class", "clock-center");
 
+    this.dotCenter = document.createElement("div");
+    this.dotCenter.setAttribute("class", "dot-center");
+
     this.twelve = document.createElement("div");
     this.twelve.setAttribute("class", "clock-12");
     this.twelve.innerHTML = "12";
@@ -63,17 +66,37 @@ class Clock extends ClockComponents {
     this.secondsHand = new SecondsHand().SecondsHand;
 
     this.clock.appendChild(this.center);
+    this.center.appendChild(this.dotCenter);
     this.clock.appendChild(this.twelve);
     this.clock.appendChild(this.nine);
     this.clock.appendChild(this.three);
     this.clock.appendChild(this.six);
 
-    this.clock.appendChild(this.hoursHand);
-    this.clock.appendChild(this.minutesHand);
-    this.clock.appendChild(this.secondsHand);
+    this.center.appendChild(this.hoursHand);
+    this.center.appendChild(this.minutesHand);
+    this.center.appendChild(this.secondsHand);
 
     this.container.appendChild(this.clock);
-    console.log(this.clock);
+
+    setInterval(() => this.setClock(), 1000);
+  }
+  setClock() {
+    this.currentDate = new Date();
+    this.secondsRatio = this.currentDate.getSeconds() / 60;
+    this.minutesRatio = (this.secondsRatio + this.currentDate.getMinutes()) / 60;
+    this.hoursRatio = (this.minutesRatio + this.currentDate.getHours()) / 12;
+
+    this.setRotation(this.hoursHand, this.hoursRatio);
+    console.log(this.hoursRatio*360,"hours");
+    this.setRotation(this.minutesHand, this.minutesRatio);
+    console.log(this.minutesRatio*360, "minutes");
+    
+    this.setRotation(this.secondsHand, this.secondsRatio);
+    console.log(this.secondsRatio*360, "seconds");
+  }
+
+  setRotation(element, rotationRatio) {
+    element.style.setProperty("--rotation", rotationRatio * 360);
   }
 }
 
