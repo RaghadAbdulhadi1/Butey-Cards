@@ -6,52 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/26cc9537c2.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/26cc9537c2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div id="container">
-      <!-- <script src="script.js"></script> -->
-      <form action="#">
-        <div class="login-form">
+    <div class="container">
+      <div class="forms-container">
+        <div class="forms">
+          <div class="login-form">
             <div class="title">Login</div>
-            <div class="input-boxes">
-                <div class="input-box">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="text" placeholder="Enter your email" required/>
+            <div class="line-break"></div>
+            <form action="#">
+              <div class="input-feild">
+                <input type="text" placeholder="Enter your email" required>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="input-feild">
+                <input type="password" placeholder="Enter your password" required>
+                <i class="fa-sharp fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="forget-password">
+                <a href="#" class="text"`>Forgot password?</a>
+              </div>
+              <div class="login-button">
+                <div class="button">
+                  <input type="button" value="Login">
                 </div>
-                <div class="input-box">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Enter your password" required/>
+                <div class="register">
+                  <p>Not a member? <a href="#">Register</a></p>
                 </div>
-                <div class="text"><a href="#">Forgot password?</a></div>
-                <div class="button input-box">
-                    <input type="submit" value="Submit"/>
+              </div>
+            </form>
+          </div>
+
+          <div class="register-form">
+            <div class="title">Registration</div>
+            <div class="line-break"></div>
+            <form action="#">
+              <div class="input-feild">
+                <input type="text" placeholder="Enter your email" required>
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="input-feild">
+                <input type="text" placeholder="Enter your name" required>
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="input-feild">
+                <input type="password" placeholder="Enter your password" required>
+                <i class="fa-sharp fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="input-feild">
+                <input type="password" placeholder="Re-enter your password" required>
+                <i class="fa-sharp fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="country-choices">
+                <select name="countries" id="countries">
+                  <option value="" disabled selected>Country</option>
+                  <option value="jordan">Jordan</option>
+                  <option value="lebanon">Lebanon</option>
+                  <option value="syria">Syria</option>
+                </select>
+              </div>
+              <div class="radio-choices">
+                <div class="radio-choice">
+                  <input type="radio" name="radio-choice" id="radio-choice-1">
+                  <label for="radio-choice-1">Male</label>
                 </div>
-                <div class="text">Don't have an account?<label for="">Signup now</label></div>
-            </div>
+                <div class="radio-choice">
+                  <input type="radio" name="radio-choice" id="radio-choice-2">
+                  <label for="radio-choice-2">Female</label>
+                </div>
+              </div>
+              <div class="register-button">
+                <div class="button">
+                  <input type="button" value="Register">
+                </div>
+                <div class="register">
+                  <span>By Clicking on register, you agree on <a for="">terms and conditions.</a></span>
+                  <p>Already registered? <a href="#">Login</a></p>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="login-form">
-            <div class="title">Signup</div>
-            <div class="input-boxes">
-                <div class="input-box">
-                    <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Enter your name" required/>
-                </div>
-                <div class="input-box">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="text" placeholder="Enter your email" required/>
-                </div>
-                <div class="input-box">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Enter a password" required/>
-                </div>
-                <div class="button input-box">
-                    <input type="submit" value="Submit"/>
-                    <div class="text">Already have an account?<label for="">Login now</label></div>
-                </div>
-            </div>
-        </div>
-      </form>
+      </div>
     </div>
   </body>
 </html>
+<!-- <div id="container">
+    <script src="script.js"></script>
+  </div> -->

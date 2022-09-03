@@ -1,20 +1,132 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #744253;
+.container {
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #457b9d;
 }
 
-#container {
-    width: 100%;
-    background-color: #f3d9dc;
-    max-width: 850px;
-    min-width: ;
+.forms-container {
+  margin: 50px;
+  position: relative;
+  min-width: 350px;
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.login-form,
+.register-form {
+  padding: 35px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: #457b9d;
+}
+
+.line-break {
+  width: 50%;
+  border: 1px solid #c4c4c4;
+  margin: auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+.input-feild {
+  margin-top: 25px;
+  height: 50px;
+  width: 100%;
+  position: relative;
+  margin-top: 25px;
+}
+
+.input-feild input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 55px;
+  font-size: 15px;
+}
+
+.input-feild i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 20px;
+  background-color: #457b9d;
+  padding: 15px;
+  color: white;
+}
+
+.forget-password {
+  padding-top: 10px;
+}
+
+.login-button,
+.register-button {
+  display: flex;
+  gap: 25px;
+}
+
+.button input {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  font-weight: bold;
+  width: 100px;
+  height: 50px;
+  background-color: #457b9d;
+  margin-top: 25px;
+  color: white;
+}
+
+.register {
+  align-self: flex-end;
+}
+
+a {
+  text-decoration: none;
+  color: #457b9d;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #457b9d;
+}
+
+.country-choices select {
+  margin-top: 25px;
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  color: gray;
+  padding-left: 10px;
+}
+
+.register span a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.radio-choices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  font-size: 20px;
+  color: gray;
+}
+
+.radio-choices input {
+  font-size: 25px;
 }
