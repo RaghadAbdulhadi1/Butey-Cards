@@ -1,3 +1,20 @@
+const container = document.querySelector('.forms-container')
+
+const register = document.querySelector(".register-link")
+const login = document.querySelector(".login-link")
+
+register.addEventListener("click", () => {
+    container.classList.add("active");
+    console.log("signup")
+
+})
+
+login.addEventListener("click", () => {
+    container.classList.remove("active");
+    console.log("login")
+
+})
+
 // class Image {
 //   constructor(url) {
 //     this.url = url;
