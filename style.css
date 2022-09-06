@@ -5,19 +5,23 @@
 }
 
 :root {
-  --white: #fff;
-  --blue: #457b9d;
-  --gray: #808080;
-  --red: #af1515;
   --black: #000000;
-  --margin: 25px
+  --blue: #457b9d;
+  --fontsize: 15px;
+  --gray: #808080;
+  --margin: 25px;
+  --red: #af1515;
+  --white: #fff;
+  --width: 100%;
+  --left: -35px;
+  --halfwidth: 50%;
 }
 
 #container {
   align-items: center;
   background-color: var(--blue);
   display: flex;
-  height: 110vh;
+  height: 120vh;
   justify-content: center;
   padding: 50px;
 }
@@ -30,7 +34,7 @@
   min-width: 250px;
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: var(--width);
 }
 
 .forms-container .forms {
@@ -46,7 +50,7 @@
   background-color: var(--white);
   padding: 35px;
   transition: margin-left 0.18s ease;
-  width: 50%;
+  width: var(--halfwidth);
 }
 
 .forms-container.active .login-form {
@@ -71,7 +75,7 @@
 
 .title {
   color: var(--blue);
-  font-size: 25px;
+  font-size: var(--margin);
   font-weight: bold;
   text-align: center;
 }
@@ -80,23 +84,23 @@
   border: 1px solid #c4c4c4;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
   margin: auto;
-  width: 50%;
+  width: var(--halfwidth);
 }
 
 .input-feild {
   height: 50px;
-  margin-top: 25px;
-  margin-top: 25px;
+  margin-top: var(--margin);
+  margin-top: var(--margin);
   position: relative;
-  width: 100%;
+  width: var(--width);
 }
 
 .input-feild input {
-  font-size: 15px;
+  font-size: var(--fontsize);
   height: 100%;
   padding: 0 55px;
   position: absolute;
-  width: 100%;
+  width: var(--width);
 }
 
 .input-feild i {
@@ -106,7 +110,7 @@
   left: 0;
   padding: 15px;
   position: absolute;
-  top: 50%;
+  top: var(--halfwidth);
   transform: translateY(-50%);
 }
 
@@ -117,17 +121,17 @@
 .login-button,
 .register-button {
   display: flex;
-  gap: 25px;
+  gap: var(--margin);
 }
 
 .button input {
   background-color: var(--blue);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
   color: var(--white);
-  font-size: 15px;
+  font-size: var(--fontsize);
   font-weight: bold;
   height: 50px;
-  margin-top: 25px;
+  margin-top: var(--margin);
   width: 100px;
 }
 
@@ -147,11 +151,11 @@ a:hover {
 
 .country-choices select {
   color: var(--gray);
-  font-size: 15px;
+  font-size: var(--fontsize);
   height: 50px;
-  margin-top: 25px;
+  margin-top: var(--margin);
   padding-left: 10px;
-  width: 100%;
+  width: var(--width);
 }
 
 .register span a {
@@ -165,11 +169,11 @@ a:hover {
   font-size: 20px;
   gap: 30px;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: var(--margin);
 }
 
 .radio-choices input {
-  font-size: 25px;
+  font-size: var(--margin);
 }
 
 .outValidation,
@@ -178,9 +182,9 @@ a:hover {
   background: var(--white);
   color: var(--black);
   display: none;
-  margin-top: 25px;
+  margin-top: var(--margin);
   padding-left: 60px;
-  width: 100%;
+  width: var(--width);
 }
 
 .success-failure,
@@ -190,9 +194,9 @@ a:hover {
   background: var(--white);
   color: var(--black);
   display: none;
-  margin-top: 25px;
+  margin-top: var(--margin);
   padding-left: 60px;
-  width: 100%;
+  width: var(--width);
 }
 
 .success-succ,
@@ -200,12 +204,12 @@ a:hover {
 .user-succ,
 .confirm-succ {
   background: var(--white);
-  color: var(--red);
   color: var(--black);
+  color: var(--red);
   display: block;
-  margin-top: 25px;
+  margin-top: var(--margin);
   padding-left: 60px;
-  width: 100%;
+  width: var(--width);
 }
 
 .onValidation,
@@ -214,24 +218,9 @@ a:hover {
   background: var(--white);
   color: var(--black);
   display: block;
-  margin-top: 25px;
+  margin-top: var(--margin);
   padding-left: 60px;
-  width: 100%;
-}
-
-.onValidation p {
-  font-size: 15px;
-  padding: 10px 35px;
-}
-
-.onUserValidation p {
-  font-size: 15px;
-  padding: 10px 35px;
-}
-
-.onEmailValidation p {
-  font-size: 15px;
-  padding: 10px 35px;
+  width: var(--width);
 }
 
 .valid {
@@ -240,7 +229,7 @@ a:hover {
 
 .valid:before {
   content: "✔";
-  left: -35px;
+  left: var(--left);
   position: relative;
 }
 
@@ -250,6 +239,27 @@ a:hover {
 
 .invalid:before {
   content: "✖";
-  left: -35px;
+  left: var(--left);
   position: relative;
 }
+
+.gender-label {
+  padding: 10px;
+}
+
+.checkboxes-gender {
+  position: relative;
+}
+
+input[type="checkbox"] {
+  accent-color: #457b9d;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+option {
+  background-color: #e8ecee;
+}
+
