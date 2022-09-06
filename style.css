@@ -1,171 +1,255 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #457b9d;
-    padding: 50px;
+:root {
+  --white: #fff;
+  --blue: #457b9d;
+  --gray: #808080;
+  --red: #af1515;
+  --black: #000000;
+  --margin: 25px
+}
+
+#container {
+  align-items: center;
+  background-color: var(--blue);
+  display: flex;
+  height: 110vh;
+  justify-content: center;
+  padding: 50px;
 }
 
 .forms-container {
-    position: relative;
-    min-width: 350px;
-    max-width: 600px;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
-    border-radius: 10px;
-    overflow: hidden;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+  max-width: 600px;
+  min-width: 250px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .forms-container .forms {
-    display: flex;
-    align-items: center;
-    width: 200%;
-    height: 350px;
-    transition: height 0.2s ease;
-
+  align-items: center;
+  display: flex;
+  height: 350px;
+  transition: height 0.2s ease;
+  width: 200%;
 }
-
 
 .login-form,
 .register-form {
-    width: 50%;
-    padding: 35px;
-    background-color: #fff;
-    transition:  margin-left 0.18s ease;
+  background-color: var(--white);
+  padding: 35px;
+  transition: margin-left 0.18s ease;
+  width: 50%;
 }
+
 .forms-container.active .login-form {
-    margin-left: -50%;
-    opacity: 0;
-    transition:  margin-left 0.18s ease, opacity 0.15s ease;
-
-
+  margin-left: -50%;
+  opacity: 0;
+  transition: margin-left 0.18s ease, opacity 0.15s ease;
 }
 
 .forms-container .register-form {
-    opacity: 0;
-    transition: opacity 0.1s ease;
+  opacity: 0;
+  transition: opacity 0.1s ease;
 }
 
 .forms-container.active .register-form {
-    opacity: 1;
-    transition: opacity 0.2s ease;
-
-
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 .forms-container.active .forms {
-    height: 595px;
+  height: auto;
 }
 
 .title {
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
-    color: #457b9d;
+  color: var(--blue);
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .line-break {
-    width: 50%;
-    border: 1px solid #C4C4C4;
-    margin: auto;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  border: 1px solid #c4c4c4;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  margin: auto;
+  width: 50%;
 }
 
 .input-feild {
-    margin-top: 25px;
-    height: 50px;
-    width: 100%;
-    position: relative;
-    margin-top: 25px;
+  height: 50px;
+  margin-top: 25px;
+  margin-top: 25px;
+  position: relative;
+  width: 100%;
 }
 
 .input-feild input {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0 55px;
-    font-size: 15px;
-
+  font-size: 15px;
+  height: 100%;
+  padding: 0 55px;
+  position: absolute;
+  width: 100%;
 }
 
 .input-feild i {
-    position: absolute;
-    top: 50%;
-    left: 0; 
-    transform: translateY(-50%);
-    font-size: 20px;
-    background-color: #457b9d;
-    padding: 15px;
-    color: white;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 20px;
+  left: 0;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .forget-password {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .login-button,
 .register-button {
-    display: flex;
-    gap: 25px;
+  display: flex;
+  gap: 25px;
 }
 
 .button input {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    font-size: 15px;
-    font-weight: bold;
-    width: 100px;
-    height: 50px;
-    background-color: #457b9d;
-    margin-top: 25px;
-    color: white;
+  background-color: var(--blue);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: bold;
+  height: 50px;
+  margin-top: 25px;
+  width: 100px;
 }
 
 .register {
-    align-self: flex-end;
+  align-self: flex-end;
 }
 
-a{
-    text-decoration: none;
-    color: #457b9d;
+a {
+  color: var(--blue);
+  text-decoration: none;
 }
 
-a:hover{
-    text-decoration: underline;
-    color: #457b9d;
+a:hover {
+  color: var(--blue);
+  text-decoration: underline;
 }
 
-.country-choices select{
-    margin-top: 25px;
-    width: 100%;
-    height: 50px;
-    font-size: 15px;
-    color: gray;
-    padding-left: 10px;
+.country-choices select {
+  color: var(--gray);
+  font-size: 15px;
+  height: 50px;
+  margin-top: 25px;
+  padding-left: 10px;
+  width: 100%;
 }
 
 .register span a {
-    text-decoration: underline;
-    font-weight: bold;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-.radio-choices {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 25px;
-    font-size: 20px;
-    color: gray;
+#gender-choices {
+  color: var(--gray);
+  display: flex;
+  font-size: 20px;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 25px;
 }
-
 
 .radio-choices input {
-    font-size: 25px;
+  font-size: 25px;
+}
+
+.outValidation,
+.username-validation,
+.email-validation {
+  background: var(--white);
+  color: var(--black);
+  display: none;
+  margin-top: 25px;
+  padding-left: 60px;
+  width: 100%;
+}
+
+.success-failure,
+.password-failure,
+.user-failure,
+.confirm-failure {
+  background: var(--white);
+  color: var(--black);
+  display: none;
+  margin-top: 25px;
+  padding-left: 60px;
+  width: 100%;
+}
+
+.success-succ,
+.password-succ,
+.user-succ,
+.confirm-succ {
+  background: var(--white);
+  color: var(--red);
+  color: var(--black);
+  display: block;
+  margin-top: 25px;
+  padding-left: 60px;
+  width: 100%;
+}
+
+.onValidation,
+.onUserValidation,
+.onEmailValidation {
+  background: var(--white);
+  color: var(--black);
+  display: block;
+  margin-top: 25px;
+  padding-left: 60px;
+  width: 100%;
+}
+
+.onValidation p {
+  font-size: 15px;
+  padding: 10px 35px;
+}
+
+.onUserValidation p {
+  font-size: 15px;
+  padding: 10px 35px;
+}
+
+.onEmailValidation p {
+  font-size: 15px;
+  padding: 10px 35px;
+}
+
+.valid {
+  color: #155c15;
+}
+
+.valid:before {
+  content: "✔";
+  left: -35px;
+  position: relative;
+}
+
+.invalid {
+  color: var(--red);
+}
+
+.invalid:before {
+  content: "✖";
+  left: -35px;
+  position: relative;
 }
