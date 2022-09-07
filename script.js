@@ -114,9 +114,15 @@ class LogInForm extends FormInterface {
     this.user.setAttribute("class", "user-failure");
     this.user.innerText = "User with this email doesn't exist";
 
+    this.emptyFeilds = document.createElement("p");
+    this.emptyFeilds.setAttribute("class", "empty-feilds-failure");
+    this.emptyFeilds.innerText = "Please fill in the email and password";
+
     this.loginValidation.appendChild(this.success);
     this.loginValidation.appendChild(this.password);
     this.loginValidation.appendChild(this.user);
+    this.loginValidation.appendChild(this.emptyFeilds);
+
 
     this.form.appendChild(this.loginValidation);
     this.form.appendChild(this.loginButton);
@@ -130,10 +136,6 @@ class LogInForm extends FormInterface {
     this.success = document.querySelector(".success-failure");
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find((u) => u.email === this.email.value);
-    // if (this.email.value == null) {
-    //   this.noInput = document.querySelector(".no-input");
-    //   this.noInput.classList.add("unoinput-succ");
-    // }
     if (user) {
       if (user.password === this.password.value) {
         this.success = document.querySelector(".success-failure");
@@ -141,15 +143,23 @@ class LogInForm extends FormInterface {
         this.success.classList.add("success-succ");
         this.userFailure.classList.remove("user-succ");
         this.passwordFailure.classList.remove("password-succ");
+        this.emptyFeildsFailure.classList.remove("empty-feilds-succ");
       } else {
         this.passwordFailure = document.querySelector(".password-failure");
         this.passwordFailure.classList.add("password-succ");
         this.userFailure.classList.remove("user-succ");
+        this.emptyFeildsFailure.classList.remove("empty-feilds-succ");
       }
-    } else {
+    } else if (this.email.value == "") {
+      console.log("Please select")
+      this.emptyFeildsFailure = document.querySelector(".empty-feilds-failure");
+      this.emptyFeildsFailure.classList.add("empty-feilds-succ");
+    }
+    else {
       this.userFailure = document.querySelector(".user-failure");
       this.userFailure.classList.add("user-succ");
       this.passwordFailure.classList.remove("password-succ");
+      this.emptyFeildsFailure.classList.remove("empty-feilds-succ");
     }
   }
 }

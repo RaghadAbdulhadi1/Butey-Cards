@@ -189,7 +189,8 @@ a:hover {
 .success-failure,
 .password-failure,
 .user-failure,
-.confirm-failure {
+.confirm-failure,
+.empty-feilds-failure {
   background: var(--white);
   color: var(--black);
   display: none;
@@ -201,7 +202,8 @@ a:hover {
 .success-succ,
 .password-succ,
 .user-succ,
-.confirm-succ {
+.confirm-succ,
+.empty-feilds-succ {
   background: var(--white);
   color: var(--black);
   color: var(--red);
