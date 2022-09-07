@@ -33,7 +33,6 @@
   max-width: 600px;
   min-width: 250px;
   overflow: hidden;
-  position: relative;
   width: var(--width);
 }
 
@@ -251,15 +250,10 @@ a:hover {
   position: relative;
 }
 
-input[type="checkbox"] {
+.checkboxes-gender input[type="checkbox"] {
   accent-color: #457b9d;
   width: 1.5em;
   height: 1.5em;
   vertical-align: middle;
   cursor: pointer;
 }
-
-option {
-  background-color: #e8ecee;
-}
-
