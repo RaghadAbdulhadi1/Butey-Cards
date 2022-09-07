@@ -123,6 +123,8 @@ class LogInForm extends FormInterface {
     this.success = document.querySelector(".success-failure");
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find((u) => u.email === this.email.value);
+    this.password.value = '';
+    this.email.value = '';
     if (user) {
       if (user.password === this.password.value) {
         this.success = document.querySelector(".success-failure");
