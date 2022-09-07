@@ -96,42 +96,29 @@ class LogInForm extends FormInterface {
     this.notMemberAnchor.innerText = "Register";
     this.notMember.appendChild(this.notMemberAnchor);
     this.register.appendChild(this.notMember);
-
     this.loginButton.appendChild(this.register);
-
     this.loginValidation = document.createElement("div");
     this.loginValidation.setAttribute("class", "loginValidation");
-
     this.success = document.createElement("p");
     this.success.setAttribute("class", "success-failure");
     this.success.innerText = "You have been logged in successfully";
-
     this.password = document.createElement("p");
     this.password.setAttribute("class", "password-failure");
     this.password.innerText = "Check your password";
-
     this.user = document.createElement("p");
     this.user.setAttribute("class", "user-failure");
     this.user.innerText = "User with this email doesn't exist";
-
-    this.emptyFeilds = document.createElement("p");
-    this.emptyFeilds.setAttribute("class", "empty-feilds-failure");
-    this.emptyFeilds.innerText = "Please fill in the email and password";
-
     this.loginValidation.appendChild(this.success);
     this.loginValidation.appendChild(this.password);
     this.loginValidation.appendChild(this.user);
-    this.loginValidation.appendChild(this.emptyFeilds);
-
-
     this.form.appendChild(this.loginValidation);
     this.form.appendChild(this.loginButton);
-
     return this.form;
   }
   #validateLogin(e) {
     e.preventDefault();
     this.email = document.getElementById("login-email");
+    this.emptyFeildsFailure = document.querySelector(".empty-feilds-failure");
     this.password = document.getElementById("login-password");
     this.success = document.querySelector(".success-failure");
     const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -143,23 +130,16 @@ class LogInForm extends FormInterface {
         this.success.classList.add("success-succ");
         this.userFailure.classList.remove("user-succ");
         this.passwordFailure.classList.remove("password-succ");
-        this.emptyFeildsFailure.classList.remove("empty-feilds-succ");
       } else {
         this.passwordFailure = document.querySelector(".password-failure");
         this.passwordFailure.classList.add("password-succ");
         this.userFailure.classList.remove("user-succ");
-        this.emptyFeildsFailure.classList.remove("empty-feilds-succ");
       }
-    } else if (this.email.value == "") {
-      console.log("Please select")
-      this.emptyFeildsFailure = document.querySelector(".empty-feilds-failure");
-      this.emptyFeildsFailure.classList.add("empty-feilds-succ");
-    }
+    } 
     else {
       this.userFailure = document.querySelector(".user-failure");
       this.userFailure.classList.add("user-succ");
-      this.passwordFailure.classList.remove("password-succ");
-      this.emptyFeildsFailure.classList.remove("empty-feilds-succ");
+      this.passwordFailure.classList.remove("password-succ")
     }
   }
 }
@@ -191,7 +171,6 @@ class RegisterForm extends FormInterface {
       const checked = document.querySelectorAll(
         'input[type="checkbox"]:checked'
       );
-      console.log([...checked].map((c) => c.value));
     });
   }
   #addFormComponents() {
@@ -222,7 +201,6 @@ class RegisterForm extends FormInterface {
       "confirm-password",
       "fa-sharp fa-solid fa-shield-halved"
     );
-
     this.countriesOptions = this.#addCountryChoices();
     this.genderChoices = document.createElement("div");
     this.genderChoices.setAttribute("id", "gender-choices");
@@ -230,18 +208,14 @@ class RegisterForm extends FormInterface {
     this.genderFemale = this.#addGenderOptions("radio-choice-2", "Female");
     this.genderChoices.appendChild(this.genderMale);
     this.genderChoices.appendChild(this.genderFemale);
-
     this.registerButton = this.addButton("register-button", "Register");
-
     this.register = document.createElement("div");
     this.register.setAttribute("class", "register");
-
     this.registerparag = document.createElement("span");
     this.registerparag.innerHTML = "By Clicking on register, you agree on ";
     this.termsConditions = document.createElement("a");
     this.termsConditions.innerHTML = "terms and conditions";
     this.registerparag.appendChild(this.termsConditions);
-
     this.alreadyRegistered = document.createElement("p");
     this.alreadyRegistered.innerHTML = "Already registered? ";
     this.loginLink = document.createElement("a");
@@ -249,10 +223,8 @@ class RegisterForm extends FormInterface {
     this.loginLink.setAttribute("class", "login-link");
     this.loginLink.innerHTML = "Login";
     this.alreadyRegistered.appendChild(this.loginLink);
-
     this.register.appendChild(this.registerparag);
     this.register.appendChild(this.alreadyRegistered);
-
     this.validatePassword = document.createElement("div");
     this.validatePassword.setAttribute("class", "outValidation");
     this.validatePasswordTitle = this.#addValidationTitle(
@@ -268,7 +240,6 @@ class RegisterForm extends FormInterface {
     );
     this.validateNumber = this.#addValidationContent("number", "A number");
     this.validateCharc = this.#addValidationContent("characters", "A symbol");
-
     this.validatePassword.appendChild(this.validatePasswordTitle);
     this.validatePassword.appendChild(this.validateCapitalLetter);
     this.validatePassword.appendChild(this.validateNumber);
@@ -284,10 +255,8 @@ class RegisterForm extends FormInterface {
       "small-letters",
       "All small (lowercase) letters and starts with a character"
     );
-
     this.validateUserName.appendChild(this.validateUserNameTitle);
     this.validateUserName.appendChild(this.validateSmallLetterStart);
-
     this.validateEmail = document.createElement("div");
     this.validateEmail.setAttribute("class", "email-validation");
     this.validateEmailTitle = this.#addValidationTitle(
@@ -297,22 +266,17 @@ class RegisterForm extends FormInterface {
       "email-val",
       "Invalid email"
     );
-
     this.validateEmail.appendChild(this.validateEmailTitle);
     this.validateEmail.appendChild(this.validateEmailSyntax);
-
     this.validateConfirmPassword = document.createElement("div");
     this.validateConfirmPassword.setAttribute(
       "class",
       "confirm-password-validation"
     );
-
     this.validateConfirmPasswordpar = document.createElement("p");
     this.validateConfirmPasswordpar.setAttribute("class", "confirm-failure");
     this.validateConfirmPasswordpar.innerHTML = "Passwords doesn't match";
-
     this.validateConfirmPassword.appendChild(this.validateConfirmPasswordpar);
-
     this.form.appendChild(this.emailInput);
     this.form.appendChild(this.username);
     this.form.appendChild(this.password);
@@ -330,17 +294,14 @@ class RegisterForm extends FormInterface {
   #addGenderOptions(name, genderType) {
     this.radioChoice = document.createElement("div");
     this.radioChoice.setAttribute("class", "checkboxes-gender");
-
     this.genderInput = document.createElement("input");
     this.genderInput.type = "checkbox";
     this.genderInput.name = name;
     this.genderInput.setAttribute("class", "gender");
     this.genderInput.checked = true;
-
     this.genderLabel = document.createElement("label");
     this.genderLabel.innerHTML = genderType;
     this.genderLabel.setAttribute("class", "gender-label");
-
     this.radioChoice.appendChild(this.genderInput);
     this.radioChoice.appendChild(this.genderLabel);
 
@@ -353,25 +314,20 @@ class RegisterForm extends FormInterface {
     this.options = document.createElement("select");
     this.options.id = "countries";
     this.options.name = "countries";
-
     this.option = document.createElement("option");
     this.option.setAttribute("value", "");
     this.option.disabled = true;
     this.option.selected = true;
     this.option.innerHTML = "Country";
-
     this.option1 = document.createElement("option");
     this.option1.setAttribute("value", "jordan");
     this.option1.innerHTML = "Jordan";
-
     this.option2 = document.createElement("option");
     this.option2.setAttribute("value", "lebanon");
     this.option2.innerHTML = "Lebanon";
-
     this.option3 = document.createElement("option");
     this.option3.setAttribute("value", "syria");
     this.option3.innerHTML = "Syria";
-
     this.options.appendChild(this.option);
     this.options.appendChild(this.option1);
     this.options.appendChild(this.option2);
@@ -439,7 +395,6 @@ class RegisterForm extends FormInterface {
     const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     if (this.email.value.match(validEmail)) {
       this.isValidatedEmail = true;
-
       this.emailVal.classList.remove("invalid");
       this.emailVal.classList.add("valid");
     } else {
