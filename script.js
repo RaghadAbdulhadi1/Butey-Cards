@@ -6,7 +6,8 @@ class ImageCarousel {
     }
     #addImages() {
         imageURLs.forEach((imageURL) => 
-            this.imageScroller.appendChild(addImageContainer(imageURL)
+            this.imageScroller.appendChild
+            (addImageContainer(imageURL)
         ))
     }
     #renderScroller() {
