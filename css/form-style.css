@@ -246,15 +246,10 @@ a:hover {
   position: relative;
 }
 
-/* .gender-label {
+.gender-label {
   padding: 10px;
-} */
-
-#gender-choices {
-  display: flex;
-  align-items: center;
-  background-color: red;
 }
+
 .checkboxes-gender {
   position: relative;
 }
@@ -265,5 +260,4 @@ a:hover {
   height: 1.5em;
   vertical-align: middle;
   cursor: pointer;
-  background-color: black
 }

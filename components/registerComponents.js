@@ -1,7 +1,6 @@
 class RegisterFormComponent {
   constructor() {
     this.addRegisterComponents();
-
   }
   #addTitle() {
     registerContainer.appendChild(registerFormTitle);
@@ -82,14 +81,5 @@ class RegisterFormComponent {
     this.#addUserNameValidation();
     this.#addConfirmPasswordValidation();
     this.#addFormContent();
-    const checkboxes = document.querySelectorAll(".gender");
-    console.log(checkboxes)
-    document.body.addEventListener("click", (e) => {
-      for (const c of checkboxes) {
-        c.checked = false;
-      }
-      const clickedCheckbox = [...checkboxes].find((c) => c === e.target);
-      clickedCheckbox.checked = true;
-    });
   }
 }
