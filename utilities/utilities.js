@@ -22,7 +22,11 @@ const addButton = (value, id) => {
   return elementFactory(
     "div",
     { class: "button" },
-    elementFactory("input", { type: "submit", value: value.charAt(0).toUpperCase() + value.slice(1), id: id })
+    elementFactory("input", {
+      type: "submit",
+      value: value.charAt(0).toUpperCase() + value.slice(1),
+      id: id,
+    })
   );
 };
 // Add Form Input
@@ -39,16 +43,16 @@ const addHeaderThree = (text) => {
   return elementFactory("h3", { class: "validationHeader" }, text);
 };
 // Add Radio options
-const addRadioChoice = (radioText, checkboxName) => {
+const addRadioChoice = (gender,checkboxName, radioText) => {
   return elementFactory(
-    "div",
-    { class: "checkboxes-gender" },
+    "div", {class: "checkboxes-gender"},
     elementFactory("input", {
       type: "checkbox",
       name: checkboxName,
-      class: "gender",
-    }),
-    elementFactory("label", { class: "gender-label" }, radioText)
+      class: gender,
+    }), elementFactory("label", {
+      class: "gender-label",
+    }),radioText
   );
 };
 // Add select options
@@ -60,8 +64,8 @@ const addOptions = (optionText) => {
   );
 };
 // Add paragraph
-const addParagraph = (paragraphText, id="", className="") => {
-  return elementFactory("p", {id: id, class: className}, paragraphText);
+const addParagraph = (paragraphText, id = "", className = "") => {
+  return elementFactory("p", { id: id, class: className }, paragraphText);
 };
 // Add Select Feild
 const addSelectField = () => {
@@ -86,8 +90,8 @@ const addParagraphLink = (paragraphText, anchorText, className = "") => {
   );
 };
 // Add a container
-const addContainer = (className, containerText="", id="") => {
-  return elementFactory("div", { class: className, id:id}, containerText);
+const addContainer = (className, containerText = "", id = "") => {
+  return elementFactory("div", { class: className, id: id }, containerText);
 };
 // Add a form
 const addForm = (id) => {
@@ -136,4 +140,4 @@ const clearFormFeilds = (...fields) => {
 const getLocalStorage = () => {
   const users = JSON.parse(localStorage.getItem("users")) || [];
   return users;
-}
+};

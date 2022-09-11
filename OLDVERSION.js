@@ -171,7 +171,6 @@ class RegisterForm extends FormInterface {
     this.username = this.userNameValidation();
     this.email = this.emailValidation();
     const checkboxes = document.querySelectorAll(".gender");
-    this.genderLabel = document.querySelector(".gender-label");
     document.body.addEventListener("click", (e) => {
       for (const c of checkboxes) {
         c.checked = false;

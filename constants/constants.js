@@ -91,11 +91,11 @@ const registerSelect = addContainer("country-choices", "", "countries");
 const registerSelectFeild = addSelectField();
 
 const registerRadioFeild = [
-  addRadioChoice("Male", "radio-choice-1"),
-  addRadioChoice("Female", "radio-choice-2"),
+  addRadioChoice("gender","radio-choice-1", "Male"),
+  addRadioChoice("gender","radio-choice-2", "Female")
 ];
 
-const registerCheckbox = addContainer("gender-choices");
+const registerCheckbox = addContainer("", "" , "gender-choices");
 
 const registerSubmitButton = addButton("register", "register-button");
 
