@@ -32,67 +32,21 @@ class Validation {
     this.email.onfocus = this.onFocusEmailFeild;
     this.email.onblur = this.onBlurEmailFeild;
     this.email.onkeyup = this.onKeyupEmailFeild;
-    // this.email.onblur = this.onBlurEmailExistsFeild;
   }
-
   onFocusEmailFeild() {
     this.message = getElementByClassName(".email-validation");
     this.message.classList.add("onEmailValidation");
   }
   onBlurEmailFeild() {
     this.message.classList.remove("onEmailValidation");
-    this.emailVal = getElementById("email-val");
-    // console.log("helloo", this.emailVal);
-
-    this.email = getElementById("signup-email");
-
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const userExists = users.find((u) => {
-      // console.log(this.email.value);
-      return u.email === this.email.value;
-    });
-    console.log(userExists);
-    if (!userExists) {
-    } else {
-      this.emailVal.innerText = "already exist";
-    }
   }
-  // onBlurEmailExistsFeild() {
-  //   this.email = getElementById("signup-email");
-  //   const users = JSON.parse(localStorage.getItem("users")) || [];
-  //   const userExists = users.find((u) => u.email === this.email.value);
-  //   if (!userExists) {
-
-  //   } else {
-
-  //   }
-  // }
   onKeyupEmailFeild() {
-    // this.emailVal = getElementById("email-val");
-    // // console.log("helloo", this.emailVal);
-
-    // this.email = getElementById("signup-email");
-
-    // const users = JSON.parse(localStorage.getItem("users")) || [];
-    // const userExists = users.find((u) => {
-    //   // console.log(this.email.value);
-    //   return u.email === this.email.value;
-    // });
-    // console.log(userExists);
-
-    // if (!userExists) {
-    // } else {
-    //   this.emailVal.innerText = "already exist";
-    // }
-
     this.email = getElementById("signup-email");
     this.emailVal = getElementById("email-val");
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const users = getLocalStorage();
     const userExists = users.find((u) => {
-      // console.log(this.email.value);
       return u.email === this.email.value;
     });
-    console.log(this.emailVal);
     if (this.email.value.match(emailRegex)) {
       if (!userExists) {
         this.emailVal.classList.remove("invalid");

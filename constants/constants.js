@@ -157,8 +157,6 @@ const userNameValidationContent = addParagraph(
   "invalid"
 );
 
-
-
 const emailValidationTitle = addHeaderThree(
   "Email must be in the correct format"
 );
@@ -167,13 +165,8 @@ const emailValidationContent = addParagraph(
   "email-val",
   "invalid"
 );
-const emailExistsValidationContent = addParagraph(
-  "Email Already exists",
-  "",
-  "exists-failure"
-);
 
 const emailValidationParagraphs = [
   emailValidationTitle,
   emailValidationContent,
-]
+];

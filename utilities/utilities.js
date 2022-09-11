@@ -22,7 +22,7 @@ const addButton = (value, id) => {
   return elementFactory(
     "div",
     { class: "button" },
-    elementFactory("input", { type: "submit", value: value, id: id })
+    elementFactory("input", { type: "submit", value: value.charAt(0).toUpperCase() + value.slice(1), id: id })
   );
 };
 // Add Form Input
@@ -137,13 +137,3 @@ const getLocalStorage = () => {
   const users = JSON.parse(localStorage.getItem("users")) || [];
   return users;
 }
-const setLocalStorage = (email, username, password) => {
-  const user = {
-    email: email.value,
-    username: username.value,
-    password: password.value,
-  };
-  const users = getLocalStorage();
-  users.push(user);
-  localStorage.setItem("users", JSON.stringify(users));
-};

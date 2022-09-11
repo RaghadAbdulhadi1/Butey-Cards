@@ -38,21 +38,26 @@ class LoginFormComponent {
     this.password = getElementById("login-password")
     const users = getLocalStorage();
     const user = users.find((u) => u.email === this.email.value);
-    clearFormFeilds(this.email, this.password);
     if (user) {
+      this.password = getElementById("login-password")
       if (user.password === this.password.value) {
-        removeClass(".success-failure", "success-failure");
-        addClass(".success-failure", "success-succ");
-        removeClass(".user-failure", "user-succ");
-        removeClass(".password-failure", "password-succ");
+        this.success = getElementByClassName(".success-failure");
+        this.success.classList.remove("success-failure");
+        this.success.classList.add("success-succ");
+        this.userFailure.classList.remove("user-succ");
+        this.passwordFailure.classList.remove("password-succ");
+        clearFormFeilds(this.email, this.password);
       } else {
-        addClass(".password-failure", "password-succ");
-        removeClass(".user-failure", "user-succ");
+        this.passwordFailure = getElementByClassName(".password-failure");
+        this.passwordFailure.classList.add("password-succ");
+        this.userFailure.classList.remove("user-succ");
       }
     }
     else {
-      addClass(".user-failure", "user-succ");
-      removeClass(".password-failure", "password-succ");
+      this.passwordFailure = getElementByClassName(".password-failure");
+      this.userFailure = getElementByClassName(".user-failure");
+      this.userFailure.classList.add("user-succ");
+      this.passwordFailure.classList.remove("password-succ")
     }
   }
   addLoginComponents() {

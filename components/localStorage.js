@@ -9,7 +9,7 @@ class LocalStorage {
     this.gender = getElementById("gender-choices");
     this.user = {};
     this.form.addEventListener("submit", (e) => {
-      this.isValid = document.querySelectorAll(".valid");
+      this.isValid = getClassesWithSameName(".valid");
       e.preventDefault();
       if (this.isValid.length == 6) {
         this.user = {
@@ -17,7 +17,7 @@ class LocalStorage {
           username: this.username.value,
           password: this.password.value,
         };
-        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const users = getLocalStorage();
         users.push(this.user);
         localStorage.setItem("users", JSON.stringify(users));
         clearFormFeilds(this.email,this.username,this.password,this.confirmPassword)

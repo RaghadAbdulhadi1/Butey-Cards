@@ -6,7 +6,7 @@ class FormsHandler {
     forms.appendChild(registerContainer);
     formsContainer.appendChild(forms);
     container.appendChild(formsContainer);
-    this.container = document.getElementById("container");
+    this.container = getElementById("container");
     switchToRegisterFormLink.addEventListener("click", this.switchToLogin);
     switchToLoginFormLink.addEventListener("click", this.switchToRegister);
     new LocalStorage();
