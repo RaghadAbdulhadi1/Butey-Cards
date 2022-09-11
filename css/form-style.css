@@ -162,7 +162,7 @@ a:hover {
   text-decoration: underline;
 }
 
-#gender-choices {
+.gender-choices {
   color: var(--gray);
   display: flex;
   font-size: 20px;
@@ -190,6 +190,7 @@ a:hover {
 .password-failure,
 .user-failure,
 .confirm-failure,
+.exists-failure,
 .empty-feilds-failure {
   background: var(--white);
   color: var(--black);
@@ -203,6 +204,7 @@ a:hover {
 .password-succ,
 .user-succ,
 .confirm-succ,
+.exists-succ,
 .empty-feilds-succ {
   background: var(--white);
   color: var(--black);

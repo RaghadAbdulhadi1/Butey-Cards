@@ -85,18 +85,24 @@ class LogInForm extends FormInterface {
     );
     this.form.appendChild(this.emailInput);
     this.form.appendChild(this.passwordInput);
+
     this.loginButton = this.addButton("login-button", "login");
+
     this.register = document.createElement("div");
     this.register.setAttribute("class", "register");
+
     this.notMember = document.createElement("p");
     this.notMember.innerText = "Not a member? ";
     this.notMemberAnchor = document.createElement("a");
     this.notMemberAnchor.href = "#";
     this.notMemberAnchor.setAttribute("class", "register-link");
     this.notMemberAnchor.innerText = "Register";
+    
     this.notMember.appendChild(this.notMemberAnchor);
     this.register.appendChild(this.notMember);
+
     this.loginButton.appendChild(this.register);
+
     this.loginValidation = document.createElement("div");
     this.loginValidation.setAttribute("class", "loginValidation");
     this.success = document.createElement("p");
@@ -112,7 +118,9 @@ class LogInForm extends FormInterface {
     this.loginValidation.appendChild(this.password);
     this.loginValidation.appendChild(this.user);
     this.form.appendChild(this.loginValidation);
+
     this.form.appendChild(this.loginButton);
+
     return this.form;
   }
   #validateLogin(e) {
