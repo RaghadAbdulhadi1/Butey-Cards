@@ -10,8 +10,8 @@ class RegisterFormComponent extends FormInterface {
       registerSubmitButton,
       registerLink,
       switchToLoginFormLink
-      );
-      this.addRegisterComponents();
+    );
+    this.addRegisterComponents();
   }
   #addSelectOptions() {
     registerSelectOptions.forEach((inputOption) =>
@@ -26,9 +26,19 @@ class RegisterFormComponent extends FormInterface {
       this.formContainer.appendChild(registerCheckbox);
     });
   }
+  addLoginButton() {
+    this.formClickables.appendChild(this.formSubmitButton);
+  }
+  addSwitchToRegisterLink() {
+    this.formLink.appendChild(this.switchLink);
+    this.formClickables.appendChild(this.formLink);
+  }
   #addTermsAndConditionsLink() {
     this.formLink.appendChild(termsAndConditions);
     this.formClickables.appendChild(this.formLink);
+  }
+  addClickables() {
+    this.formContainer.appendChild(this.formClickables);
   }
   #addPasswordValidation() {
     passwordValidationParagraphs.forEach((passwordValidation) => {
@@ -56,7 +66,10 @@ class RegisterFormComponent extends FormInterface {
   addRegisterComponents() {
     this.#addSelectOptions();
     this.#addRadioOptions();
+    this.addLoginButton();
+    this.addSwitchToRegisterLink();
     this.#addTermsAndConditionsLink();
+    this.addClickables();
     this.#addPasswordValidation();
     this.#addEmailValidatoin();
     this.#addUserNameValidation();

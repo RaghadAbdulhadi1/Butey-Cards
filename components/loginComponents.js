@@ -13,7 +13,16 @@ class LoginFormComponent extends FormInterface {
     );
     this.addLoginComponents();
   }
-  
+  addLoginButton() {
+    this.formClickables.appendChild(this.formSubmitButton);
+  }
+  addSwitchToRegisterLink() {
+    this.formLink.appendChild(this.switchLink);
+    this.formClickables.appendChild(this.formLink);
+  }
+  addClickables() {
+    this.formContainer.appendChild(this.formClickables);
+  }
   #addValidationContent() {
     loginValidationContent.forEach((validationParaghraph) =>
       validationContainer.appendChild(validationParaghraph)
@@ -48,6 +57,9 @@ class LoginFormComponent extends FormInterface {
     }
   }
   addLoginComponents() {
+    this.addLoginButton();
+    this.addSwitchToRegisterLink();
+    this.addClickables();
     this.#addValidationContent();
     this.formSubmitButton.addEventListener("click", this.#validateLogin);
   }

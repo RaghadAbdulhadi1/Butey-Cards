@@ -32,16 +32,9 @@ class FormInterface {
       this.formContainer.appendChild(inputField)
     );
   }
-  addLoginButton() {
-    this.formClickables.appendChild(this.formSubmitButton);
-  }
-  addSwitchToRegisterLink() {
-    this.formLink.appendChild(this.switchLink);
-    this.formClickables.appendChild(this.formLink);
-  }
-  addClickables() {
-    this.formContainer.appendChild(this.formClickables);
-  }
+  addLoginButton() {}
+  addSwitchToRegisterLink() {}
+  addClickables() {}
   addFormContent() {
     this.container.appendChild(this.formContainer);
   }
@@ -49,9 +42,6 @@ class FormInterface {
     this.addTitle();
     this.addLineBreak();
     this.addInputs();
-    this.addLoginButton();
-    this.addSwitchToRegisterLink();
-    this.addClickables();
     this.addFormContent();
   }
 }
