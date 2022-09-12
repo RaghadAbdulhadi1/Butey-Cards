@@ -1,85 +1,65 @@
-class RegisterFormComponent {
+class RegisterFormComponent extends FormInterface {
   constructor() {
-    this.addRegisterComponents();
-  }
-  #addTitle() {
-    registerContainer.appendChild(registerFormTitle);
-  }
-  #addLineBreak() {
-    registerContainer.appendChild(registerLineBreak);
-  }
-  #addInputs() {
-    registerInputFeilds.forEach((inputField) =>
-      registerFormContainer.appendChild(inputField)
-    );
+    super(
+      registerContainer,
+      registerFormTitle,
+      registerLineBreak,
+      registerInputFeilds,
+      registerFormContainer,
+      registerClickables,
+      registerSubmitButton,
+      registerLink,
+      switchToLoginFormLink
+      );
+      this.addRegisterComponents();
   }
   #addSelectOptions() {
     registerSelectOptions.forEach((inputOption) =>
       registerSelectFeild.appendChild(inputOption)
     );
     registerSelect.appendChild(registerSelectFeild);
-    registerFormContainer.appendChild(registerSelect);
+    this.formContainer.appendChild(registerSelect);
   }
   #addRadioOptions() {
     registerRadioFeild.forEach((radioOption) => {
       registerCheckbox.appendChild(radioOption);
-      registerFormContainer.appendChild(registerCheckbox);
+      this.formContainer.appendChild(registerCheckbox);
     });
   }
-  #addRegisterButton() {
-    registerClickables.appendChild(registerSubmitButton);
-  }
   #addTermsAndConditionsLink() {
-    registerLink.appendChild(termsAndConditions);
-    registerClickables.appendChild(registerLink);
-  }
-  #addSwitchToRegisterLink() {
-    registerLink.appendChild(switchToLoginFormLink);
-    registerClickables.appendChild(registerLink);
-  }
-  #addClickables() {
-    registerFormContainer.appendChild(registerClickables);
-  }
-  #addFormContent() {
-    registerContainer.appendChild(registerFormContainer);
+    this.formLink.appendChild(termsAndConditions);
+    this.formClickables.appendChild(this.formLink);
   }
   #addPasswordValidation() {
     passwordValidationParagraphs.forEach((passwordValidation) => {
       passwordValidationContainer.appendChild(passwordValidation);
     });
-    registerFormContainer.appendChild(passwordValidationContainer);
+    this.formContainer.appendChild(passwordValidationContainer);
   }
   #addEmailValidatoin() {
     emailValidationParagraphs.forEach((emailValidation) => {
       emailValidationContainer.appendChild(emailValidation);
     });
-    registerFormContainer.appendChild(emailValidationContainer);
+    this.formContainer.appendChild(emailValidationContainer);
   }
   #addUserNameValidation() {
     userNameValidationContainer.appendChild(userNameValidationTitle);
     userNameValidationContainer.appendChild(userNameValidationContent);
-    registerFormContainer.appendChild(userNameValidationContainer);
+    this.formContainer.appendChild(userNameValidationContainer);
   }
   #addConfirmPasswordValidation() {
     confirmPasswordValidationContainer.appendChild(
       confirmPasswordValidationContent
     );
-    registerFormContainer.appendChild(confirmPasswordValidationContainer);
+    this.formContainer.appendChild(confirmPasswordValidationContainer);
   }
   addRegisterComponents() {
-    this.#addTitle();
-    this.#addLineBreak();
-    this.#addInputs();
     this.#addSelectOptions();
     this.#addRadioOptions();
-    this.#addRegisterButton();
-    this.#addSwitchToRegisterLink();
     this.#addTermsAndConditionsLink();
-    this.#addClickables();
     this.#addPasswordValidation();
     this.#addEmailValidatoin();
     this.#addUserNameValidation();
     this.#addConfirmPasswordValidation();
-    this.#addFormContent();
   }
 }
