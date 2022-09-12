@@ -52,7 +52,6 @@ class Validation {
         this.emailVal.classList.remove("invalid");
         this.emailVal.classList.add("valid");
         this.emailVal.innerText = "Valid email";
-
       } else {
         this.emailVal.classList.add("invalid");
         this.emailVal.classList.remove("valid");
