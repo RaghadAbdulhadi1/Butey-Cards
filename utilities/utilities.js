@@ -119,13 +119,7 @@ const removeClass = (className, newClassName) => {
   originalClass = document.querySelector(className);
   originalClass.classList.remove(newClassName);
 };
-// Regex
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const usernameRegex = /^[a-z][a-z0-9_]+[a-z0-9]$/g;
-const smallLetterPasswordRegex = /[a-z]/g;
-const capitalLetterPasswordRegex = /[A-Z]/g;
-const numbersLetterPasswordRegex = /[0-9]/g;
-const charactersLetterPasswordRegex = /\W/g;
+
 // Clear Form Feilds
 const clearFormFeilds = (...fields) => {
   fields.forEach((field) => {

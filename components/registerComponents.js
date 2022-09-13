@@ -1,17 +1,8 @@
-class RegisterFormComponent extends FormInterface {
+class RegisterFormComponent extends Form {
   constructor() {
-    super(
-      registerContainer,
-      registerFormTitle,
-      registerLineBreak,
-      registerInputFeilds,
-      registerFormContainer,
-      registerClickables,
-      registerSubmitButton,
-      registerLink,
-      switchToLoginFormLink
-    );
+    super(registerParameters);
     this.addRegisterComponents();
+    
   }
   #addSelectOptions() {
     registerSelectOptions.forEach((inputOption) =>

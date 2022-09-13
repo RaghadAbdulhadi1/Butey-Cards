@@ -1,16 +1,6 @@
-class LoginFormComponent extends FormInterface {
+class LoginFormComponent extends Form {
   constructor() {
-    super(
-      logInContainer,
-      loginFormTitle,
-      loginLineBreak,
-      loginInputFeilds,
-      loginFormContainer,
-      loginClickables,
-      loginSubmitButton,
-      loginLink,
-      switchToRegisterFormLink
-    );
+    super(loginParameters);
     this.addLoginComponents();
   }
   addLoginButton() {
@@ -44,17 +34,15 @@ class LoginFormComponent extends FormInterface {
         this.userFailure.classList.remove("user-succ");
         this.passwordFailure.classList.remove("password-succ");
         clearFormFeilds(this.email, this.password);
-      } else {
-        this.passwordFailure = getElementByClassName(".password-failure");
-        this.passwordFailure.classList.add("password-succ");
-        this.userFailure.classList.remove("user-succ");
       }
-    } else {
       this.passwordFailure = getElementByClassName(".password-failure");
-      this.userFailure = getElementByClassName(".user-failure");
-      this.userFailure.classList.add("user-succ");
-      this.passwordFailure.classList.remove("password-succ");
+      this.passwordFailure.classList.add("password-succ");
+      this.userFailure.classList.remove("user-succ");
     }
+    this.passwordFailure = getElementByClassName(".password-failure");
+    this.userFailure = getElementByClassName(".user-failure");
+    this.userFailure.classList.add("user-succ");
+    this.passwordFailure.classList.remove("password-succ");
   }
   addLoginComponents() {
     this.addLoginButton();

@@ -170,3 +170,47 @@ const emailValidationParagraphs = [
   emailValidationTitle,
   emailValidationContent,
 ];
+
+// Regex
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const usernameRegex = /^[a-z][a-z0-9_]+[a-z0-9]$/g;
+const smallLetterPasswordRegex = /[a-z]/g;
+const capitalLetterPasswordRegex = /[A-Z]/g;
+const numbersLetterPasswordRegex = /[0-9]/g;
+const charactersLetterPasswordRegex = /\W/g;
+
+const fomParameters = {
+  container: "",
+  formTitle: "",
+  formLineBreak: "",
+  formInputFeilds: "",
+  formContainer: "",
+  formClickables: "",
+  formSubmitButton: "",
+  formLink: "",
+  switchLink: "",
+};
+
+const loginParameters = {
+  container: logInContainer,
+  formTitle: loginFormTitle,
+  formLineBreak: loginLineBreak,
+  formInputFeilds: loginInputFeilds,
+  formContainer: loginFormContainer,
+  formClickables: loginClickables,
+  formSubmitButton: loginSubmitButton,
+  formLink: loginLink,
+  switchLink: switchToRegisterFormLink,
+};
+
+const registerParameters = {
+  container: registerContainer,
+  formTitle: registerFormTitle,
+  formLineBreak: registerLineBreak,
+  formInputFeilds: registerInputFeilds,
+  formContainer: registerFormContainer,
+  formClickables: registerClickables,
+  formSubmitButton: registerSubmitButton,
+  formLink: registerLink,
+  switchLink: switchToLoginFormLink,
+}
