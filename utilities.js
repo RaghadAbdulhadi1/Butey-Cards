@@ -17,15 +17,31 @@ const elementFactory = (type, attributes, ...children) => {
 const addImageContainer = (imageURL) => {
   return elementFactory(
     "div",
-    { class: "image-element" },
+    { class: "image-element"},
     elementFactory("img", { src: imageURL })
   );
+};
+// Add a urls container
+const addUrls = (href) => {
+  return elementFactory("li", { href: `#${href}` })
 };
 // Add a container
 const addContainer = (className, containerText="", id="") => {
   return elementFactory("div", { class: className, id:id}, containerText);
 };
+// Add Button
+const addButton = (className, id) => {
+  return elementFactory(
+    "button",
+    { id: id},
+    elementFactory("i", { class: className })
+  );
+};
 // Get Element by ID
 const getElementById = (id) => {
   return document.getElementById(id);
+};
+// GET all classes with same name
+const getAllClasses = (className) => {
+  return document.querySelectorAll(className);
 };
