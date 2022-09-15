@@ -35,9 +35,3 @@ export const clearFormFeilds = (...fields) => {
     field.value = "";
   });
 };
-
-// LocalStorage
-export const getLocalStorage = () => {
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  return users;
-}

@@ -19,7 +19,7 @@ export default class LoginForm extends Form {
   }
   #addValidationContent() {
     constants.loginValidationContent.forEach((validationParaghraph) =>
-    constants.validationContainer.appendChild(validationParaghraph)
+      constants.validationContainer.appendChild(validationParaghraph)
     );
     this.formContainer.appendChild(constants.validationContainer);
   }
@@ -27,28 +27,31 @@ export default class LoginForm extends Form {
     e.preventDefault();
     this.email = utils.getElementById("login-email");
     this.password = utils.getElementById("login-password");
-    const users = utils.getLocalStorage();
-    const user = users.find((u) => u.email === this.email.value);
-    if (user) {
+    const users = JSON.parse(localStorage.getItem("Users")) || {};
+    if (users[this.email.value]) {
+      console.log('user Found')
       this.password = utils.getElementById("login-password");
-      if (user.password === this.password.value) {
+      if (users[this.email.value].password === this.password.value) {
+        console.log('pssword check')
         this.success = utils.getElementByClassName(".success-failure");
         this.success.classList.remove("success-failure");
         this.success.classList.add("success-succ");
         this.userFailure.classList.remove("user-succ");
         this.passwordFailure.classList.remove("password-succ");
-        clearFormFeilds(this.email, this.password);
+        utils.clearFormFeilds(this.email, this.password);
+      }else{
+        this.userFailure = utils.getElementByClassName(".user-failure");
+        this.passwordFailure = utils.getElementByClassName(".password-failure");
+        this.passwordFailure.classList.add("password-succ");
+        this.userFailure.classList.remove("user-succ");
       }
+    }else {
       this.passwordFailure = utils.getElementByClassName(".password-failure");
-      this.passwordFailure.classList.add("password-succ");
-      this.userFailure.classList.remove("user-succ");
+      this.userFailure = utils.getElementByClassName(".user-failure");
+      this.userFailure.classList.add("user-succ");
+      this.passwordFailure.classList.remove("password-succ");
     }
-    this.passwordFailure = utils.getElementByClassName(".password-failure");
-    this.userFailure = utils.getElementByClassName(".user-failure");
-    this.userFailure.classList.add("user-succ");
-    this.passwordFailure.classList.remove("password-succ");
   }
-
   addLoginComponents() {
     this.addLoginButton();
     this.addSwitchToRegisterLink();

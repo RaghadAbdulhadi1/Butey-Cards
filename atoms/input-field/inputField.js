@@ -1,4 +1,4 @@
-import { elementFactory } from '../../utilities/utilities.js';
+import { elementFactory } from "../../utilities/utilities.js";
 
 export default class InputFeild {
   constructor(type, placeholder, id, iconClass) {

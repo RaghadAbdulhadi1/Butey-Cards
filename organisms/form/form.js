@@ -3,27 +3,8 @@ import FormBody from "../../molecules/form-body/formBody.js";
 import FormFooter from "../../molecules/form-footer/formFooter.js";
 
 export default class Form {
-  constructor({
-    container,
-    formTitle,
-    formLineBreak,
-    formInputFeilds,
-    formContainer,
-    formClickables,
-    formSubmitButton,
-    formLink,
-    switchLink,
-  }) {
-    this.container = container;
-    this.formTitle = formTitle;
-    this.formLineBreak = formLineBreak;
-    this.formInputFeilds = formInputFeilds;
-    this.formContainer = formContainer;
-    this.formClickables = formClickables;
-    this.formSubmitButton = formSubmitButton;
-    this.formLink = formLink;
-    this.switchLink = switchLink;
-
+  constructor(form) {
+    this.addFormParameters(form);
     this.renderForm();
   }
   renderForm() {
@@ -44,5 +25,16 @@ export default class Form {
       this.formLink,
       this.switchLink
     );
+  }
+  addFormParameters(form){
+    this.container = form.container;
+    this.formTitle = form.formTitle;
+    this.formLineBreak = form.formLineBreak;
+    this.formInputFeilds = form.formInputFeilds;
+    this.formContainer = form.formContainer;
+    this.formClickables = form.formClickables;
+    this.formSubmitButton = form.formSubmitButton;
+    this.formLink = form.formLink;
+    this.switchLink = form.switchLink;
   }
 }

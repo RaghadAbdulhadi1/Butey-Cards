@@ -198,7 +198,6 @@ const emailValidationParagraphs = [
   emailValidationContent,
 ];
 
-
 const registerParameters = {
   container: registerContainer,
   formTitle: registerFormTitle,
@@ -211,7 +210,21 @@ const registerParameters = {
   switchLink: switchToLoginFormLink,
 }
 
+// Regex
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const usernameRegex = /^[a-z][a-z0-9_]+[a-z0-9]$/g;
+const smallLetterPasswordRegex = /[a-z]/g;
+const capitalLetterPasswordRegex = /[A-Z]/g;
+const numbersLetterPasswordRegex = /[0-9]/g;
+const charactersLetterPasswordRegex = /\W/g;
+
 export {
+  emailRegex,
+  usernameRegex,
+  smallLetterPasswordRegex,
+  capitalLetterPasswordRegex,
+  numbersLetterPasswordRegex,
+  charactersLetterPasswordRegex,
   container,
   formsContainer,
   forms,
@@ -223,6 +236,7 @@ export {
   logInContainer,
   loginParameters,
   // Register Constants
+  registerFormContainer,
   registerContainer,
   emailValidationContainer,
   confirmPasswordValidationContainer,
@@ -242,5 +256,5 @@ export {
   userNameValidationContent,
   emailValidationParagraphs,
   registerParameters,
-  switchToLoginFormLink
+  switchToLoginFormLink,
 };
