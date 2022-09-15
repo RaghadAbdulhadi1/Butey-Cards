@@ -1,0 +1,15 @@
+:root {
+    --fontsize: 15px;
+    --gray: #808080;
+    --margin: 25px;
+    --width: 100%;
+  }
+
+.country-choices select {
+    color: var(--gray);
+    font-size: var(--fontsize);
+    height: 50px;
+    margin-top: var(--margin);
+    padding-left: 10px;
+    width: var(--width);
+  }

@@ -1,0 +1,26 @@
+.input-feild {
+  height: 50px;
+  margin-top: var(--margin);
+  margin-top: var(--margin);
+  position: relative;
+  width: var(--width);
+}
+
+.input-feild input {
+  font-size: var(--fontsize);
+  height: 100%;
+  padding: 0 55px;
+  position: absolute;
+  width: var(--width);
+}
+
+.input-feild i {
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 20px;
+  left: 0;
+  padding: 15px;
+  position: absolute;
+  top: var(--halfwidth);
+  transform: translateY(-50%);
+}

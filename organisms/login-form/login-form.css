@@ -1,0 +1,12 @@
+.login-form {
+  background-color: var(--white);
+  padding: 35px;
+  transition: margin-left 0.18s ease;
+  width: var(--halfwidth);
+}
+
+.forms-container.active .login-form {
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}

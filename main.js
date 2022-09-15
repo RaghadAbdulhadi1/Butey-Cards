@@ -1,22 +1,26 @@
+import * as constants from "./constants/constants.js";
+import LoginForm from './organisms/login-form/loginForm.js';
+import RegisterForm from './organisms/register-form/registerForm.js';
+
+import * as utils from "../../utilities/utilities.js";
+
 class FormsHandler {
   constructor() {
-    new LoginFormComponent();
-    new RegisterFormComponent();
-    forms.appendChild(logInContainer);
-    forms.appendChild(registerContainer);
-    formsContainer.appendChild(forms);
-    container.appendChild(formsContainer);
-    this.container = getElementById("container");
-    switchToRegisterFormLink.addEventListener("click", this.switchToLogin);
-    switchToLoginFormLink.addEventListener("click", this.switchToRegister);
-    new LocalStorage();
-    new Validation();
+    new LoginForm();
+    new RegisterForm();
+    constants.forms.appendChild(constants.logInContainer);
+    constants.forms.appendChild(constants.registerContainer);
+    constants.formsContainer.appendChild(constants.forms);
+    constants.container.appendChild(constants.formsContainer);
+    this.container = utils.getElementById("container");
+    constants.switchToRegisterFormLink.addEventListener("click", this.switchToLogin);
+    constants.switchToLoginFormLink.addEventListener("click", this.switchToRegister);
   }
   switchToLogin = () => {
-    formsContainer.classList.add("active");
+    constants.formsContainer.classList.add("active");
   };
   switchToRegister = () => {
-    formsContainer.classList.remove("active");
+    constants.formsContainer.classList.remove("active");
   };
 }
 

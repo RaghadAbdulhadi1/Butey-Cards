@@ -1,23 +1,38 @@
-const container = document.getElementById("container");
-const formsContainer = addContainer("forms-container");
-const forms = addContainer("forms");
+import Title from '../atoms/text/text.js';
+import Form from '../atoms/form/form.js';
+import LineBreak from '../atoms/line-break/lineBreak.js';
+import Button from '../atoms/button/button.js';
+import InputFeild from '../atoms/input-field/inputField.js';
+import Paragraph from '../atoms/paragraph/paragraph.js';
+import Container from '../atoms/div/div.js';
+import ParagraphLink from '../atoms/paragraph-link/paragraphLink.js';
+import HeaderThree from '../atoms/header-three/headerThree.js';
+import Span from '../atoms/span/span.js';
+import OptionField from '../atoms/option-field/optionField.js';
+import RadioField from '../atoms/radio-field/radioField.js';
+import SelectFeild from '../atoms/select/select.js';
+import * as utils from "../../utilities/utilities.js";
+
+const container = utils.getElementById("container");
+const formsContainer = new Container("forms-container");
+const forms = new Container("forms");
 
 // Login Constants
-const loginFormContainer = addForm("login-form-id");
-const loginFormTitle = addContainer("title", "Login");
-const loginLineBreak = addLineBreak();
-const loginClickables = addContainer("login-button");
-const loginLink = addContainer("register");
-const logInContainer = addContainer("login-form");
-const validationContainer = addContainer("loginValidation");
+const loginFormContainer = new Form("login-form-id");
+const loginFormTitle = new Title("title", "Login");
+const loginLineBreak = new LineBreak();
+const loginClickables = new Container("login-button");
+const loginLink = new Container("register");
+const logInContainer = new Container("login-form");
+const validationContainer = new Container("loginValidation");
 const loginInputFeilds = [
-  addFormInput(
+  new InputFeild(
     "email",
     "Enter your email",
     "login-email",
     "fa-regular fa-envelope"
   ),
-  addFormInput(
+  new InputFeild(
     "password",
     "Enter your password",
     "login-password",
@@ -25,171 +40,19 @@ const loginInputFeilds = [
   ),
 ];
 
-const loginSubmitButton = addButton("login", "login-button");
+const loginSubmitButton = new Button("login", "login-button");
 
-const switchToRegisterFormLink = addParagraphLink(
+const switchToRegisterFormLink = new ParagraphLink(
   "Not a member? ",
   "Register",
   "register-link"
 );
 
 const loginValidationContent = [
-  addParagraph("You have been logged in successfully", "", "success-failure"),
-  addParagraph("Check your password", "", "password-failure"),
-  addParagraph("User with this email doesn't exist", "", "user-failure"),
+  new Paragraph("You have been logged in successfully", "", "success-failure"),
+  new Paragraph("Check your password", "", "password-failure"),
+  new Paragraph("User with this email doesn't exist", "", "user-failure"),
 ];
-
-// Register Constants
-const registerFormContainer = addForm("register-form-id");
-const registerFormTitle = addContainer("title", "Registeration");
-const registerLineBreak = addLineBreak();
-const registerClickables = addContainer("register-button");
-const registerLink = addContainer("register");
-const registerContainer = addContainer("register-form");
-const emailValidationContainer = addContainer("email-validation");
-const confirmPasswordValidationContainer = addContainer(
-  "confirm-password-validation"
-);
-const emailAlreadyExistsValidationContainer = addContainer(
-  "email-already-exits-validation"
-);
-const userNameValidationContainer = addContainer("username-validation");
-const passwordValidationContainer = addContainer("outValidation");
-
-const registerInputFeilds = [
-  addFormInput(
-    "email",
-    "Enter your email",
-    "signup-email",
-    "fa-regular fa-envelope"
-  ),
-  addFormInput("text", "Enter your name", "signup-name", "fa-solid fa-user"),
-  addFormInput(
-    "password",
-    "Create a password",
-    "signup-password",
-    "fa-sharp fa-solid fa-shield-halved"
-  ),
-  addFormInput(
-    "password",
-    "Confirm your password",
-    "confirm-password",
-    "fa-sharp fa-solid fa-shield-halved"
-  ),
-];
-
-const registerSelectOptions = [
-  addOptions("Country"),
-  addOptions("Jordan"),
-  addOptions("Lebanon"),
-  addOptions("Syria"),
-  addOptions("Palestine"),
-  addOptions("Iraq"),
-];
-
-const registerSelect = addContainer("country-choices", "", "countries");
-const registerSelectFeild = addSelectField();
-
-const registerRadioFeild = [
-  addRadioChoice("Male", "radio-choice-1"),
-  addRadioChoice("Female", "radio-choice-2"),
-];
-
-const registerCheckbox = addContainer("gender-choices");
-
-const registerSubmitButton = addButton("register", "register-button");
-
-const switchToLoginFormLink = addParagraphLink(
-  "Already registered? ",
-  "Login",
-  "login-link"
-);
-
-const termsAndConditions = addSpanLink(
-  "By Clicking on register, you agree on ",
-  "terms and conditions."
-);
-
-const confirmPasswordValidationContent = addParagraph(
-  "Passwords doesn't match",
-  "",
-  "confirm-failure"
-);
-
-const passwordValidationTitle = addHeaderThree(
-  "Password must contain the following:"
-);
-const smallLetterPasswordValidationContent = addParagraph(
-  "A small (loswercase) letter",
-  "letter",
-  "invalid"
-);
-const capitalLetterPasswordValidationContent = addParagraph(
-  "A capital (uppercase) letter",
-  "capital",
-  "invalid"
-);
-const numbersLetterPasswordValidationContent = addParagraph(
-  "A number",
-  "number",
-  "invalid"
-);
-const charactersLetterPasswordValidationContent = addParagraph(
-  "A symbol",
-  "characters",
-  "invalid"
-);
-
-const passwordValidationParagraphs = [
-  passwordValidationTitle,
-  smallLetterPasswordValidationContent,
-  capitalLetterPasswordValidationContent,
-  numbersLetterPasswordValidationContent,
-  charactersLetterPasswordValidationContent,
-];
-
-const userNameValidationTitle = addHeaderThree(
-  "Username must contain the following:"
-);
-const userNameValidationContent = addParagraph(
-  "All small (lowercase) letters and starts with a character",
-  "small-letters",
-  "invalid"
-);
-
-const emailValidationTitle = addHeaderThree(
-  "Email must be in the correct format"
-);
-const emailValidationContent = addParagraph(
-  "Valid email",
-  "email-val",
-  "invalid"
-);
-
-const emailValidationParagraphs = [
-  emailValidationTitle,
-  emailValidationContent,
-];
-
-// Regex
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const usernameRegex = /^[a-z][a-z0-9_]+[a-z0-9]$/g;
-const smallLetterPasswordRegex = /[a-z]/g;
-const capitalLetterPasswordRegex = /[A-Z]/g;
-const numbersLetterPasswordRegex = /[0-9]/g;
-const charactersLetterPasswordRegex = /\W/g;
-
-const fomParameters = {
-  container: "",
-  formTitle: "",
-  formLineBreak: "",
-  formInputFeilds: "",
-  formContainer: "",
-  formClickables: "",
-  formSubmitButton: "",
-  formLink: "",
-  switchLink: "",
-};
 
 const loginParameters = {
   container: logInContainer,
@@ -203,6 +66,139 @@ const loginParameters = {
   switchLink: switchToRegisterFormLink,
 };
 
+// Register Constants
+const registerFormContainer = new Form("register-form-id");
+const registerFormTitle = new Container("title", "Registeration");
+const registerLineBreak = new LineBreak();
+const registerClickables = new Container("register-button");
+const registerLink = new Container("register");
+const registerContainer = new Container("register-form");
+const emailValidationContainer = new Container("email-validation");
+const confirmPasswordValidationContainer = new Container(
+  "confirm-password-validation"
+);
+const emailAlreadyExistsValidationContainer = new Container(
+  "email-already-exits-validation"
+);
+const userNameValidationContainer = new Container("username-validation");
+const passwordValidationContainer = new Container("outValidation");
+
+const registerInputFeilds = [
+  new InputFeild(
+    "email",
+    "Enter your email",
+    "signup-email",
+    "fa-regular fa-envelope"
+  ),
+  new InputFeild("text", "Enter your name", "signup-name", "fa-solid fa-user"),
+  new InputFeild(
+    "password",
+    "Create a password",
+    "signup-password",
+    "fa-sharp fa-solid fa-shield-halved"
+  ),
+  new InputFeild(
+    "password",
+    "Confirm your password",
+    "confirm-password",
+    "fa-sharp fa-solid fa-shield-halved"
+  ),
+];
+
+const registerSelectOptions = [
+  new OptionField("Country"),
+  new OptionField("Jordan"),
+  new OptionField("Lebanon"),
+  new OptionField("Syria"),
+  new OptionField("Palestine"),
+  new OptionField("Iraq"),
+];
+
+const registerSelect = new Container("country-choices", "", "countries");
+const registerSelectFeild = new SelectFeild();
+
+const registerRadioFeild = [
+  new RadioField("Male", "radio-choice-1"),
+  new RadioField("Female", "radio-choice-2"),
+];
+
+const registerCheckbox = new Container("gender-choices");
+
+const registerSubmitButton = new Button("register", "register-button");
+
+const switchToLoginFormLink = new ParagraphLink(
+  "Already registered? ",
+  "Login",
+  "login-link"
+);
+
+const termsAndConditions = new Span(
+  "By Clicking on register, you agree on ",
+  "terms and conditions."
+);
+
+const confirmPasswordValidationContent = new Paragraph(
+  "Passwords doesn't match",
+  "",
+  "confirm-failure"
+);
+
+const passwordValidationTitle = new HeaderThree(
+  "Password must contain the following:"
+);
+const smallLetterPasswordValidationContent = new Paragraph(
+  "A small (loswercase) letter",
+  "letter",
+  "invalid"
+);
+const capitalLetterPasswordValidationContent = new Paragraph(
+  "A capital (uppercase) letter",
+  "capital",
+  "invalid"
+);
+const numbersLetterPasswordValidationContent = new Paragraph(
+  "A number",
+  "number",
+  "invalid"
+);
+const charactersLetterPasswordValidationContent = new Paragraph(
+  "A symbol",
+  "characters",
+  "invalid"
+);
+
+const passwordValidationParagraphs = [
+  passwordValidationTitle,
+  smallLetterPasswordValidationContent,
+  capitalLetterPasswordValidationContent,
+  numbersLetterPasswordValidationContent,
+  charactersLetterPasswordValidationContent,
+];
+
+const userNameValidationTitle = new HeaderThree(
+  "Username must contain the following:"
+);
+const userNameValidationContent = new Paragraph(
+  "All small (lowercase) letters and starts with a character",
+  "small-letters",
+  "invalid"
+);
+
+const emailValidationTitle = new HeaderThree(
+  "Email must be in the correct format"
+);
+const emailValidationContent = new Paragraph(
+  "Valid email",
+  "email-val",
+  "invalid"
+);
+
+const emailValidationParagraphs = [
+  emailValidationTitle,
+  emailValidationContent,
+];
+
+
 const registerParameters = {
   container: registerContainer,
   formTitle: registerFormTitle,
@@ -214,3 +210,37 @@ const registerParameters = {
   formLink: registerLink,
   switchLink: switchToLoginFormLink,
 }
+
+export {
+  container,
+  formsContainer,
+  forms,
+  // login Constants
+  loginInputFeilds,
+  switchToRegisterFormLink,
+  loginValidationContent,
+  validationContainer,
+  logInContainer,
+  loginParameters,
+  // Register Constants
+  registerContainer,
+  emailValidationContainer,
+  confirmPasswordValidationContainer,
+  emailAlreadyExistsValidationContainer,
+  userNameValidationContainer,
+  passwordValidationContainer,
+  registerInputFeilds,
+  registerSelectOptions,
+  registerSelect,
+  registerSelectFeild,
+  registerRadioFeild,
+  registerCheckbox,
+  termsAndConditions,
+  confirmPasswordValidationContent,
+  passwordValidationParagraphs,
+  userNameValidationTitle,
+  userNameValidationContent,
+  emailValidationParagraphs,
+  registerParameters,
+  switchToLoginFormLink
+};

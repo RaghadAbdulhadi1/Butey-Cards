@@ -1,0 +1,11 @@
+.forms-container .forms {
+  align-items: center;
+  display: flex;
+  height: 350px;
+  transition: height 0.2s ease;
+  width: 200%;
+}
+
+.forms-container.active .forms {
+  height: auto;
+}
