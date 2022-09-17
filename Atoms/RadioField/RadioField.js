@@ -20,5 +20,4 @@ export default class RadioField {
   get radioFeild() {
     return this.addRadioChoice();
   }
-  
 }

@@ -1,5 +1,5 @@
 import Form from "../Form/Form.js";
-import * as constants from "../../Constants/constants.js";
+import * as constants from "../LoginForm/LoginConstants.js";
 import * as utils from "../../Utilities/utilities.js";
 
 export default class LoginForm extends Form {
@@ -37,13 +37,13 @@ export default class LoginForm extends Form {
         this.userFailure.classList.remove("user-succ");
         this.passwordFailure.classList.remove("password-succ");
         utils.clearFormFeilds(this.email, this.password);
-      }else{
+      } else {
         this.userFailure = utils.getElementByClassName(".user-failure");
         this.passwordFailure = utils.getElementByClassName(".password-failure");
         this.passwordFailure.classList.add("password-succ");
         this.userFailure.classList.remove("user-succ");
       }
-    }else {
+    } else {
       this.passwordFailure = utils.getElementByClassName(".password-failure");
       this.userFailure = utils.getElementByClassName(".user-failure");
       this.userFailure.classList.add("user-succ");
