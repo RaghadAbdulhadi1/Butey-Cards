@@ -8,58 +8,52 @@ const loginValidationContent = [
     .paragraph,
 ];
 
-// const smallLetterPasswordValidationContent = new Paragraph(
-//   "A small (loswercase) letter",
-//   "letter",
-//   "invalid"
-// ).paragraph;
-// const capitalLetterPasswordValidationContent = new Paragraph(
-//   "A capital (uppercase) letter",
-//   "capital",
-//   "invalid"
-// ).paragraph;
-// const numbersLetterPasswordValidationContent = new Paragraph(
-//   "A number",
-//   "number",
-//   "invalid"
-// ).paragraph;
-// const charactersLetterPasswordValidationContent = new Paragraph(
-//   "A symbol",
-//   "characters",
-//   "invalid"
-// ).paragraph;
+const smallLetterPasswordValidationContent = new Paragraph(
+  "A small (loswercase) letter",
+  "letter",
+  "invalid"
+).paragraph;
+const capitalLetterPasswordValidationContent = new Paragraph(
+  "A capital (uppercase) letter",
+  "capital",
+  "invalid"
+).paragraph;
+const numbersLetterPasswordValidationContent = new Paragraph(
+  "A number",
+  "number",
+  "invalid"
+).paragraph;
+const charactersLetterPasswordValidationContent = new Paragraph(
+  "A symbol",
+  "characters",
+  "invalid"
+).paragraph;
 
-// const confirmPasswordValidationContent = new Paragraph(
-//   "Passwords doesn't match",
-//   "",
-//   "confirm-failure"
-// ).paragraph;
+const confirmPasswordValidationContent = new Paragraph(
+  "Passwords doesn't match",
+  "",
+  "confirm-failure"
+).paragraph;
 
-// const passwordValidationParagraphs = [
-//   passwordValidationTitle,
-//   smallLetterPasswordValidationContent,
-//   capitalLetterPasswordValidationContent,
-//   numbersLetterPasswordValidationContent,
-//   charactersLetterPasswordValidationContent,
-// ];
+const userNameValidationContent = new Paragraph(
+  "All small (lowercase) letters and starts with a character",
+  "small-letters",
+  "invalid"
+).paragraph;
 
-// const userNameValidationContent = new Paragraph(
-//   "All small (lowercase) letters and starts with a character",
-//   "small-letters",
-//   "invalid"
-// ).paragraph;
-
-// const emailValidationContent = new Paragraph(
-//   "Valid email",
-//   "email-val",
-//   "invalid"
-// ).paragraph;
-
-// const emailValidationParagraphs = [
-//   emailValidationTitle,
-//   emailValidationContent,
-// ];
+const emailValidationContent = new Paragraph(
+  "Valid email",
+  "email-val",
+  "invalid"
+).paragraph;
 
 export {
-  loginValidationContent
-}
+  loginValidationContent,
+  smallLetterPasswordValidationContent,
+  capitalLetterPasswordValidationContent,
+  numbersLetterPasswordValidationContent,
+  charactersLetterPasswordValidationContent,
+  confirmPasswordValidationContent,
+  userNameValidationContent,
+  emailValidationContent,
+};

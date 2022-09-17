@@ -24,4 +24,4 @@ const loginParameters = {
   switchLink: switchToRegisterFormLink,
 };
 
-export { loginParameters, validationContainer, loginValidationContent };
+export { loginParameters, validationContainer, loginValidationContent, switchToRegisterFormLink };

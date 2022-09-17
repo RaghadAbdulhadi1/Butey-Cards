@@ -1,34 +1,40 @@
-import * as constants from "../../Constants/constants.js";
 import LoginForm from "../../Organisms/LoginForm/LoginForm.js";
 import RegisterForm from "../../Organisms/RegisterForm/RegisterForm.js";
 import Validation from "../../Utilities/Validation.js";
-import { logInContainer } from "../../Atoms/Div/DivConstants.js";
 import * as utils from "../../Utilities/utilities.js";
-
+import * as loginConstants from "../../Organisms/LoginForm/LoginConstants.js";
+import * as registerConstants from "../../Organisms/RegisterForm/RegisterConstants.js";
+import {
+  formsContainer,
+  forms,
+  container,
+  registerContainer,
+  logInContainer
+} from "../../Atoms/Div/DivConstants.js"
 export default class FormSwitcher {
   constructor() {
     new LoginForm();
     new RegisterForm();
-    constants.forms.appendChild(logInContainer);
-    constants.forms.appendChild(constants.registerContainer);
-    constants.formsContainer.appendChild(constants.forms);
-    constants.container.appendChild(constants.formsContainer);
+    forms.appendChild(logInContainer);
+    forms.appendChild(registerContainer);
+    formsContainer.appendChild(forms);
+    container.appendChild(formsContainer);
     this.container = utils.getElementById("container");
-    constants.switchToRegisterFormLink.addEventListener(
+    loginConstants.switchToRegisterFormLink.addEventListener(
       "click",
       this.switchToLogin
     );
-    constants.switchToLoginFormLink.addEventListener(
+    registerConstants.switchToLoginFormLink.addEventListener(
       "click",
       this.switchToRegister
     );
     new Validation();
   }
   switchToLogin = () => {
-    constants.formsContainer.classList.add("active");
+    formsContainer.classList.add("active");
   };
   switchToRegister = () => {
-    constants.formsContainer.classList.remove("active");
+    formsContainer.classList.remove("active");
   };
 }
 

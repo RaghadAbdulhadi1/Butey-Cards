@@ -1,5 +1,5 @@
 import Form from "../Form/Form.js";
-import * as constants from "../../Constants/constants.js";
+import * as constants from "./RegisterConstants.js";
 import * as utils from "../../Utilities/utilities.js";
 import LocalStorage from "../../Utilities/LocalStorage.js";
 
@@ -78,11 +78,16 @@ export default class RegisterForm extends Form {
         const users = JSON.parse(localStorage.getItem("Users")) || {};
         users[this.email.value] = {
           email: this.email.value,
-          username:this.username.value,
+          username: this.username.value,
           password: this.password.value,
-        }
+        };
         llocalStorage.addToLocalStorage(users);
-        utils.clearFormFeilds(this.email,this.username,this.password,this.confirmPassword)
+        utils.clearFormFeilds(
+          this.email,
+          this.username,
+          this.password,
+          this.confirmPassword
+        );
       }
     });
   }

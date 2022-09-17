@@ -1,4 +1,4 @@
-import * as constants from "../Constants/constants.js";
+import * as constants from "../Organisms/RegisterForm/RegisterConstants.js";
 import * as utils from './utilities.js';
 
 export default class Validation {
