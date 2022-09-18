@@ -18,7 +18,7 @@ class ImageCarousel {
         this.slideControls.append(this.leftButton, this.rightButton);
         this.slideContainer.appendChild(this.slideControls);
     }
-    functionality() {
+    moveSlider() {
         const getSlides = () => getAllClasses(".image-element");
         let slides = getSlides();
         let index = 1;
@@ -73,13 +73,11 @@ class ImageCarousel {
         startSlide();
         this.rightButton.addEventListener('click', moveToNextSlide);
         this.leftButton.addEventListener('click', moveToPreviousSlide);
-
-
     }
     slider() {
         this.#addSlider();
         this.#addSlideControls();
-        this.functionality();
+        this.moveSlider();
     }
 }
 
