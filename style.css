@@ -5,10 +5,10 @@
 }
 
 #container {
-  margin: 0 auto;
-  width: 80%;
   height: 400px;
+  margin: 0 auto;
   position: relative;
+  width: 80%;
 }
 
 .image-scroller {
@@ -22,29 +22,29 @@
 }
 
 .image-element > img {
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 .slides-control {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 }
 
 #prev-button,
 #next-button {
-  cursor: pointer;
   background: transparent;
-  font-size: 30px;
   border: none;
-  padding: 10px;
   color: white;
+  cursor: pointer;
+  font-size: 30px;
+  padding: 10px;
 }
 
 #prev-button:focus,
