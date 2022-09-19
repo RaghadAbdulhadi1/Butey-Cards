@@ -3,27 +3,47 @@
   margin: 0px;
   padding: 0px;
 }
+:root {
+  --fullHeight: 100vh;
+  --fullWidth: 100%;
+  --left: 10px;
+  --percectange: 50%;
+  --white: white;
+}
 
 #container {
-  height: 400px;
-  margin: 0 auto;
-  position: relative;
-  width: 80%;
+  align-items: center;
+  display: flex;
+  height: var(--fullHeight);
 }
 
 .image-scroller {
-  display: flex;
-  height: 100%;
+  display: grid;
+  grid-auto-columns: 90%;
+  grid-auto-flow: column;
+  max-height: var(--fullHeight);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 0 var(--left) var(--left);
 }
 
 .image-element {
-  min-width: 100%;
-  padding: 15px;
+  border-radius: var(--left);
+  padding: var(--left);
+  width: var(--fullWidth);
 }
 
 .image-element > img {
-  height: 100%;
-  width: 100%;
+  object-fit: cover;
+  width: var(--fullWidth);
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: center;
 }
 
 .slides-control {
@@ -32,19 +52,19 @@
   justify-content: space-between;
   left: 0;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
+  top: var(--percectange);
+  transform: translateY(-var(--percectange));
+  width: var(--fullWidth);
 }
 
 #prev-button,
 #next-button {
   background: transparent;
   border: none;
-  color: white;
+  color: var(--white);
   cursor: pointer;
   font-size: 30px;
-  padding: 10px;
+  padding: var(--left);
 }
 
 #prev-button:focus,
