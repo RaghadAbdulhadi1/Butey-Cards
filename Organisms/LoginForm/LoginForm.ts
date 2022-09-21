@@ -32,7 +32,6 @@ export default class LoginForm extends Form {
     e.preventDefault();
     this.email = utils.getElementByClassName(".login-email") as HTMLInputElement;
     this.password = utils.getElementByClassName(".login-password") as HTMLInputElement;
-
     const users = localStorage.getItem("Users") as string | null;
     const data = users ? JSON.parse(users) : {};
     if (data[this.email.value]) {
