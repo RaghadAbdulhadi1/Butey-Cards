@@ -34,7 +34,7 @@ import { registerRadioFeild } from "../../Atoms/RadioField/RadioFeildConstants.j
 import { termsAndConditions } from "../../Atoms/Span/SpanConstants.js";
 import { registerSelectOptions } from "../../Atoms/OptionField/OptionFeildConstants.js";
 import { registerFormContainer } from "../../Atoms/Form/FormConstants.js";
-import FormParameters  from "../../Organisms//Form/FormConstants.js"
+import IFormParameters  from "../../Organisms//Form/FormConstants.js"
 
 const passwordValidationParagraphs: HTMLElement[] = [
   passwordValidationTitle,
@@ -44,12 +44,12 @@ const passwordValidationParagraphs: HTMLElement[] = [
   charactersLetterPasswordValidationContent,
 ];
 
-const emailValidationParagraphs = [
+const emailValidationParagraphs: HTMLElement[] = [
   emailValidationTitle,
   emailValidationContent,
 ];
 
-const registerParameters: FormParameters = {
+const registerParameters: IFormParameters = {
   container: registerContainer,
   formTitle: registerFormTitle,
   formLineBreak: registerLineBreak,

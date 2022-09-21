@@ -1,4 +1,4 @@
-export default interface FormParameters {
+export default interface IFormParameters {
     container: HTMLElement,
     formTitle: HTMLElement,
     formLineBreak: HTMLElement,

@@ -11,11 +11,11 @@ import {
   loginLink,
   validationContainer,
 } from "../../Atoms/Div/DivConstants.js";
-import FormParameters  from "../../Organisms//Form/FormConstants.js";
+import IFormParameters  from "../../Organisms//Form/FormConstants.js";
 
 
 
-const loginParameters: FormParameters = {
+const loginParameters: IFormParameters = {
   container: logInContainer,
   formTitle: loginFormTitle,
   formLineBreak: loginLineBreak,

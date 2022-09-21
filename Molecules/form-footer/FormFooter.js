@@ -11,7 +11,4 @@ export default class FormFooter {
         this.formLink = formLink;
         this.switchLink = switchLink;
     }
-    addLoginButton() { }
-    addSwitchToRegisterLink() { }
-    addClickables() { }
 }

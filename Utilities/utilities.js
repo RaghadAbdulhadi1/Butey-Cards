@@ -1,6 +1,6 @@
 export const elementFactory = (type, attributes, ...children) => {
     const element = document.createElement(type);
-    for (let key in attributes) {
+    for (const key in attributes) {
         element.setAttribute(key, attributes[key]);
     }
     children.forEach((child) => {

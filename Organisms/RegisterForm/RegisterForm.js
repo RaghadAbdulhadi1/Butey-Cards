@@ -69,8 +69,7 @@ export default class RegisterForm extends Form {
             e.preventDefault();
             if (this.isValid.length == 6) {
                 const llocalStorage = new LocalStorage();
-                const users = localStorage.getItem("Users");
-                const data = users ? JSON.parse(users) : {};
+                const data = llocalStorage.getLocalStorage();
                 data[this.email.value] = {
                     email: this.email.value,
                     username: this.username.value,
