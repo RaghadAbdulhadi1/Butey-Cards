@@ -1,13 +1,13 @@
-import { elementFactory } from "../../utilities/utilities.js";
-
+import { elementFactory } from "../../Utilities/utilities.js";
 export default class Icon {
-  constructor(iconClass) {
-    this.iconClass = iconClass;
-  }
-  addIcon() {
-    return elementFactory("i", { class: this.iconClass });
-  }
-  get Icon(){
-    return this.addIcon();
-  }
+    iconClass;
+    constructor(iconClass) {
+        this.iconClass = iconClass;
+    }
+    addIcon() {
+        return elementFactory("i", { class: this.iconClass });
+    }
+    get Icon() {
+        return this.addIcon();
+    }
 }
