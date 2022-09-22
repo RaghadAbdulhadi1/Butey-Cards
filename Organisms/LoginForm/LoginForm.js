@@ -21,11 +21,11 @@ export default class LoginForm extends Form {
     addClickables() {
         this.formContainer.appendChild(this.formClickables);
     }
-    #addValidationContent() {
+    addValidationContent() {
         constants.loginValidationContent.forEach((validationParaghraph) => constants.validationContainer.appendChild(validationParaghraph));
         this.formContainer.appendChild(constants.validationContainer);
     }
-    #validateLogin(e) {
+    validateLogin(e) {
         e.preventDefault();
         this.email = utils.getElementByClassName(".login-email");
         this.password = utils.getElementByClassName(".login-password");
@@ -59,7 +59,7 @@ export default class LoginForm extends Form {
         this.addLoginButton();
         this.addSwitchToRegisterLink();
         this.addClickables();
-        this.#addValidationContent();
-        this.formSubmitButton.addEventListener("click", this.#validateLogin);
+        this.addValidationContent();
+        this.formSubmitButton.addEventListener("click", this.validateLogin);
     }
 }
