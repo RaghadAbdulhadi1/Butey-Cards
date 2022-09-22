@@ -15,7 +15,7 @@ export default class InputFeild {
       elementFactory<HTMLLinkElement>("i", { class: this.iconClass })
     );
   }
-  get formInput(): HTMLDivElement{
+  public get formInput(): HTMLDivElement{
     return this.addFormInput() as HTMLDivElement;
   }
 }

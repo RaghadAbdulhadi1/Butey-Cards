@@ -6,7 +6,7 @@ export default class Form {
   private addForm(): HTMLElement {
     return elementFactory<HTMLFormElement>("form", { class: this.className });
   }
-  get form(): HTMLFormElement {
+  public get form(): HTMLFormElement {
     return this.addForm() as HTMLFormElement;
   }
 }

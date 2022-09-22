@@ -10,7 +10,7 @@ export default class OptionField {
       this.optionText
     );
   }
-  get option(): HTMLOptionElement {
+  public get option(): HTMLOptionElement {
     return this.addOptions() as HTMLOptionElement;
   }
 }

@@ -32,7 +32,7 @@ export default class Form {
     this.addFormParameters(form);
     this.renderForm();
   }
-  addFormParameters(form: FormParameters) {
+  private addFormParameters(form: FormParameters) {
     this.container = form.container;
     this.formTitle = form.formTitle;
     this.formLineBreak = form.formLineBreak;
@@ -43,23 +43,23 @@ export default class Form {
     this.formLink = form.formLink;
     this.switchLink = form.switchLink;
   }
-  renderForm(): void {
+  private renderForm(): void {
     Form.header = new FormHeader(
       this.container,
       this.formTitle,
       this.formLineBreak
-    );
+    ) as FormHeader;
     Form.body = new FormBody(
       this.container,
       this.formContainer,
       this.formInputFeilds
-    );
+    ) as FormBody;
     Form.footer = new FormFooter(
       this.container,
       this.formClickables,
       this.formSubmitButton,
       this.formLink,
       this.switchLink
-    );
+    ) as FormFooter;
   }
 }

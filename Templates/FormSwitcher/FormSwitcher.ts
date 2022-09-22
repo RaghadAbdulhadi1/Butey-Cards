@@ -32,10 +32,10 @@ export default class FormSwitcher {
     );
     new Validation();
   }
-  switchToLogin = (): void => {
+  public switchToLogin = (): void => {
     formsContainer.classList.add("active");
   };
-  switchToRegister = (): void => {
+  public switchToRegister = (): void => {
     formsContainer.classList.remove("active");
   };
 }

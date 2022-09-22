@@ -5,10 +5,10 @@ export default interface IJsonFormate {
 }
 
 export default class LocalStorage {
-  addToLocalStorage(storageData: IJsonFormate): void {
+  public addToLocalStorage(storageData: IJsonFormate): void {
     localStorage.setItem("Users", JSON.stringify(storageData));
   }
-  getLocalStorage(){
+  public getLocalStorage(){
     const users: string | null = localStorage.getItem("Users");
     const data = users ? JSON.parse(users) : {};
     return data;  

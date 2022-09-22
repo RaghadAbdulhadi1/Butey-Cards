@@ -11,7 +11,7 @@ export default class ParagraphLink {
       elementFactory<HTMLAnchorElement>("a", { class: this.className, href: this.href }, this.innerText)
     );
   }
-  get paragraphLink(): HTMLParagraphElement {
+  public get paragraphLink(): HTMLParagraphElement {
     return this.addParagraphLink() as HTMLParagraphElement;
   }
 }

@@ -10,7 +10,7 @@ export default class Paragraph {
       this.paragraphText
     );
   }
-  get paragraph(): HTMLParagraphElement {
+  public get paragraph(): HTMLParagraphElement {
     return this.addParagraph() as HTMLParagraphElement;
   }
 }

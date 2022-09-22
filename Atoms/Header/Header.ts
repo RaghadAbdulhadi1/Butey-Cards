@@ -6,7 +6,7 @@ export default class Header {
   private addHeader(): HTMLElement {
     return elementFactory<HTMLTitleElement>(this.type, { class: "validationHeader" }, this.text);
   }
-  get header(): HTMLTitleElement {
+  public get header(): HTMLTitleElement {
     return this.addHeader() as HTMLTitleElement;
   }
 }

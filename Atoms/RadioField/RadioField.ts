@@ -15,7 +15,7 @@ export default class RadioField {
       elementFactory<HTMLLabelElement>("label", { class: "gender-label" }, this.radioText)
     );
   }
-  get radioFeild(): HTMLDivElement {
+  public get radioFeild(): HTMLDivElement {
     return this.addRadioChoice() as HTMLDivElement;
   }
 }

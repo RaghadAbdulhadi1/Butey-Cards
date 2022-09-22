@@ -11,7 +11,7 @@ export default class Span {
       elementFactory<HTMLAnchorElement>("a", {}, this.innerText)
     );
   }
-  get span(): HTMLSpanElement{
+  public get span(): HTMLSpanElement{
     return this.addSpan() as HTMLSpanElement;
   }
 }

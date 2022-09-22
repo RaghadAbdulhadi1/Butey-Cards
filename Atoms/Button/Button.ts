@@ -16,7 +16,7 @@ export default class Button {
       )
     );
   }
-  get button(): HTMLButtonElement {
+  public get button(): HTMLButtonElement {
     return this.addButton() as HTMLButtonElement;
   }
 }

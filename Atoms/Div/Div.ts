@@ -10,7 +10,7 @@ export default class Container {
       this.containerText
     );
   }
-  get container(): HTMLDivElement {
+  public get container(): HTMLDivElement {
     return this.addContainer() as HTMLDivElement;
   }
 }

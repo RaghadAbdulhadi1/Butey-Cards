@@ -13,46 +13,46 @@ export default class RegisterForm extends Form {
     this.addRegisterComponents();
     this.onSubmit();
   }
-  #addSelectOptions(): void {
+  private addSelectOptions(): void {
     constants.registerSelectOptions.forEach((inputOption) =>
       constants.registerSelectFeild.appendChild(inputOption)
     );
     constants.registerSelect.appendChild(constants.registerSelectFeild);
     this.formContainer.appendChild(constants.registerSelect);
   }
-  #addRadioOptions(): void {
+  private addRadioOptions(): void {
     constants.registerRadioFeild.forEach((radioOption) => {
       constants.registerCheckbox.appendChild(radioOption);
       this.formContainer.appendChild(constants.registerCheckbox);
     });
   }
-  addLoginButton(): void {
+  private addLoginButton(): void {
     this.formClickables.appendChild(this.formSubmitButton);
   }
-  addSwitchToRegisterLink(): void {
+  private addSwitchToRegisterLink(): void {
     this.formLink.appendChild(this.switchLink);
     this.formClickables.appendChild(this.formLink);
   }
-  #addTermsAndConditionsLink(): void {
+  private addTermsAndConditionsLink(): void {
     this.formLink.appendChild(constants.termsAndConditions);
     this.formClickables.appendChild(this.formLink);
   }
   addClickables(): void {
     this.formContainer.appendChild(this.formClickables);
   }
-  #addPasswordValidation(): void {
+  private addPasswordValidation(): void {
     constants.passwordValidationParagraphs.forEach((passwordValidation) => {
       constants.passwordValidationContainer.appendChild(passwordValidation);
     });
     this.formContainer.appendChild(constants.passwordValidationContainer);
   }
-  #addEmailValidatoin(): void {
+  private addEmailValidatoin(): void {
     constants.emailValidationParagraphs.forEach((emailValidation) => {
       constants.emailValidationContainer.appendChild(emailValidation);
     });
     this.formContainer.appendChild(constants.emailValidationContainer);
   }
-  #addUserNameValidation(): void {
+  private addUserNameValidation(): void {
     constants.userNameValidationContainer.appendChild(
       constants.userNameValidationTitle
     );
@@ -61,7 +61,7 @@ export default class RegisterForm extends Form {
     );
     this.formContainer.appendChild(constants.userNameValidationContainer);
   }
-  #addConfirmPasswordValidation(): void {
+  private addConfirmPasswordValidation(): void {
     constants.confirmPasswordValidationContainer.appendChild(
       constants.confirmPasswordValidationContent
     );
@@ -69,7 +69,7 @@ export default class RegisterForm extends Form {
       constants.confirmPasswordValidationContainer
     );
   }
-  onSubmit(): void {
+  public onSubmit(): void {
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
@@ -95,16 +95,16 @@ export default class RegisterForm extends Form {
       }
     });
   }
-  addRegisterComponents(): void {
-    this.#addSelectOptions();
-    this.#addRadioOptions();
+  private addRegisterComponents(): void {
+    this.addSelectOptions();
+    this.addRadioOptions();
     this.addLoginButton();
     this.addSwitchToRegisterLink();
-    this.#addTermsAndConditionsLink();
+    this.addTermsAndConditionsLink();
     this.addClickables();
-    this.#addPasswordValidation();
-    this.#addEmailValidatoin();
-    this.#addUserNameValidation();
-    this.#addConfirmPasswordValidation();
+    this.addPasswordValidation();
+    this.addEmailValidatoin();
+    this.addUserNameValidation();
+    this.addConfirmPasswordValidation();
   }
 }

@@ -10,7 +10,7 @@ export default class link {
       this.innerText
     );
   }
-  get link(): HTMLAnchorElement {
+  public get link(): HTMLAnchorElement {
     return this.addLink() as HTMLAnchorElement;
   }
 }

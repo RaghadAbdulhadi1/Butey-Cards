@@ -6,7 +6,7 @@ export default class Icon {
   private addIcon() {
     return elementFactory<HTMLLinkElement>("i", { class: this.iconClass });
   }
-  get Icon(): HTMLLinkElement{
+  public get Icon(): HTMLLinkElement{
     return this.addIcon() as HTMLLinkElement;
   }
 }

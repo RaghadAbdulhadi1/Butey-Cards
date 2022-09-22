@@ -19,21 +19,21 @@ export default class Validation {
     this.validateInputs();
   }
 
-  userNameValidation(): void {
+  public userNameValidation(): void {
     this.smallLetters = utils.getElementById("small-letters") as HTMLInputElement;
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.username.onblur = this.onBlurUserNameFeild;
     this.username.onfocus = this.onFocusUserNameFeild;
     this.username.oninput = this.onKeyUserNameFeild;
   }
-  onFocusUserNameFeild(): void {
+  public onFocusUserNameFeild(): void {
     this.message = utils.getElementByClassName(".username-validation") as HTMLParagraphElement;
     this.message.classList.add("onUserValidation");
   }
-  onBlurUserNameFeild(): void {
+  public onBlurUserNameFeild(): void {
     this.message.classList.remove("onUserValidation");
   }
-  onKeyUserNameFeild(): void {
+  public onKeyUserNameFeild(): void {
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.smallLetters = utils.getElementById("small-letters") as HTMLParagraphElement;
     if (this.username.value.match(constants.usernameRegex)) {
@@ -44,21 +44,21 @@ export default class Validation {
       this.smallLetters.classList.remove("valid");
     }
   }
-  emailValidation(): void {
+  public emailValidation(): void {
     this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.email.onfocus = this.onFocusEmailFeild;
     this.email.onblur = this.onBlurEmailFeild;
     this.email.onkeyup = this.onKeyupEmailFeild;
   }
-  onFocusEmailFeild(): void {
+  public onFocusEmailFeild(): void {
     this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
     this.message.classList.add("onEmailValidation");
   }
-  onBlurEmailFeild(): void {
+  public onBlurEmailFeild(): void {
     this.message.classList.remove("onEmailValidation");
   }
-  onKeyupEmailFeild(): void {
+  public onKeyupEmailFeild(): void {
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.emailVal = utils.getElementById("email-val") as HTMLParagraphElement;
     interface User {
@@ -82,7 +82,7 @@ export default class Validation {
       this.emailVal.classList.remove("valid");
     }
   }
-  passwordValidation(): void {
+  public passwordValidation(): void {
     this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
@@ -95,14 +95,14 @@ export default class Validation {
     this.password.onkeyup = this.onKeyUpPasswordFeild;
     this.confirmPassword.onblur = this.onBlurConfirmPasswordFeild;
   }
-  onFocusPasswordFeild(): void {
+  public onFocusPasswordFeild(): void {
     this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
     this.message.classList.add("onValidation");
   }
-  onBlurPasswordFeild(): void {
+  public onBlurPasswordFeild(): void {
     this.message.classList.remove("onValidation");
   }
-  onKeyUpPasswordFeild(): void {
+  public onKeyUpPasswordFeild(): void {
     // lowercase
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.letter = utils.getElementById("letter") as HTMLParagraphElement;
@@ -141,7 +141,7 @@ export default class Validation {
       this.characters.classList.remove("valid");
     }
   }
-  onBlurConfirmPasswordFeild(): void {
+  public onBlurConfirmPasswordFeild(): void {
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
     if (this.password.value != this.confirmPassword.value) {
@@ -152,7 +152,7 @@ export default class Validation {
       this.passwordFailure.classList.remove("confirm-succ");
     }
   }
-  validateInputs(): void {
+  public validateInputs(): void {
     this.userNameValidation();
     this.emailValidation();
     this.passwordValidation();
