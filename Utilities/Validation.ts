@@ -1,5 +1,9 @@
 import * as constants from "../Organisms/RegisterForm/RegisterConstants.js";
+
 import * as utils from './utilities.js';
+interface User {
+  [email: string]: string;
+}
 
 export default class Validation {
   email!: HTMLInputElement
@@ -61,9 +65,6 @@ export default class Validation {
   public onKeyupEmailFeild(): void {
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.emailVal = utils.getElementById("email-val") as HTMLParagraphElement;
-    interface User {
-      [email: string]: string;
-    }
     const users = localStorage.getItem("Users") as string | null;
     const data: User = users ? JSON.parse(users) : {};
 
