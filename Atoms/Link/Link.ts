@@ -3,7 +3,7 @@ import { elementFactory } from "../../Utilities/utilities.js";
 export default class link {
   constructor(private className: string, private innerText: string, private href: string = "#") {
   }
-  private addLink() {
+  private addLink(): HTMLElement {
     return elementFactory<HTMLAnchorElement>(
       "a",
       { class: this.className, href: this.href },

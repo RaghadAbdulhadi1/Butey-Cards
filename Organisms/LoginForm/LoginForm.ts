@@ -12,23 +12,23 @@ export default class LoginForm extends Form {
     super(constants.loginParameters);
     this.addLoginComponents();
   }
-  private addLoginButton() {
+  private addLoginButton(): void {
     this.formClickables.appendChild(this.formSubmitButton);
   }
-  private addSwitchToRegisterLink() {
+  private addSwitchToRegisterLink(): void {
     this.formLink.appendChild(this.switchLink);
     this.formClickables.appendChild(this.formLink);
   }
-  private addClickables() {
+  private addClickables(): void {
     this.formContainer.appendChild(this.formClickables);
   }
-  private #addValidationContent() {
+  private addValidationContent(): void {
     constants.loginValidationContent.forEach((validationParaghraph) =>
       constants.validationContainer.appendChild(validationParaghraph)
     );
     this.formContainer.appendChild(constants.validationContainer);
   }
-  private #validateLogin(e: Event) {
+  private validateLogin(e: Event): void {
     e.preventDefault();
     this.email = utils.getElementByClassName(".login-email") as HTMLInputElement;
     this.password = utils.getElementByClassName(".login-password") as HTMLInputElement;
@@ -56,11 +56,11 @@ export default class LoginForm extends Form {
       this.passwordFailure.classList.remove("password-succ");
     }
   }
-  private addLoginComponents() {
+  private addLoginComponents(): void {
     this.addLoginButton();
     this.addSwitchToRegisterLink();
     this.addClickables();
-    this.#addValidationContent();
-    this.formSubmitButton.addEventListener("click", this.#validateLogin);
+    this.addValidationContent();
+    this.formSubmitButton.addEventListener("click", this.validateLogin);
   }
 }

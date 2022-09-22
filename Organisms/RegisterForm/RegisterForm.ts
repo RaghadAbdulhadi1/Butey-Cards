@@ -70,7 +70,7 @@ export default class RegisterForm extends Form {
     );
   }
   public onSubmit(): void {
-    this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
+    this.email = (utils.getElementByClassName(".signup-email") as HTMLInputElement);
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;

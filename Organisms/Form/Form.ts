@@ -32,7 +32,7 @@ export default class Form {
     this.addFormParameters(form);
     this.renderForm();
   }
-  private addFormParameters(form: FormParameters) {
+  private addFormParameters(form: FormParameters): void {
     this.container = form.container;
     this.formTitle = form.formTitle;
     this.formLineBreak = form.formLineBreak;

@@ -3,7 +3,7 @@ import { elementFactory } from "../../Utilities/utilities.js";
 export default class Paragraph {
   constructor(private paragraphText: string, private id: string, private className: string) {
   }
-  private addParagraph() {
+  private addParagraph(): HTMLElement {
     return elementFactory<HTMLParagraphElement>(
       "p",
       { id: this.id, class: this.className },
