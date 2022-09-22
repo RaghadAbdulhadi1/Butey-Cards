@@ -7,17 +7,29 @@ interface User {
 
 export default class Validation {
   email!: HTMLInputElement
+
   emailVal!: HTMLParagraphElement
+
   message!: HTMLParagraphElement
+
   password!: HTMLInputElement
+
   smallLetters!: HTMLParagraphElement
+
   username!: HTMLInputElement
+
   confirmPassword!: HTMLInputElement
+
   letter!: HTMLParagraphElement
+
   capital!: HTMLParagraphElement
+
   number!: HTMLParagraphElement
+
   characters!: HTMLParagraphElement
+  
   passwordFailure!: HTMLParagraphElement
+
   constructor(
   ) {
     this.validateInputs();
@@ -30,13 +42,16 @@ export default class Validation {
     this.username.onfocus = this.onFocusUserNameFeild;
     this.username.oninput = this.onKeyUserNameFeild;
   }
+
   public onFocusUserNameFeild(): void {
     this.message = utils.getElementByClassName(".username-validation") as HTMLParagraphElement;
     this.message.classList.add("onUserValidation");
   }
+
   public onBlurUserNameFeild(): void {
     this.message.classList.remove("onUserValidation");
   }
+
   public onKeyUserNameFeild(): void {
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.smallLetters = utils.getElementById("small-letters") as HTMLParagraphElement;
@@ -48,6 +63,7 @@ export default class Validation {
       this.smallLetters.classList.remove("valid");
     }
   }
+
   public emailValidation(): void {
     this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
@@ -55,13 +71,16 @@ export default class Validation {
     this.email.onblur = this.onBlurEmailFeild;
     this.email.onkeyup = this.onKeyupEmailFeild;
   }
+
   public onFocusEmailFeild(): void {
     this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
     this.message.classList.add("onEmailValidation");
   }
+
   public onBlurEmailFeild(): void {
     this.message.classList.remove("onEmailValidation");
   }
+
   public onKeyupEmailFeild(): void {
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.emailVal = utils.getElementById("email-val") as HTMLParagraphElement;
@@ -83,6 +102,7 @@ export default class Validation {
       this.emailVal.classList.remove("valid");
     }
   }
+
   public passwordValidation(): void {
     this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
@@ -96,13 +116,16 @@ export default class Validation {
     this.password.onkeyup = this.onKeyUpPasswordFeild;
     this.confirmPassword.onblur = this.onBlurConfirmPasswordFeild;
   }
+
   public onFocusPasswordFeild(): void {
     this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
     this.message.classList.add("onValidation");
   }
+
   public onBlurPasswordFeild(): void {
     this.message.classList.remove("onValidation");
   }
+
   public onKeyUpPasswordFeild(): void {
     // lowercase
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
@@ -142,6 +165,7 @@ export default class Validation {
       this.characters.classList.remove("valid");
     }
   }
+
   public onBlurConfirmPasswordFeild(): void {
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
@@ -153,6 +177,7 @@ export default class Validation {
       this.passwordFailure.classList.remove("confirm-succ");
     }
   }
+  
   public validateInputs(): void {
     this.userNameValidation();
     this.emailValidation();

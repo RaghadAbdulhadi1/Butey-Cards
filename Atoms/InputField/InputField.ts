@@ -1,8 +1,9 @@
 import { elementFactory } from "../../Utilities/utilities.js";
 
 export default class InputFeild {
-  constructor(private type: string, private placeholder: string, private className: string , private iconClass: string) {
+  constructor(private type: string, private placeholder: string, private className: string, private iconClass: string) {
   }
+
   private addFormInput(): HTMLElement {
     return elementFactory<HTMLDivElement>(
       "div",
@@ -15,6 +16,7 @@ export default class InputFeild {
       elementFactory<HTMLLinkElement>("i", { class: this.iconClass })
     );
   }
+  
   public get formInput(): HTMLDivElement{
     return this.addFormInput() as HTMLDivElement;
   }

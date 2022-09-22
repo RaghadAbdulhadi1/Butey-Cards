@@ -3,6 +3,7 @@ import { elementFactory } from "../../Utilities/utilities.js";
 export default class Button {
   constructor(private value: string) {
   }
+
   private addButton(): HTMLElement {
     return elementFactory<HTMLDivElement>(
       "div",
@@ -16,6 +17,7 @@ export default class Button {
       )
     );
   }
+  
   public get button(): HTMLButtonElement {
     return this.addButton() as HTMLButtonElement;
   }

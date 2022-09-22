@@ -14,6 +14,7 @@ import {
 
 export default class FormSwitcher {
   container: HTMLElement;
+
   constructor() {
     new LoginForm();
     new RegisterForm();
@@ -32,9 +33,11 @@ export default class FormSwitcher {
     );
     new Validation();
   }
+
   public switchToLogin = (): void => {
     formsContainer.classList.add("active");
   };
+  
   public switchToRegister = (): void => {
     formsContainer.classList.remove("active");
   };

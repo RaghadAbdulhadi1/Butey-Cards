@@ -4,15 +4,21 @@ import * as utils from "../../Utilities/utilities.js";
 import LocalStorage from "../../Utilities/LocalStorage.js";
 export default class RegisterForm extends Form {
   email!: HTMLInputElement;
+
   username!: HTMLInputElement;
+
   password!: HTMLInputElement;
+
   confirmPassword!: HTMLInputElement;
+
   isValid!: NodeListOf<HTMLElement> | null;
+
   constructor() {
     super(constants.registerParameters);
     this.addRegisterComponents();
     this.onSubmit();
   }
+
   private addSelectOptions(): void {
     constants.registerSelectOptions.forEach((inputOption) =>
       constants.registerSelectFeild.appendChild(inputOption)
@@ -20,38 +26,46 @@ export default class RegisterForm extends Form {
     constants.registerSelect.appendChild(constants.registerSelectFeild);
     this.formContainer.appendChild(constants.registerSelect);
   }
+
   private addRadioOptions(): void {
     constants.registerRadioFeild.forEach((radioOption) => {
       constants.registerCheckbox.appendChild(radioOption);
       this.formContainer.appendChild(constants.registerCheckbox);
     });
   }
+
   private addLoginButton(): void {
     this.formClickables.appendChild(this.formSubmitButton);
   }
+
   private addSwitchToRegisterLink(): void {
     this.formLink.appendChild(this.switchLink);
     this.formClickables.appendChild(this.formLink);
   }
+
   private addTermsAndConditionsLink(): void {
     this.formLink.appendChild(constants.termsAndConditions);
     this.formClickables.appendChild(this.formLink);
   }
+  
   addClickables(): void {
     this.formContainer.appendChild(this.formClickables);
   }
+
   private addPasswordValidation(): void {
     constants.passwordValidationParagraphs.forEach((passwordValidation) => {
       constants.passwordValidationContainer.appendChild(passwordValidation);
     });
     this.formContainer.appendChild(constants.passwordValidationContainer);
   }
+
   private addEmailValidatoin(): void {
     constants.emailValidationParagraphs.forEach((emailValidation) => {
       constants.emailValidationContainer.appendChild(emailValidation);
     });
     this.formContainer.appendChild(constants.emailValidationContainer);
   }
+
   private addUserNameValidation(): void {
     constants.userNameValidationContainer.appendChild(
       constants.userNameValidationTitle
@@ -61,6 +75,7 @@ export default class RegisterForm extends Form {
     );
     this.formContainer.appendChild(constants.userNameValidationContainer);
   }
+
   private addConfirmPasswordValidation(): void {
     constants.confirmPasswordValidationContainer.appendChild(
       constants.confirmPasswordValidationContent
@@ -69,6 +84,7 @@ export default class RegisterForm extends Form {
       constants.confirmPasswordValidationContainer
     );
   }
+
   public onSubmit(): void {
     this.email = (utils.getElementByClassName(".signup-email") as HTMLInputElement);
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
@@ -95,6 +111,7 @@ export default class RegisterForm extends Form {
       }
     });
   }
+
   private addRegisterComponents(): void {
     this.addSelectOptions();
     this.addRadioOptions();

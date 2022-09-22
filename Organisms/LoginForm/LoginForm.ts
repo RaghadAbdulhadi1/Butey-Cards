@@ -4,30 +4,40 @@ import * as utils from "../../Utilities/utilities.js";
 
 export default class LoginForm extends Form {
   email!: HTMLInputElement;
+
   password!: HTMLInputElement;
+
   success!: HTMLParagraphElement;
+
   userFailure!: HTMLParagraphElement;
+
   passwordFailure!: HTMLParagraphElement;
+  
   constructor() {
     super(constants.loginParameters);
     this.addLoginComponents();
   }
+
   private addLoginButton(): void {
     this.formClickables.appendChild(this.formSubmitButton);
   }
+
   private addSwitchToRegisterLink(): void {
     this.formLink.appendChild(this.switchLink);
     this.formClickables.appendChild(this.formLink);
   }
+
   private addClickables(): void {
     this.formContainer.appendChild(this.formClickables);
   }
+
   private addValidationContent(): void {
     constants.loginValidationContent.forEach((validationParaghraph) =>
       constants.validationContainer.appendChild(validationParaghraph)
     );
     this.formContainer.appendChild(constants.validationContainer);
   }
+
   private validateLogin(e: Event): void {
     e.preventDefault();
     this.email = utils.getElementByClassName(".login-email") as HTMLInputElement;
@@ -56,6 +66,7 @@ export default class LoginForm extends Form {
       this.passwordFailure.classList.remove("password-succ");
     }
   }
+  
   private addLoginComponents(): void {
     this.addLoginButton();
     this.addSwitchToRegisterLink();

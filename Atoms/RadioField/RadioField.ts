@@ -3,6 +3,7 @@ import { elementFactory } from '../../Utilities/utilities.js';
 export default class RadioField {
   constructor(private radioText: string, private checkboxName: string) {
   }
+
   private addRadioChoice(): HTMLElement {
     return elementFactory<HTMLDivElement>(
       "div",
@@ -15,6 +16,7 @@ export default class RadioField {
       elementFactory<HTMLLabelElement>("label", { class: "gender-label" }, this.radioText)
     );
   }
+  
   public get radioFeild(): HTMLDivElement {
     return this.addRadioChoice() as HTMLDivElement;
   }

@@ -8,6 +8,7 @@ export default class LocalStorage {
   public addToLocalStorage(storageData: IJsonFormate): void {
     localStorage.setItem("Users", JSON.stringify(storageData));
   }
+  
   public getLocalStorage(){
     const users: string | null = localStorage.getItem("Users");
     const data = users ? JSON.parse(users) : {};

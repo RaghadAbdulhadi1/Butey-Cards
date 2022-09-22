@@ -16,22 +16,34 @@ interface FormParameters  {
 
 export default class Form {
   static header: FormHeader 
+
   static body: FormBody
+
   static footer: FormFooter
+
   formInputFeilds!: HTMLElement[];
+
   container!: HTMLElement;
+
   formTitle!: HTMLElement;
+
   formLineBreak!: HTMLElement;
+
   formContainer!: HTMLElement;
+
   formClickables!: HTMLElement;
+
   formSubmitButton!: HTMLElement;
+
   formLink!: HTMLElement;
+
   switchLink!: HTMLElement;
   
   constructor(form: FormParameters) {
     this.addFormParameters(form);
     this.renderForm();
   }
+
   private addFormParameters(form: FormParameters): void {
     this.container = form.container;
     this.formTitle = form.formTitle;
@@ -43,6 +55,7 @@ export default class Form {
     this.formLink = form.formLink;
     this.switchLink = form.switchLink;
   }
+  
   private renderForm(): void {
     Form.header = new FormHeader(
       this.container,

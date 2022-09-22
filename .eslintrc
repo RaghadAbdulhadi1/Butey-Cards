@@ -1,20 +1,26 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"],
-    "extends": [
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
-    ],
-    "rules" : {
-      "@typescript-eslint/no-inferrable-types": "off",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/array-type": "warn",
-      "@typescript-eslint/explicit-function-return-type": "warn"
-    },
-    "env": {
-      "browser": true,
-      "node": true
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/array-type": "warn",
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "comma-spacing": "off",
+    "@typescript-eslint/comma-spacing": "warn",
+    "@typescript-eslint/consistent-type-assertions": "warn",
+    "@typescript-eslint/naming-convention": "warn",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/lines-between-class-members": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true
   },
   "globals": {
     "document": false

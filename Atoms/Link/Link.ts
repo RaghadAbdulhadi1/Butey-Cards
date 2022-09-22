@@ -1,8 +1,9 @@
 import { elementFactory } from "../../Utilities/utilities.js";
 
-export default class link {
+export default class Link {
   constructor(private className: string, private innerText: string, private href: string = "#") {
   }
+
   private addLink(): HTMLElement {
     return elementFactory<HTMLAnchorElement>(
       "a",
@@ -10,6 +11,7 @@ export default class link {
       this.innerText
     );
   }
+  
   public get link(): HTMLAnchorElement {
     return this.addLink() as HTMLAnchorElement;
   }
