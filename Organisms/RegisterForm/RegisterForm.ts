@@ -14,7 +14,6 @@ interface IRegisterForm {
   addEmailValidatoin(): void;
   addUserNameValidation(): void;
   addConfirmPasswordValidation(): void;
-  onSubmit(): void;
 }
 
 export default class RegisterForm extends Form implements IRegisterForm {
@@ -28,10 +27,11 @@ export default class RegisterForm extends Form implements IRegisterForm {
 
   isValid!: NodeListOf<HTMLElement> | null;
 
+  button!: HTMLButtonElement;
+
   constructor() {
     super(constants.registerParameters);
     this.addRegisterComponents();
-    this.onSubmit();
   }
 
   public addSelectOptions(): void {
@@ -62,7 +62,7 @@ export default class RegisterForm extends Form implements IRegisterForm {
     this.formLink.appendChild(constants.termsAndConditions);
     this.formClickables.appendChild(this.formLink);
   }
-  
+
   public addClickables(): void {
     this.formContainer.appendChild(this.formClickables);
   }
@@ -100,31 +100,29 @@ export default class RegisterForm extends Form implements IRegisterForm {
     );
   }
 
-  public onSubmit(): void {
-    this.email = (utils.getElementByClassName(".signup-email") as HTMLInputElement);
+  public onSubmit(e: Event): void {
+    this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
-    constants.registerFormContainer.addEventListener("submit", (e: Event) => {
-      this.isValid = utils.getClassesWithSameName(".valid") as NodeListOf<HTMLElement>;
-      e.preventDefault();
-      if (this.isValid.length == 6) {
-        const llocalStorage = new LocalStorage();
-        const data = llocalStorage.getLocalStorage();
-        data[this.email.value] = {
-          email: this.email.value,
-          username: this.username.value,
-          password: this.password.value,
-        };
-        llocalStorage.addToLocalStorage(data);
-        utils.clearFormFeilds(
-          this.email,
-          this.username,
-          this.password,
-          this.confirmPassword
-        );
-      }
-    });
+    this.isValid = utils.getClassesWithSameName(".valid") as NodeListOf<HTMLElement>;
+    e.preventDefault();
+    const llocalStorage = new LocalStorage();
+    if (this.isValid.length == 6) {
+      const data = llocalStorage.getLocalStorage();
+      data[this.email.value] = {
+        email: this.email.value,
+        username: this.username.value,
+        password: this.password.value,
+      };
+      llocalStorage.addToLocalStorage(data);
+      utils.clearFormFeilds(
+        this.email,
+        this.username,
+        this.password,
+        this.confirmPassword
+      );
+    }
   }
 
   public addRegisterComponents(): void {
@@ -138,5 +136,6 @@ export default class RegisterForm extends Form implements IRegisterForm {
     this.addEmailValidatoin();
     this.addUserNameValidation();
     this.addConfirmPasswordValidation();
+    this.formSubmitButton.addEventListener("click", this.onSubmit);
   }
 }

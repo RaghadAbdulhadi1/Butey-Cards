@@ -8,10 +8,10 @@ export default class RegisterForm extends Form {
     password;
     confirmPassword;
     isValid;
+    button;
     constructor() {
         super(constants.registerParameters);
         this.addRegisterComponents();
-        this.onSubmit();
     }
     addSelectOptions() {
         constants.registerSelectOptions.forEach((inputOption) => constants.registerSelectFeild.appendChild(inputOption));
@@ -59,26 +59,24 @@ export default class RegisterForm extends Form {
         constants.confirmPasswordValidationContainer.appendChild(constants.confirmPasswordValidationContent);
         this.formContainer.appendChild(constants.confirmPasswordValidationContainer);
     }
-    onSubmit() {
+    onSubmit(e) {
         this.email = utils.getElementByClassName(".signup-email");
         this.username = utils.getElementByClassName(".signup-name");
         this.password = utils.getElementByClassName(".signup-password");
         this.confirmPassword = utils.getElementByClassName(".confirm-password");
-        constants.registerFormContainer.addEventListener("submit", (e) => {
-            this.isValid = utils.getClassesWithSameName(".valid");
-            e.preventDefault();
-            if (this.isValid.length == 6) {
-                const llocalStorage = new LocalStorage();
-                const data = llocalStorage.getLocalStorage();
-                data[this.email.value] = {
-                    email: this.email.value,
-                    username: this.username.value,
-                    password: this.password.value,
-                };
-                llocalStorage.addToLocalStorage(data);
-                utils.clearFormFeilds(this.email, this.username, this.password, this.confirmPassword);
-            }
-        });
+        this.isValid = utils.getClassesWithSameName(".valid");
+        e.preventDefault();
+        const llocalStorage = new LocalStorage();
+        if (this.isValid.length == 6) {
+            const data = llocalStorage.getLocalStorage();
+            data[this.email.value] = {
+                email: this.email.value,
+                username: this.username.value,
+                password: this.password.value,
+            };
+            llocalStorage.addToLocalStorage(data);
+            utils.clearFormFeilds(this.email, this.username, this.password, this.confirmPassword);
+        }
     }
     addRegisterComponents() {
         this.addSelectOptions();
@@ -91,5 +89,6 @@ export default class RegisterForm extends Form {
         this.addEmailValidatoin();
         this.addUserNameValidation();
         this.addConfirmPasswordValidation();
+        this.formSubmitButton.addEventListener("click", this.onSubmit);
     }
 }
