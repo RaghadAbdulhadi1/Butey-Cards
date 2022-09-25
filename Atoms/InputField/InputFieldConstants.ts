@@ -1,5 +1,5 @@
 import InputFeild from "./InputField";
-import { APP_CONSTANTS } from '../../CONSTANT/apptext'
+import { APP_CONSTANTS } from '../../STRINGS/apptext'
 
 const loginInputFeilds: HTMLElement[] = [
   new InputFeild(

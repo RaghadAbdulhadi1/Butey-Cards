@@ -1,5 +1,5 @@
 import Paragraph from "./Paragraph.js";
-import { APP_CONSTANTS } from '../../CONSTANT/apptext.js';
+import { APP_CONSTANTS } from '../../STRINGS/apptext.js';
 const loginValidationContent = [
     new Paragraph(APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["LOGGED_IN_SUCCESS"], "", "success-failure")
         .paragraph,

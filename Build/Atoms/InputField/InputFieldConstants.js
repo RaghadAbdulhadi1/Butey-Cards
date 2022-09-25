@@ -1,5 +1,5 @@
 import InputFeild from "./InputField.js";
-import { APP_CONSTANTS } from '../../CONSTANT/apptext.js';
+import { APP_CONSTANTS } from '../../STRINGS/apptext.js';
 const loginInputFeilds = [
     new InputFeild("email", APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["LOGIN_INPUT_FEILDS"]["EMAIL"], "login-email", "fa-regular fa-envelope").formInput,
     new InputFeild("password", APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["LOGIN_INPUT_FEILDS"]["PASSWORD"], "login-password", "fa-sharp fa-solid fa-shield-halved").formInput

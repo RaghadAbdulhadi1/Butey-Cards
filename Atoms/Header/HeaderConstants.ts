@@ -1,5 +1,5 @@
 import Header from "./Header";
-import { APP_CONSTANTS } from '../../CONSTANT/apptext'
+import { APP_CONSTANTS } from '../../STRINGS/apptext'
 
 const passwordValidationTitle: HTMLElement = new Header(
   APP_CONSTANTS["ATOMS"]["VALIDATION_TITLE"]["REGISTER_FORM"]["PASSWORD_CHECK"], "validationHeader"

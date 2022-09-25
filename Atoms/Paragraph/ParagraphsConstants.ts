@@ -1,5 +1,5 @@
 import Paragraph from "./Paragraph";
-import { APP_CONSTANTS } from '../../CONSTANT/apptext'
+import { APP_CONSTANTS } from '../../STRINGS/apptext'
 
 const loginValidationContent: HTMLElement[] = [
   new Paragraph(APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["LOGGED_IN_SUCCESS"], "", "success-failure")

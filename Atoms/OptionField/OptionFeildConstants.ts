@@ -1,5 +1,5 @@
 import OptionField from './OptionField';
-import { APP_CONSTANTS } from '../../CONSTANT/apptext'
+import { APP_CONSTANTS } from '../../STRINGS/apptext'
 
 const registerSelectOptions: HTMLElement[] = [
     new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_ONE"]).option,
