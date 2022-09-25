@@ -1,6 +1,6 @@
-import Span from './Span.js';
+import Span from './Span';
 
-const termsAndConditions: HTMLSpanElement = new Span(
+const termsAndConditions: HTMLElement = new Span(
     "By Clicking on register, you agree on ",
     "terms and conditions."
   ).span;

@@ -1,12 +1,13 @@
-import OptionField from './OptionField.js';
+import OptionField from './OptionField';
+import { APP_CONSTANTS } from '../../CONSTANT/apptext'
 
-const registerSelectOptions: HTMLOptionElement[] = [
-    new OptionField("Country").option,
-    new OptionField("Jordan").option,
-    new OptionField("Lebanon").option,
-    new OptionField("Syria").option,
-    new OptionField("Palestine").option,
-    new OptionField("Iraq").option,
+const registerSelectOptions: HTMLElement[] = [
+    new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_ONE"]).option,
+    new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_TWO"]).option,
+    new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_THREE"]).option,
+    new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_FOUR"]).option,
+    new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_FIVE"]).option,
+    new OptionField(APP_CONSTANTS["ATOMS"]["COUNTRY_CHOICES"]["CHOICE_SIX"]).option,
   ];
 
 export {

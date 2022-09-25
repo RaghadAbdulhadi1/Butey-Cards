@@ -1,7 +1,7 @@
-import Title from './Text.js';
+import Title from './Text';
 
-const loginFormTitle: HTMLDivElement = new Title("title", "Login").text;
-const registerFormTitle: HTMLDivElement = new Title("title", "Registeration").text;
+const loginFormTitle: HTMLElement = new Title("title", "Login").text;
+const registerFormTitle: HTMLElement = new Title("title", "Registeration").text;
 
 export {
     loginFormTitle,

@@ -1,11 +1,15 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class SelectFeild {
-  private addSelectFeild(): HTMLElement {
+interface ISelectFeild {
+  addSelectFeild(): HTMLElement
+}
+
+export default class SelectFeild implements ISelectFeild {
+  public addSelectFeild(): HTMLElement {
     return elementFactory<HTMLSelectElement>("select", { class: "countries", name: "countries" });
   }
   
-  public get select(): HTMLSelectElement {
-    return this.addSelectFeild() as HTMLSelectElement;
+  public get select(): HTMLElement {
+    return this.addSelectFeild();
   }
 }

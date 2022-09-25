@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class OptionField {
+interface IOptionFeild {
+  addOptions(): HTMLElement
+}
+
+export default class OptionField implements IOptionFeild {
   constructor(private optionText: string) {
   }
 
-  private addOptions(): HTMLElement {
+  public addOptions(): HTMLElement {
     return elementFactory<HTMLOptionElement>(
       "option",
       { value: this.optionText.toLowerCase() },
@@ -12,7 +16,7 @@ export default class OptionField {
     );
   }
   
-  public get option(): HTMLOptionElement {
-    return this.addOptions() as HTMLOptionElement;
+  public get option(): HTMLElement {
+    return this.addOptions();
   }
 }

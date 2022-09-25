@@ -1,7 +1,7 @@
-import LineBreak from './LineBreak.js';
+import LineBreak from './LineBreak';
 
-const loginLineBreak: HTMLDivElement = new LineBreak().lineBreak;
-const registerLineBreak: HTMLDivElement = new LineBreak().lineBreak;
+const loginLineBreak: HTMLElement = new LineBreak().lineBreak;
+const registerLineBreak: HTMLElement = new LineBreak().lineBreak;
 
 export {
     loginLineBreak,

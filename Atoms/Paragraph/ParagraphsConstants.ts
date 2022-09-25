@@ -1,48 +1,49 @@
-import Paragraph from "./Paragraph.js";
+import Paragraph from "./Paragraph";
+import { APP_CONSTANTS } from '../../CONSTANT/apptext'
 
-const loginValidationContent: HTMLParagraphElement[] = [
-  new Paragraph("You have been logged in successfully", "", "success-failure")
+const loginValidationContent: HTMLElement[] = [
+  new Paragraph(APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["LOGGED_IN_SUCCESS"], "", "success-failure")
     .paragraph,
-  new Paragraph("Check your password", "", "password-failure").paragraph,
-  new Paragraph("User with this email doesn't exist", "", "user-failure")
+  new Paragraph(APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["PASSWORD_CHECK"], "", "password-failure").paragraph,
+  new Paragraph(APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["EMAIL_ADDRESS_CHECK"], "", "user-failure")
     .paragraph,
 ];
 
-const smallLetterPasswordValidationContent: HTMLParagraphElement = new Paragraph(
-  "A small (loswercase) letter",
+const smallLetterPasswordValidationContent: HTMLElement = new Paragraph(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["SMALL_LETTER_CHECK"],
   "letter",
   "invalid"
 ).paragraph;
-const capitalLetterPasswordValidationContent: HTMLParagraphElement = new Paragraph(
-  "A capital (uppercase) letter",
+const capitalLetterPasswordValidationContent: HTMLElement = new Paragraph(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["CAPITAL_LETTER_CHECK"],
   "capital",
   "invalid"
 ).paragraph;
-const numbersLetterPasswordValidationContent: HTMLParagraphElement = new Paragraph(
-  "A number",
+const numbersLetterPasswordValidationContent: HTMLElement = new Paragraph(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["NUMBERS_CHECK"],
   "number",
   "invalid"
 ).paragraph;
-const charactersLetterPasswordValidationContent: HTMLParagraphElement = new Paragraph(
-  "A symbol",
+const charactersLetterPasswordValidationContent: HTMLElement = new Paragraph(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["CHARCHTERS_CHECK"],
   "characters",
   "invalid"
 ).paragraph;
 
-const confirmPasswordValidationContent : HTMLParagraphElement= new Paragraph(
+const confirmPasswordValidationContent : HTMLElement= new Paragraph(
   "Passwords doesn't match",
   "",
   "confirm-failure"
 ).paragraph;
 
-const userNameValidationContent: HTMLParagraphElement = new Paragraph(
-  "All small (lowercase) letters and starts with a character",
+const userNameValidationContent: HTMLElement = new Paragraph(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["USER_NAME_CHECK"],
   "small-letters",
   "invalid"
 ).paragraph;
 
-const emailValidationContent: HTMLParagraphElement = new Paragraph(
-  "Valid email",
+const emailValidationContent: HTMLElement = new Paragraph(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["EMAIL_ADDRESS_CHECK"],
   "email-val",
   "invalid"
 ).paragraph;

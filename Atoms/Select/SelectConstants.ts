@@ -1,6 +1,6 @@
-import SelectFeild from './Select.js';
+import SelectFeild from './Select';
 
-const registerSelectFeild: HTMLSelectElement = new SelectFeild().select;
+const registerSelectFeild: HTMLElement = new SelectFeild().select;
 
 export {
     registerSelectFeild

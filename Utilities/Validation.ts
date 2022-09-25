@@ -1,11 +1,19 @@
-import * as constants from "../Organisms/RegisterForm/RegisterConstants.js";
+import * as constants from "../Organisms/RegisterForm/RegisterConstants";
 
-import * as utils from './utilities.js';
+import * as utils from './utilities';
 interface User {
   [email: string]: string;
 }
 
-export default class Validation {
+interface IUser {
+  userNameValidation(): void;
+  emailValidation(): void;
+  passwordValidation(): void;
+  onBlurConfirmPasswordFeild(): void;
+  validateInputs(): void;
+}
+
+export default class Validation implements IUser {
   email!: HTMLInputElement
 
   emailVal!: HTMLParagraphElement
@@ -43,16 +51,16 @@ export default class Validation {
     this.username.oninput = this.onKeyUserNameFeild;
   }
 
-  public onFocusUserNameFeild(): void {
+  private onFocusUserNameFeild(): void {
     this.message = utils.getElementByClassName(".username-validation") as HTMLParagraphElement;
     this.message.classList.add("onUserValidation");
   }
 
-  public onBlurUserNameFeild(): void {
+  private onBlurUserNameFeild(): void {
     this.message.classList.remove("onUserValidation");
   }
 
-  public onKeyUserNameFeild(): void {
+  private onKeyUserNameFeild(): void {
     this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
     this.smallLetters = utils.getElementById("small-letters") as HTMLParagraphElement;
     if (this.username.value.match(constants.usernameRegex)) {
@@ -72,16 +80,16 @@ export default class Validation {
     this.email.onkeyup = this.onKeyupEmailFeild;
   }
 
-  public onFocusEmailFeild(): void {
+  private onFocusEmailFeild(): void {
     this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
     this.message.classList.add("onEmailValidation");
   }
 
-  public onBlurEmailFeild(): void {
+  private onBlurEmailFeild(): void {
     this.message.classList.remove("onEmailValidation");
   }
 
-  public onKeyupEmailFeild(): void {
+  private onKeyupEmailFeild(): void {
     this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
     this.emailVal = utils.getElementById("email-val") as HTMLParagraphElement;
     const users = localStorage.getItem("Users") as string | null;
@@ -117,16 +125,16 @@ export default class Validation {
     this.confirmPassword.onblur = this.onBlurConfirmPasswordFeild;
   }
 
-  public onFocusPasswordFeild(): void {
+  private onFocusPasswordFeild(): void {
     this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
     this.message.classList.add("onValidation");
   }
 
-  public onBlurPasswordFeild(): void {
+  private onBlurPasswordFeild(): void {
     this.message.classList.remove("onValidation");
   }
 
-  public onKeyUpPasswordFeild(): void {
+  private onKeyUpPasswordFeild(): void {
     // lowercase
     this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
     this.letter = utils.getElementById("letter") as HTMLParagraphElement;

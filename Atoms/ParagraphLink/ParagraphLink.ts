@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class ParagraphLink {
+interface IParagraphLink {
+  addParagraphLink(): HTMLElement
+}
+
+export default class ParagraphLink implements IParagraphLink {
   constructor(private paragraphText: string, private innerText: string, private className: string = "", private href: string = "#") {
   }
 
-  private addParagraphLink(): HTMLElement {
+  public addParagraphLink(): HTMLElement {
     return elementFactory<HTMLParagraphElement>(
       "p",
       { class: this.paragraphText },
@@ -13,7 +17,7 @@ export default class ParagraphLink {
     );
   }
   
-  public get paragraphLink(): HTMLParagraphElement {
-    return this.addParagraphLink() as HTMLParagraphElement;
+  public get paragraphLink(): HTMLElement {
+    return this.addParagraphLink();
   }
 }

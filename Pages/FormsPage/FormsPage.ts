@@ -1,4 +1,4 @@
-import FormSwitcher from '../../Templates/FormSwitcher/FormSwitcher.js';
+import FormSwitcher from '../../Templates/FormSwitcher/FormSwitcher';
 
 class FormPage {
   constructor(){

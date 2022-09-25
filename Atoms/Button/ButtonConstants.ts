@@ -1,7 +1,8 @@
-import Button from './Button.js';
+import Button from './Button';
+import { APP_CONSTANTS } from '../../CONSTANT/apptext'
 
-const loginSubmitButton:HTMLButtonElement = new Button("login").button;
-const registerSubmitButton: HTMLButtonElement = new Button("register").button;
+const loginSubmitButton:HTMLElement = new Button(APP_CONSTANTS["ATOMS"]["BUTTON"]["LOGIN_BUTTON"]).button;
+const registerSubmitButton: HTMLElement = new Button(APP_CONSTANTS["ATOMS"]["BUTTON"]["REGISTER_BUTTON"]).button;
 
 export {
     loginSubmitButton,

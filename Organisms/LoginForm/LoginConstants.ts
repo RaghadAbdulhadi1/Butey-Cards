@@ -1,19 +1,16 @@
-import { loginFormTitle } from "../../Atoms/Text/TextConstants.js";
-import { loginLineBreak } from "../../Atoms/LineBreak/LineBreakConstants.js";
-import { loginInputFeilds } from "../../Atoms/InputField/InputFieldConstants.js";
-import { loginFormContainer } from "../../Atoms/Form/FormConstants.js";
-import { loginSubmitButton } from "../../Atoms/Button/ButtonConstants.js";
-import { switchToRegisterFormLink } from "../../Atoms/ParagraphLink/ParagraphLinkConstants.js";
-import { loginValidationContent } from "../../Atoms/Paragraph/ParagraphsConstants.js";
+import { loginFormTitle } from "../../Atoms/Text/TextConstants";
+import { loginLineBreak } from "../../Atoms/LineBreak/LineBreakConstants";
+import { loginInputFeilds } from "../../Atoms/InputField/InputFieldConstants";
+import { loginFormContainer } from "../../Atoms/Form/FormConstants";
+import { loginSubmitButton } from "../../Atoms/Button/ButtonConstants";
+import { switchToRegisterFormLink } from "../../Atoms/ParagraphLink/ParagraphLinkConstants";
+import { loginValidationContent } from "../../Atoms/Paragraph/ParagraphsConstants";
 import {
   logInContainer,
   loginClickables,
   loginLink,
   validationContainer,
-} from "../../Atoms/Div/DivConstants.js";
-import IFormParameters  from "../../Organisms//Form/FormConstants.js";
-
-
+} from "../../Atoms/Div/DivConstants";
 
 const loginParameters: IFormParameters = {
   container: logInContainer,

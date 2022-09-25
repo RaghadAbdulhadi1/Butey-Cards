@@ -1,25 +1,21 @@
-import FormHeader from "../../Molecules/form-header/FormHeader.js";
-import FormBody from "../../Molecules/form-body/FormBody.js";
-import FormFooter from "../../Molecules/form-footer/FormFooter.js";
+import FormHeader from "../../Molecules/form-header/FormHeader";
+import FormBody from "../../Molecules/form-body/FormBody";
+import FormFooter from "../../Molecules/form-footer/FormFooter";
 
-interface FormParameters  {
-  container: HTMLElement,
-  formTitle: HTMLElement,
-  formLineBreak: HTMLElement,
-  formInputFeilds: HTMLElement[],
-  formContainer: HTMLElement,
-  formClickables: HTMLElement,
-  formSubmitButton: HTMLElement,
-  formLink: HTMLElement,
-  switchLink: HTMLElement,
+interface IForm {
+  readonly header: FormHeader 
+  readonly body: FormBody
+  readonly footer: FormFooter
+  addFormParameters(form: IFormParameters): void;
+  renderForm(): void
 }
 
-export default class Form {
-  static header: FormHeader 
-
-  static body: FormBody
-
-  static footer: FormFooter
+export default class Form implements IForm {
+  header!: FormHeader 
+  
+  body!: FormBody
+  
+  footer!: FormFooter
 
   formInputFeilds!: HTMLElement[];
 
@@ -39,12 +35,12 @@ export default class Form {
 
   switchLink!: HTMLElement;
   
-  constructor(form: FormParameters) {
+  constructor(form: IFormParameters) {
     this.addFormParameters(form);
     this.renderForm();
   }
 
-  private addFormParameters(form: FormParameters): void {
+  public addFormParameters(form: IFormParameters): void {
     this.container = form.container;
     this.formTitle = form.formTitle;
     this.formLineBreak = form.formLineBreak;
@@ -56,18 +52,18 @@ export default class Form {
     this.switchLink = form.switchLink;
   }
   
-  private renderForm(): void {
-    Form.header = new FormHeader(
+  public renderForm(): void {
+    this.header = new FormHeader(
       this.container,
       this.formTitle,
       this.formLineBreak
     ) as FormHeader;
-    Form.body = new FormBody(
+    this.body = new FormBody(
       this.container,
       this.formContainer,
       this.formInputFeilds
     ) as FormBody;
-    Form.footer = new FormFooter(
+    this.footer = new FormFooter(
       this.container,
       this.formClickables,
       this.formSubmitButton,

@@ -1,7 +1,7 @@
-import Form from './Form.js';
+import Form from './Form';
 
-const loginFormContainer: HTMLFormElement = new Form("login-form-id").form;
-const registerFormContainer: HTMLFormElement = new Form("register-form-id").form;
+const loginFormContainer: HTMLElement = new Form("login-form-id").form;
+const registerFormContainer: HTMLElement = new Form("register-form-id").form;
 
 export {
     loginFormContainer,

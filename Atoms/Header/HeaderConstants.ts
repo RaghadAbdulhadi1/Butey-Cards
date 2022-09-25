@@ -1,15 +1,16 @@
-import Header from "./Header.js";
+import Header from "./Header";
+import { APP_CONSTANTS } from '../../CONSTANT/apptext'
 
-const passwordValidationTitle: HTMLHeadElement = new Header(
-  "Password must contain the following:"
+const passwordValidationTitle: HTMLElement = new Header(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_TITLE"]["REGISTER_FORM"]["PASSWORD_CHECK"], "validationHeader"
 ).header;
 
-const userNameValidationTitle: HTMLHeadElement = new Header(
-  "Username must contain the following:"
+const userNameValidationTitle: HTMLElement = new Header(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_TITLE"]["REGISTER_FORM"]["USER_NAME_CHECK"], "validationHeader"
 ).header;
 
-const emailValidationTitle: HTMLHeadElement = new Header(
-    "Email must be in the correct format"
+const emailValidationTitle: HTMLElement = new Header(
+  APP_CONSTANTS["ATOMS"]["VALIDATION_TITLE"]["REGISTER_FORM"]["EMAIL_ADDRESS_CHECK"], "validationHeader"
   ).header;
 
 export {

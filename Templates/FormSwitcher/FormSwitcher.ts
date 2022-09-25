@@ -1,18 +1,24 @@
-import LoginForm from "../../Organisms/LoginForm/LoginForm.js";
-import RegisterForm from "../../Organisms/RegisterForm/RegisterForm.js";
-import Validation from "../../Utilities/Validation.js";
-import * as utils from "../../Utilities/utilities.js";
-import * as loginConstants from "../../Organisms/LoginForm/LoginConstants.js";
-import * as registerConstants from "../../Organisms/RegisterForm/RegisterConstants.js";
+import LoginForm from "../../Organisms/LoginForm/LoginForm";
+import RegisterForm from "../../Organisms/RegisterForm/RegisterForm";
+import Validation from "../../Utilities/Validation";
+import * as utils from "../../Utilities/utilities";
+import * as loginConstants from "../../Organisms/LoginForm/LoginConstants";
+import * as registerConstants from "../../Organisms/RegisterForm/RegisterConstants";
 import {
   formsContainer,
   forms,
   container,
   registerContainer,
   logInContainer
-} from "../../Atoms/Div/DivConstants.js";
+} from "../../Atoms/Div/DivConstants";
 
-export default class FormSwitcher {
+interface IFormSwitcher {
+  container: HTMLElement;
+  switchToLogin(): void;
+  switchToRegister(): void;
+}
+
+export default class FormSwitcher implements IFormSwitcher {
   container: HTMLElement;
 
   constructor() {

@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Paragraph {
+interface IParagraph {
+  addParagraph(): HTMLElement;
+}
+
+export default class Paragraph implements IParagraph {
   constructor(private paragraphText: string, private id: string, private className: string) {
   }
 
-  private addParagraph(): HTMLElement {
+  public addParagraph(): HTMLElement {
     return elementFactory<HTMLParagraphElement>(
       "p",
       { id: this.id, class: this.className },
@@ -12,7 +16,7 @@ export default class Paragraph {
     );
   }
   
-  public get paragraph(): HTMLParagraphElement {
-    return this.addParagraph() as HTMLParagraphElement;
+  public get paragraph(): HTMLElement {
+    return this.addParagraph();
   }
 }

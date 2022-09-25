@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Container {
+interface IContainer {
+  addContainer(): HTMLElement
+}
+
+export default class Container implements IContainer {
   constructor(private className: string, private containerText: string = "", private id: string = "") {
   }
 
-  private addContainer(): HTMLElement {
+  public addContainer(): HTMLElement {
     return elementFactory<HTMLDivElement>(
       "div",
       { class: this.className, id: this.id },
@@ -12,7 +16,7 @@ export default class Container {
     );
   }
   
-  public get container(): HTMLDivElement {
-    return this.addContainer() as HTMLDivElement;
+  public get container(): HTMLElement {
+    return this.addContainer();
   }
 }

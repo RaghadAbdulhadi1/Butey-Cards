@@ -1,10 +1,13 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Button {
+interface IButton {
+  addButton(): HTMLElement
+}
+export default class Button implements IButton {
   constructor(private value: string) {
   }
 
-  private addButton(): HTMLElement {
+  public addButton(): HTMLElement {
     return elementFactory<HTMLDivElement>(
       "div",
       { class: "button" },
@@ -18,7 +21,7 @@ export default class Button {
     );
   }
   
-  public get button(): HTMLButtonElement {
-    return this.addButton() as HTMLButtonElement;
+  public get button(): HTMLElement {
+    return this.addButton();
   }
 }

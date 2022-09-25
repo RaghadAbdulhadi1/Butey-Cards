@@ -1,14 +1,18 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Icon {
+interface IIcon {
+  addIcon(): HTMLElement;
+}
+
+export default class Icon implements IIcon {
   constructor(private iconClass: string) {
   }
 
-  private addIcon(): HTMLElement {
+  public addIcon(): HTMLElement {
     return elementFactory<HTMLLinkElement>("i", { class: this.iconClass });
   }
   
-  public get iconLink(): HTMLLinkElement{
-    return this.addIcon() as HTMLLinkElement;
+  public get iconLink(): HTMLElement{
+    return this.addIcon();
   }
 }

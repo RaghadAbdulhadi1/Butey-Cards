@@ -1,8 +1,17 @@
-import Form from "../Form/Form.js";
-import * as constants from "../LoginForm/LoginConstants.js";
-import * as utils from "../../Utilities/utilities.js";
+import Form from "../Form/Form";
+import * as constants from "../LoginForm/LoginConstants";
+import * as utils from "../../Utilities/utilities";
 
-export default class LoginForm extends Form {
+interface ILoginForm {
+  addLoginButton(): void;
+  addSwitchToRegisterLink(): void ;
+  addClickables(): void;
+  addValidationContent(): void;
+  validateLogin(e: Event): void;
+  addLoginComponents(): void;
+}
+
+export default class LoginForm extends Form implements ILoginForm{
   email!: HTMLInputElement;
 
   password!: HTMLInputElement;
@@ -18,27 +27,27 @@ export default class LoginForm extends Form {
     this.addLoginComponents();
   }
 
-  private addLoginButton(): void {
+  public addLoginButton(): void {
     this.formClickables.appendChild(this.formSubmitButton);
   }
 
-  private addSwitchToRegisterLink(): void {
+  public addSwitchToRegisterLink(): void {
     this.formLink.appendChild(this.switchLink);
     this.formClickables.appendChild(this.formLink);
   }
 
-  private addClickables(): void {
+  public addClickables(): void {
     this.formContainer.appendChild(this.formClickables);
   }
 
-  private addValidationContent(): void {
+  public addValidationContent(): void {
     constants.loginValidationContent.forEach((validationParaghraph) =>
       constants.validationContainer.appendChild(validationParaghraph)
     );
     this.formContainer.appendChild(constants.validationContainer);
   }
 
-  private validateLogin(e: Event): void {
+  public validateLogin(e: Event): void {
     e.preventDefault();
     this.email = utils.getElementByClassName(".login-email") as HTMLInputElement;
     this.password = utils.getElementByClassName(".login-password") as HTMLInputElement;
@@ -67,7 +76,7 @@ export default class LoginForm extends Form {
     }
   }
   
-  private addLoginComponents(): void {
+  public addLoginComponents(): void {
     this.addLoginButton();
     this.addSwitchToRegisterLink();
     this.addClickables();

@@ -1,41 +1,42 @@
-import InputFeild from "./InputField.js";
+import InputFeild from "./InputField";
+import { APP_CONSTANTS } from '../../CONSTANT/apptext'
 
-const loginInputFeilds: HTMLInputElement[] = [
+const loginInputFeilds: HTMLElement[] = [
   new InputFeild(
     "email",
-    "Enter your email",
+    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["LOGIN_INPUT_FEILDS"]["EMAIL"],
     "login-email",
     "fa-regular fa-envelope"
-  ).formInput as HTMLInputElement,
+  ).formInput,
   new InputFeild(
     "password",
-    "Enter your password",
+    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["LOGIN_INPUT_FEILDS"]["PASSWORD"],
     "login-password",
     "fa-sharp fa-solid fa-shield-halved"
-  ).formInput as HTMLInputElement,
-];
+  ).formInput
+]
 
-const registerInputFeilds: HTMLInputElement[] = [
+const registerInputFeilds: HTMLElement[] = [
   new InputFeild(
     "email",
-    "Enter your email",
+    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["EMAIL"],
     "signup-email",
     "fa-regular fa-envelope"
-  ).formInput as HTMLInputElement,
-  new InputFeild("text", "Enter your name", "signup-name", "fa-solid fa-user")
-    .formInput as HTMLInputElement,
+  ).formInput,
+  new InputFeild("text", APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["USER_NAME"], "signup-name", "fa-solid fa-user")
+    .formInput,
   new InputFeild(
     "password",
-    "Create a password",
+    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["PASSWORD"],
     "signup-password",
     "fa-sharp fa-solid fa-shield-halved"
-  ).formInput as HTMLInputElement,
+  ).formInput,
   new InputFeild(
     "password",
-    "Confirm your password",
+    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["CONFIRM_PASSWORD"],
     "confirm-password",
     "fa-sharp fa-solid fa-shield-halved"
-  ).formInput as HTMLInputElement,
+  ).formInput,
 ];
 
 export {

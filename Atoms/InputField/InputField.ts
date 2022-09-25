@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class InputFeild {
+interface IInputFeild {
+  addFormInput(): HTMLElement
+}
+
+export default class InputFeild implements IInputFeild {
   constructor(private type: string, private placeholder: string, private className: string, private iconClass: string) {
   }
 
-  private addFormInput(): HTMLElement {
+  public addFormInput(): HTMLElement {
     return elementFactory<HTMLDivElement>(
       "div",
       { class: "input-feild" },
@@ -17,7 +21,7 @@ export default class InputFeild {
     );
   }
   
-  public get formInput(): HTMLDivElement{
-    return this.addFormInput() as HTMLDivElement;
+  public get formInput(): HTMLElement{
+    return this.addFormInput();
   }
 }

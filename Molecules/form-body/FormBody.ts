@@ -1,9 +1,12 @@
-export default class FormBody {
+interface IFormBody {
+  addInputs(): void 
+}
+export default class FormBody implements IFormBody {
   constructor(private container: HTMLElement, private formContainer: HTMLElement, private formInputFeilds: HTMLElement[]) {
     this.addInputs();
   }
   
-  private addInputs(): void {
+  public addInputs(): void {
     this.formInputFeilds.forEach((inputField) =>
       this.formContainer.appendChild(inputField)
     );

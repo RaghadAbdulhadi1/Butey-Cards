@@ -1,8 +1,8 @@
-import { registerFormTitle } from "../../Atoms/Text/TextConstants.js";
-import { registerLineBreak } from "../../Atoms/LineBreak/LineBreakConstants.js";
-import { registerInputFeilds } from "../../Atoms/InputField/InputFieldConstants.js";
-import { registerSubmitButton } from "../../Atoms/Button/ButtonConstants.js";
-import { switchToLoginFormLink } from "../../Atoms/ParagraphLink/ParagraphLinkConstants.js";
+import { registerFormTitle } from "../../Atoms/Text/TextConstants";
+import { registerLineBreak } from "../../Atoms/LineBreak/LineBreakConstants";
+import { registerInputFeilds } from "../../Atoms/InputField/InputFieldConstants";
+import { registerSubmitButton } from "../../Atoms/Button/ButtonConstants";
+import { switchToLoginFormLink } from "../../Atoms/ParagraphLink/ParagraphLinkConstants";
 import {
   registerContainer,
   registerClickables,
@@ -14,7 +14,7 @@ import {
   emailAlreadyExistsValidationContainer,
   userNameValidationContainer,
   passwordValidationContainer
-} from "../../Atoms/Div/DivConstants.js";
+} from "../../Atoms/Div/DivConstants";
 import {
   smallLetterPasswordValidationContent,
   capitalLetterPasswordValidationContent,
@@ -23,18 +23,17 @@ import {
   confirmPasswordValidationContent,
   userNameValidationContent,
   emailValidationContent,
-} from "../../Atoms/Paragraph/ParagraphsConstants.js";
+} from "../../Atoms/Paragraph/ParagraphsConstants";
 import {
   passwordValidationTitle,
   userNameValidationTitle,
   emailValidationTitle,
-} from "../../Atoms/Header/HeaderConstants.js";
-import { registerSelectFeild } from "../../Atoms/Select/SelectConstants.js";
-import { registerRadioFeild } from "../../Atoms/RadioField/RadioFeildConstants.js";
-import { termsAndConditions } from "../../Atoms/Span/SpanConstants.js";
-import { registerSelectOptions } from "../../Atoms/OptionField/OptionFeildConstants.js";
-import { registerFormContainer } from "../../Atoms/Form/FormConstants.js";
-import IFormParameters  from "../../Organisms//Form/FormConstants.js"
+} from "../../Atoms/Header/HeaderConstants";
+import { registerSelectFeild } from "../../Atoms/Select/SelectConstants";
+import { registerRadioFeild } from "../../Atoms/RadioField/RadioFeildConstants";
+import { termsAndConditions } from "../../Atoms/Span/SpanConstants";
+import { registerSelectOptions } from "../../Atoms/OptionField/OptionFeildConstants";
+import { registerFormContainer } from "../../Atoms/Form/FormConstants";
 
 const passwordValidationParagraphs: HTMLElement[] = [
   passwordValidationTitle,

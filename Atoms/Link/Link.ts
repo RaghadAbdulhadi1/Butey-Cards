@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Link {
+interface ILink {
+  addLink(): HTMLElement
+}
+
+export default class Link implements ILink {
   constructor(private className: string, private innerText: string, private href: string = "#") {
   }
 
-  private addLink(): HTMLElement {
+  public addLink(): HTMLElement {
     return elementFactory<HTMLAnchorElement>(
       "a",
       { class: this.className, href: this.href },
@@ -12,7 +16,7 @@ export default class Link {
     );
   }
   
-  public get link(): HTMLAnchorElement {
-    return this.addLink() as HTMLAnchorElement;
+  public get link(): HTMLElement {
+    return this.addLink();
   }
 }

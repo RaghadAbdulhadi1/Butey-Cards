@@ -1,11 +1,15 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class LineBreak {
-  private addlineBreak(): HTMLElement {
+interface ILineBreak {
+  addlineBreak(): HTMLElement
+}
+
+export default class LineBreak implements ILineBreak {
+  public addlineBreak(): HTMLElement {
     return elementFactory<HTMLDivElement>("div", { class: "line-break" });
   }
   
-  public get lineBreak(): HTMLDivElement {
-    return this.addlineBreak() as HTMLDivElement;
+  public get lineBreak(): HTMLElement {
+    return this.addlineBreak();
   }
 }

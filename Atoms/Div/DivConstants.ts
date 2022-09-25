@@ -1,9 +1,9 @@
-import Container from "./Div.js";
-import * as utils from "../../Utilities/utilities.js";
+import Container from "./Div";
+import { getElementById } from "../../Utilities/utilities";
 
-type ElementContainer = HTMLDivElement;
+type ElementContainer = HTMLElement;
 
-const container = utils.getElementById("container") as HTMLDivElement;
+const container = getElementById("container") as HTMLElement;
 const formsContainer: ElementContainer = new Container("forms-container").container;
 const forms:ElementContainer = new Container("forms").container;
 

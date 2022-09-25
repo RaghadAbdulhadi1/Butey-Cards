@@ -1,17 +1,24 @@
-export default class FormHeader {
+interface IFormHeader{
+  addTitle(): void;
+  addLineBreak(): void;
+  addHeaderComponents(): void;
+}
+
+export default class FormHeader implements IFormHeader{
+
   constructor(private container: HTMLElement, private formTitle: HTMLElement, private formLineBreak: HTMLElement) {
-    this.addHeaderComponents();
+  this.addHeaderComponents();
   }
 
-  private addTitle(): void {
+  public addTitle(): void {
     this.container.appendChild(this.formTitle);
   }
 
-  private addLineBreak(): void {
+  public addLineBreak(): void {
     this.container.appendChild(this.formLineBreak);
   }
   
-  private addHeaderComponents(): void {
+  public addHeaderComponents(): void {
     this.addTitle();
     this.addLineBreak();
   }

@@ -1,10 +1,14 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Span {
+interface ISpan {
+  addSpan(): HTMLElement
+}
+
+export default class Span implements ISpan {
   constructor(private spanText: string, private innerText: string) {
   }
 
-  private addSpan(): HTMLElement {
+  public addSpan(): HTMLElement {
     return elementFactory<HTMLSpanElement>(
       "span",
       {},
@@ -13,7 +17,7 @@ export default class Span {
     );
   }
   
-  public get span(): HTMLSpanElement{
-    return this.addSpan() as HTMLSpanElement;
+  public get span(): HTMLElement{
+    return this.addSpan();
   }
 }

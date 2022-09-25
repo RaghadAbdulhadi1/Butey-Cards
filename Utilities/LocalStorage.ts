@@ -6,7 +6,12 @@ export default interface IJsonFormate {
 
 export default class LocalStorage {
   public addToLocalStorage(storageData: IJsonFormate): void {
-    localStorage.setItem("Users", JSON.stringify(storageData));
+    try {
+      localStorage.setItem("Users", JSON.stringify(storageData));
+    }
+    catch (err){
+      throw new Error(`${err}`);
+    }
   }
   
   public getLocalStorage(){

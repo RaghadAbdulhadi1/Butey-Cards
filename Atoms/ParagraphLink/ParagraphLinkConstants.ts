@@ -1,12 +1,12 @@
-import ParagraphLink from "./ParagraphLink.js";
+import ParagraphLink from "./ParagraphLink";
 
-const switchToRegisterFormLink: HTMLDivElement = new ParagraphLink(
+const switchToRegisterFormLink: HTMLElement = new ParagraphLink(
   "Not a member? ",
   "Register",
   "register-link"
 ).paragraphLink;
 
-const switchToLoginFormLink: HTMLDivElement = new ParagraphLink(
+const switchToLoginFormLink: HTMLElement = new ParagraphLink(
   "Already registered? ",
   "Login",
   "login-link"

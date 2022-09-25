@@ -1,14 +1,18 @@
-import { elementFactory } from "../../Utilities/utilities.js";
+import { elementFactory } from "../../Utilities/utilities";
 
-export default class Header {
-  constructor(private text: string, private type: string = "h3") {
+interface IHeader {
+  addHeader(): HTMLElement;
+}
+
+export default class Header implements IHeader {
+  constructor(private text: string, private className: string, private type: string = "h3") {
   }
 
-  private addHeader(): HTMLElement {
-    return elementFactory<HTMLTitleElement>(this.type, { class: "validationHeader" }, this.text);
+  public addHeader(): HTMLElement {
+    return elementFactory<HTMLTitleElement>(this.type, { class: this.className }, this.text);
   }
   
-  public get header(): HTMLTitleElement {
-    return this.addHeader() as HTMLTitleElement;
+  public get header(): HTMLElement {
+    return this.addHeader();
   }
 }
