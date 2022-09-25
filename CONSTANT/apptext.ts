@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-export const APP_CONSTANTS: object = {
+export const APP_CONSTANTS = {
     "ATOMS": {
         "BUTTON": {
             "LOGIN_BUTTON": "login",
