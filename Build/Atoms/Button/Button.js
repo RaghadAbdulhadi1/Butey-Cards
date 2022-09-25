@@ -1,11 +1,12 @@
-import { elementFactory } from "../../Utilities/utilities.js";
-export default class Button {
-    value;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const utilities_1 = require("../../Utilities/utilities");
+class Button {
     constructor(value) {
         this.value = value;
     }
     addButton() {
-        return elementFactory("div", { class: "button" }, elementFactory("button", {
+        return (0, utilities_1.elementFactory)("div", { class: "button" }, (0, utilities_1.elementFactory)("button", {
             type: "button",
         }, this.value));
     }
@@ -13,3 +14,5 @@ export default class Button {
         return this.addButton();
     }
 }
+exports.default = Button;
+//# sourceMappingURL=Button.js.map

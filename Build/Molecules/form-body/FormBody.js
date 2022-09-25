@@ -1,7 +1,6 @@
-export default class FormBody {
-    container;
-    formContainer;
-    formInputFeilds;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class FormBody {
     constructor(container, formContainer, formInputFeilds) {
         this.container = container;
         this.formContainer = formContainer;
@@ -13,3 +12,5 @@ export default class FormBody {
         this.container.appendChild(this.formContainer);
     }
 }
+exports.default = FormBody;
+//# sourceMappingURL=FormBody.js.map

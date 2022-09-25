@@ -1,14 +1,36 @@
-import Form from "../Form/Form.js";
-import * as constants from "./RegisterConstants.js";
-import * as utils from "../../Utilities/utilities.js";
-import LocalStorage from "../../Utilities/LocalStorage.js";
-export default class RegisterForm extends Form {
-    email;
-    username;
-    password;
-    confirmPassword;
-    isValid;
-    button;
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Form_1 = __importDefault(require("../Form/Form"));
+const constants = __importStar(require("./RegisterConstants"));
+const utils = __importStar(require("../../Utilities/utilities"));
+const LocalStorage_1 = __importDefault(require("../../Utilities/LocalStorage"));
+class RegisterForm extends Form_1.default {
     constructor() {
         super(constants.registerParameters);
         this.addRegisterComponents();
@@ -66,7 +88,7 @@ export default class RegisterForm extends Form {
         this.confirmPassword = utils.getElementByClassName(".confirm-password");
         this.isValid = utils.getClassesWithSameName(".valid");
         e.preventDefault();
-        const llocalStorage = new LocalStorage();
+        const llocalStorage = new LocalStorage_1.default();
         if (this.isValid.length == 6) {
             const data = llocalStorage.getLocalStorage();
             data[this.email.value] = {
@@ -92,3 +114,5 @@ export default class RegisterForm extends Form {
         this.formSubmitButton.addEventListener("click", this.onSubmit);
     }
 }
+exports.default = RegisterForm;
+//# sourceMappingURL=RegisterForm.js.map

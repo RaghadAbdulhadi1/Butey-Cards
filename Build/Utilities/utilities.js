@@ -1,4 +1,7 @@
-export const elementFactory = (type, attributes, ...children) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.clearFormFeilds = exports.getClassesWithSameName = exports.getElementByClassName = exports.getElementById = exports.elementFactory = void 0;
+const elementFactory = (type, attributes, ...children) => {
     const element = document.createElement(type);
     for (const key in attributes) {
         element.setAttribute(key, attributes[key]);
@@ -13,17 +16,23 @@ export const elementFactory = (type, attributes, ...children) => {
     });
     return element;
 };
-export const getElementById = (id) => {
+exports.elementFactory = elementFactory;
+const getElementById = (id) => {
     return document.getElementById(id);
 };
-export const getElementByClassName = (className) => {
+exports.getElementById = getElementById;
+const getElementByClassName = (className) => {
     return document.querySelector(className);
 };
-export const getClassesWithSameName = (className) => {
+exports.getElementByClassName = getElementByClassName;
+const getClassesWithSameName = (className) => {
     return document.querySelectorAll(className);
 };
-export const clearFormFeilds = (...fields) => {
+exports.getClassesWithSameName = getClassesWithSameName;
+const clearFormFeilds = (...fields) => {
     fields.forEach((field) => {
         field.value = "";
     });
 };
+exports.clearFormFeilds = clearFormFeilds;
+//# sourceMappingURL=utilities.js.map

@@ -1,10 +1,14 @@
-export default class LocalStorage {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class LocalStorage {
     addToLocalStorage(storageData) {
-        try {
-            localStorage.setItem("Users", JSON.stringify(storageData));
-        }
-        catch (err) {
-            throw new Error(`${err}`);
+        if (window.localStorage !== undefined) {
+            try {
+                localStorage.setItem("Users", JSON.stringify(storageData));
+            }
+            catch (err) {
+                throw new Error(`${err}`);
+            }
         }
     }
     getLocalStorage() {
@@ -13,3 +17,5 @@ export default class LocalStorage {
         return data;
     }
 }
+exports.default = LocalStorage;
+//# sourceMappingURL=LocalStorage.js.map

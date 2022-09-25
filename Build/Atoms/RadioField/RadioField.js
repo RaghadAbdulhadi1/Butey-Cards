@@ -1,19 +1,21 @@
-import { elementFactory } from '../../Utilities/utilities.js';
-export default class RadioField {
-    radioText;
-    checkboxName;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const utilities_1 = require("../../Utilities/utilities");
+class RadioField {
     constructor(radioText, checkboxName) {
         this.radioText = radioText;
         this.checkboxName = checkboxName;
     }
     addRadioChoice() {
-        return elementFactory("div", { class: "checkboxes-gender" }, elementFactory("input", {
+        return (0, utilities_1.elementFactory)("div", { class: "checkboxes-gender" }, (0, utilities_1.elementFactory)("input", {
             type: "checkbox",
             name: this.checkboxName,
             class: "gender",
-        }), elementFactory("label", { class: "gender-label" }, this.radioText));
+        }), (0, utilities_1.elementFactory)("label", { class: "gender-label" }, this.radioText));
     }
     get radioFeild() {
         return this.addRadioChoice();
     }
 }
+exports.default = RadioField;
+//# sourceMappingURL=RadioField.js.map
