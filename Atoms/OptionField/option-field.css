@@ -1,0 +1,8 @@
+.country-choices select {
+    color: var(--gray);
+    font-size: var(--fontsize);
+    height: 50px;
+    margin-top: var(--margin);
+    padding-left: 10px;
+    width: var(--width);
+  }

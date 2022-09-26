@@ -1,0 +1,5 @@
+import ParagraphLink from "./ParagraphLink.js";
+import { LINKS_STRINGS } from "./ParagraphLinkStrings.js";
+const switchToRegisterFormLink = new ParagraphLink("Not a member? ", LINKS_STRINGS["REGISTER_FORM_LINK"], "register-link").paragraphLink;
+const switchToLoginFormLink = new ParagraphLink("Already registered? ", LINKS_STRINGS["LOGIN_FORM_LINK"], "login-link").paragraphLink;
+export { switchToRegisterFormLink, switchToLoginFormLink };

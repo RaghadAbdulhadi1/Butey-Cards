@@ -1,0 +1,31 @@
+{
+  "name": "newbutey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts",
+    "build": "tsc-esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaghadAbdulhadi1/Butey-Cards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaghadAbdulhadi1/Butey-Cards/issues"
+  },
+  "homepage": "https://github.com/RaghadAbdulhadi1/Butey-Cards#readme",
+  "devDependencies": {
+    "@digitak/tsc-esm": "^3.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint": "^8.23.1",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "@types/node": "^18.7.21"
+  }
+}

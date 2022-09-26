@@ -1,0 +1,11 @@
+import InputFeild from "./Input.js";
+import { INPUT_FEILD_STRINGS } from "./InputStrings.js";
+const loginPlaceholderStrings = INPUT_FEILD_STRINGS["LOGIN_INPUT_FEILDS"];
+const loginEmailFeild = new InputFeild("email", loginPlaceholderStrings["EMAIL"], "login-email").formInput;
+const loginPasswordFeild = new InputFeild("password", loginPlaceholderStrings["PASSWORD"], "login-password").formInput;
+const registerPlaceholderStrings = INPUT_FEILD_STRINGS["REGISTER_INPUT_FEILDS"];
+const registerEmailFeild = new InputFeild("email", registerPlaceholderStrings["EMAIL"], "signup-email").formInput;
+const registerUserNameFeild = new InputFeild("text", registerPlaceholderStrings["USER_NAME"], "signup-name").formInput;
+const registerPasswordFeild = new InputFeild("password", registerPlaceholderStrings["PASSWORD"], "signup-password").formInput;
+const registerConfirmPasswordFeild = new InputFeild("password", registerPlaceholderStrings["CONFIRM_PASSWORD"], "confirm-password").formInput;
+export { loginEmailFeild, loginPasswordFeild, registerEmailFeild, registerUserNameFeild, registerPasswordFeild, registerConfirmPasswordFeild, };

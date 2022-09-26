@@ -1,0 +1,12 @@
+.register-form {
+  background-color: var(--white);
+  padding: 35px;
+  transition: margin-left 0.18s ease;
+  width: var(--halfwidth);
+}
+
+.forms-container.active .register-form {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
