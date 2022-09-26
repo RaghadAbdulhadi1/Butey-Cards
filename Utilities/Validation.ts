@@ -1,6 +1,5 @@
 import * as constants from "../Organisms/RegisterForm/RegisterConstants";
 
-import * as utils from './utilities';
 interface User {
   [email: string]: string;
 }
@@ -44,57 +43,62 @@ export default class Validation implements IUser {
   }
 
   public userNameValidation(): void {
-    this.smallLetters = utils.getElementById("small-letters") as HTMLInputElement;
-    this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
-    this.username.onblur = this.onBlurUserNameFeild;
-    this.username.onfocus = this.onFocusUserNameFeild;
-    this.username.oninput = this.onKeyUserNameFeild;
+    this.smallLetters = document.querySelector("small-letters");
+    this.username = document.querySelector(".signup-name");
+    if(this.username) {
+      this.username.onblur = this.onBlurUserNameFeild;
+      this.username.onfocus = this.onFocusUserNameFeild;
+      this.username.oninput = this.onKeyUserNameFeild;
+    }
   }
 
   private onFocusUserNameFeild(): void {
-    this.message = utils.getElementByClassName(".username-validation") as HTMLParagraphElement;
-    this.message.classList.add("onUserValidation");
+    this.message = document.querySelector(".username-validation");
+    this.message?.classList.add("onUserValidation");
   }
 
   private onBlurUserNameFeild(): void {
-    this.message.classList.remove("onUserValidation");
+    this.message?.classList.remove("onUserValidation");
   }
 
   private onKeyUserNameFeild(): void {
-    this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
-    this.smallLetters = utils.getElementById("small-letters") as HTMLParagraphElement;
+    this.username = document.querySelector(".signup-name");
+    this.smallLetters = document.querySelector("small-letters");
+    if(this.username)
     if (this.username.value.match(constants.usernameRegex)) {
-      this.smallLetters.classList.remove("invalid");
-      this.smallLetters.classList.add("valid");
+      this.smallLetters?.classList.remove("invalid");
+      this.smallLetters?.classList.add("valid");
     } else {
-      this.smallLetters.classList.add("invalid");
-      this.smallLetters.classList.remove("valid");
+      this.smallLetters?.classList.add("invalid");
+      this.smallLetters?.classList.remove("valid");
     }
   }
 
   public emailValidation(): void {
-    this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
-    this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
-    this.email.onfocus = this.onFocusEmailFeild;
-    this.email.onblur = this.onBlurEmailFeild;
-    this.email.onkeyup = this.onKeyupEmailFeild;
+    this.message = document.querySelector(".email-validation");
+    this.email = document.querySelector(".signup-email");
+    if(this.email){
+      this.email.onfocus = this.onFocusEmailFeild;
+      this.email.onblur = this.onBlurEmailFeild;
+      this.email.onkeyup = this.onKeyupEmailFeild;
+    }
   }
 
   private onFocusEmailFeild(): void {
-    this.message = utils.getElementByClassName(".email-validation") as HTMLParagraphElement;
-    this.message.classList.add("onEmailValidation");
+    this.message = document.querySelector(".email-validation");
+    this.message?.classList.add("onEmailValidation");
   }
 
   private onBlurEmailFeild(): void {
-    this.message.classList.remove("onEmailValidation");
+    this.message?.classList.remove("onEmailValidation");
   }
 
   private onKeyupEmailFeild(): void {
-    this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
-    this.emailVal = utils.getElementById("email-val") as HTMLParagraphElement;
+    this.email = document.querySelector(".signup-email");
+    this.emailVal = document.querySelector("email-val");
     const users = localStorage.getItem("Users") as string | null;
     const data: User = users ? JSON.parse(users) : {};
-
+    if(this.email && this.emailVal)
     if (this.email.value.match(constants.emailRegex)) {
       if (!data[this.email.value]) {
         this.emailVal.classList.remove("invalid");
@@ -112,77 +116,81 @@ export default class Validation implements IUser {
   }
 
   public passwordValidation(): void {
-    this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
-    this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
-    this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
-    this.letter = utils.getElementById("letter") as HTMLParagraphElement;
-    this.capital = utils.getElementById("capital") as HTMLParagraphElement;
-    this.number = utils.getElementById("number") as HTMLParagraphElement;
-    this.characters = utils.getElementById("characters") as HTMLParagraphElement;
-    this.password.onfocus = this.onFocusPasswordFeild;
-    this.password.onblur = this.onBlurPasswordFeild;
-    this.password.onkeyup = this.onKeyUpPasswordFeild;
+    this.message = document.querySelector(".outValidation");
+    this.password = document.querySelector(".signup-password");
+    this.confirmPassword = document.querySelector(".confirm-password");
+    this.letter = document.querySelector("letter");
+    this.capital = document.querySelector("capital");
+    this.number = document.querySelector("number");
+    this.characters = document.querySelector("characters");
+    if(this.password){
+      this.password.onfocus = this.onFocusPasswordFeild;
+      this.password.onblur = this.onBlurPasswordFeild;
+      this.password.onkeyup = this.onKeyUpPasswordFeild;
+    }
+    if(this.confirmPassword)
     this.confirmPassword.onblur = this.onBlurConfirmPasswordFeild;
   }
 
   private onFocusPasswordFeild(): void {
-    this.message = utils.getElementByClassName(".outValidation") as HTMLParagraphElement;
-    this.message.classList.add("onValidation");
+    this.message = document.querySelector(".outValidation");
+    this.message?.classList.add("onValidation");
   }
 
   private onBlurPasswordFeild(): void {
-    this.message.classList.remove("onValidation");
+    this.message?.classList.remove("onValidation");
   }
 
   private onKeyUpPasswordFeild(): void {
     // lowercase
-    this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
-    this.letter = utils.getElementById("letter") as HTMLParagraphElement;
-    if (this.password.value.match(constants.smallLetterPasswordRegex)) {
-      this.letter.classList.remove("invalid");
-      this.letter.classList.add("valid");
+    this.password = document.querySelector(".signup-password");
+    this.letter = document.querySelector("letter");
+    if (this.password?.value.match(constants.smallLetterPasswordRegex)) {
+      this.letter?.classList.remove("invalid");
+      this.letter?.classList.add("valid");
     } else {
-      this.letter.classList.add("invalid");
-      this.letter.classList.remove("valid");
+      this.letter?.classList.add("invalid");
+      this.letter?.classList.remove("valid");
     }
     // uppercase
-    this.capital = utils.getElementById("capital") as HTMLParagraphElement;
-    if (this.password.value.match(constants.capitalLetterPasswordRegex)) {
-      this.capital.classList.remove("invalid");
-      this.capital.classList.add("valid");
+    this.capital = document.querySelector("capital");
+    if (this.password?.value.match(constants.capitalLetterPasswordRegex)) {
+      this.capital?.classList.remove("invalid");
+      this.capital?.classList.add("valid");
     } else {
-      this.capital.classList.add("invalid");
-      this.capital.classList.remove("valid");
+      this.capital?.classList.add("invalid");
+      this.capital?.classList.remove("valid");
     }
     // special characters
-    this.number = utils.getElementById("number") as HTMLParagraphElement;
-    if (this.password.value.match(constants.numbersLetterPasswordRegex)) {
-      this.number.classList.remove("invalid");
-      this.number.classList.add("valid");
+    this.number = document.querySelector("number");
+    if (this.password?.value.match(constants.numbersLetterPasswordRegex)) {
+      this.number?.classList.remove("invalid");
+      this.number?.classList.add("valid");
     } else {
-      this.number.classList.add("invalid");
-      this.number.classList.remove("valid");
+      this.number?.classList.add("invalid");
+      this.number?.classList.remove("valid");
     }
     // numbers
-    this.characters = utils.getElementById("characters") as HTMLParagraphElement;
-    if (this.password.value.match(constants.charactersLetterPasswordRegex)) {
-      this.characters.classList.remove("invalid");
-      this.characters.classList.add("valid");
+    this.characters = document.querySelector("characters");
+    if (this.password?.value.match(constants.charactersLetterPasswordRegex)) {
+      this.characters?.classList.remove("invalid");
+      this.characters?.classList.add("valid");
     } else {
-      this.characters.classList.add("invalid");
-      this.characters.classList.remove("valid");
+      this.characters?.classList.add("invalid");
+      this.characters?.classList.remove("valid");
     }
   }
 
   public onBlurConfirmPasswordFeild(): void {
-    this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
-    this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
+    this.password = document.querySelector(".signup-password");
+    this.confirmPassword = document.querySelector(".confirm-password");
+    if(this.password && this.confirmPassword)
     if (this.password.value != this.confirmPassword.value) {
-      this.passwordFailure = utils.getElementByClassName(".confirm-failure") as HTMLParagraphElement;
-      this.passwordFailure.classList.add("confirm-succ");
+      this.passwordFailure = document.querySelector(".confirm-failure");
+      this.passwordFailure?.classList.add("confirm-succ");
     } else {
-      this.passwordFailure = utils.getElementByClassName(".confirm-failure") as HTMLParagraphElement;
-      this.passwordFailure.classList.remove("confirm-succ");
+      this.passwordFailure = document.querySelector(".confirm-failure");
+      this.passwordFailure?.classList.remove("confirm-succ");
     }
   }
   
