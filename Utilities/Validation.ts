@@ -14,29 +14,29 @@ interface IUser {
 }
 
 export default class Validation implements IUser {
-  email!: HTMLInputElement
+  public email!: HTMLInputElement | null;
 
-  emailVal!: HTMLParagraphElement
+  public emailVal!: HTMLParagraphElement | null;
 
-  message!: HTMLParagraphElement
+  public message!: HTMLParagraphElement | null;
 
-  password!: HTMLInputElement
+  public password!: HTMLInputElement | null;
 
-  smallLetters!: HTMLParagraphElement
+  public smallLetters!: HTMLParagraphElement | null;
 
-  username!: HTMLInputElement
+  public username!: HTMLInputElement | null;
 
-  confirmPassword!: HTMLInputElement
+  public confirmPassword!: HTMLInputElement | null;
 
-  letter!: HTMLParagraphElement
+  public letter!: HTMLParagraphElement | null;
 
-  capital!: HTMLParagraphElement
+  public capital!: HTMLParagraphElement | null;
 
-  number!: HTMLParagraphElement
+  public number!: HTMLParagraphElement | null;
 
-  characters!: HTMLParagraphElement
-  
-  passwordFailure!: HTMLParagraphElement
+  public characters!: HTMLParagraphElement | null;
+   
+  public passwordFailure!: HTMLParagraphElement | null;
 
   constructor(
   ) {

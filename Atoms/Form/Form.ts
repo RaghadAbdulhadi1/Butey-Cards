@@ -1,18 +1,18 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface IForm {
-  addForm(): HTMLElement
+  addForm(): HTMLFormElement
 }
 
 export default class Form implements IForm {
   constructor(private className:string) {
   }
 
-  public addForm(): HTMLElement {
-    return elementFactory<HTMLFormElement>("form", { class: this.className });
+  public addForm(): HTMLFormElement {
+    return elementFactory("form", { class: this.className });
   }
   
-  public get form(): HTMLElement {
+  public get form(): HTMLFormElement {
     return this.addForm();
   }
 }

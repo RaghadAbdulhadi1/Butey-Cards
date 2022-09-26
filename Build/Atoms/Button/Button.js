@@ -1,12 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const utilities_1 = require("../../Utilities/utilities");
-class Button {
+import { elementFactory } from "../../Utilities/utilities.js";
+export default class Button {
+    value;
     constructor(value) {
         this.value = value;
     }
     addButton() {
-        return (0, utilities_1.elementFactory)("div", { class: "button" }, (0, utilities_1.elementFactory)("button", {
+        return elementFactory("div", { class: "button" }, elementFactory("button", {
             type: "button",
         }, this.value));
     }
@@ -14,5 +13,3 @@ class Button {
         return this.addButton();
     }
 }
-exports.default = Button;
-//# sourceMappingURL=Button.js.map

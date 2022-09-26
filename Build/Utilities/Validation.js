@@ -1,31 +1,18 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const constants = __importStar(require("../Organisms/RegisterForm/RegisterConstants"));
-const utils = __importStar(require("./utilities"));
-class Validation {
+import * as constants from "../Organisms/RegisterForm/RegisterConstants.js";
+import * as utils from './utilities.js';
+export default class Validation {
+    email;
+    emailVal;
+    message;
+    password;
+    smallLetters;
+    username;
+    confirmPassword;
+    letter;
+    capital;
+    number;
+    characters;
+    passwordFailure;
     constructor() {
         this.validateInputs();
     }
@@ -112,6 +99,7 @@ class Validation {
         this.message.classList.remove("onValidation");
     }
     onKeyUpPasswordFeild() {
+        // lowercase
         this.password = utils.getElementByClassName(".signup-password");
         this.letter = utils.getElementById("letter");
         if (this.password.value.match(constants.smallLetterPasswordRegex)) {
@@ -122,6 +110,7 @@ class Validation {
             this.letter.classList.add("invalid");
             this.letter.classList.remove("valid");
         }
+        // uppercase
         this.capital = utils.getElementById("capital");
         if (this.password.value.match(constants.capitalLetterPasswordRegex)) {
             this.capital.classList.remove("invalid");
@@ -131,6 +120,7 @@ class Validation {
             this.capital.classList.add("invalid");
             this.capital.classList.remove("valid");
         }
+        // special characters
         this.number = utils.getElementById("number");
         if (this.password.value.match(constants.numbersLetterPasswordRegex)) {
             this.number.classList.remove("invalid");
@@ -140,6 +130,7 @@ class Validation {
             this.number.classList.add("invalid");
             this.number.classList.remove("valid");
         }
+        // numbers
         this.characters = utils.getElementById("characters");
         if (this.password.value.match(constants.charactersLetterPasswordRegex)) {
             this.characters.classList.remove("invalid");
@@ -168,5 +159,3 @@ class Validation {
         this.passwordValidation();
     }
 }
-exports.default = Validation;
-//# sourceMappingURL=Validation.js.map

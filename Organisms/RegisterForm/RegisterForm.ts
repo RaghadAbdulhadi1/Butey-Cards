@@ -17,17 +17,17 @@ interface IRegisterForm {
 }
 
 export default class RegisterForm extends Form implements IRegisterForm {
-  email!: HTMLInputElement;
+  public email!: HTMLInputElement | null;
 
-  username!: HTMLInputElement;
+  public username!: HTMLInputElement | null;
 
-  password!: HTMLInputElement;
+  public password!: HTMLInputElement | null;
 
-  confirmPassword!: HTMLInputElement;
+  public confirmPassword!: HTMLInputElement | null;
 
-  isValid!: NodeListOf<HTMLElement> | null;
+  public isValid!: NodeListOf<HTMLElement> | null;
 
-  button!: HTMLButtonElement;
+  public button!: HTMLButtonElement;
 
   constructor() {
     super(constants.registerParameters);
@@ -101,13 +101,14 @@ export default class RegisterForm extends Form implements IRegisterForm {
   }
 
   public onSubmit(e: Event): void {
-    this.email = utils.getElementByClassName(".signup-email") as HTMLInputElement;
-    this.username = utils.getElementByClassName(".signup-name") as HTMLInputElement;
-    this.password = utils.getElementByClassName(".signup-password") as HTMLInputElement;
-    this.confirmPassword = utils.getElementByClassName(".confirm-password") as HTMLInputElement;
+    this.email = document.querySelector(".signup-email");
+    this.username = document.querySelector(".signup-name");
+    this.password = document.querySelector(".signup-password");
+    this.confirmPassword = document.querySelector(".confirm-password");
     this.isValid = utils.getClassesWithSameName(".valid") as NodeListOf<HTMLElement>;
     e.preventDefault();
     const llocalStorage = new LocalStorage();
+    if(this.email && this.username && this.password && this.confirmPassword)
     if (this.isValid.length == 6) {
       const data = llocalStorage.getLocalStorage();
       data[this.email.value] = {

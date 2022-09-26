@@ -11,29 +11,29 @@ interface IForm {
 }
 
 export default class Form implements IForm {
-  header!: FormHeader 
+  public header!: FormHeader 
   
-  body!: FormBody
+  public body!: FormBody
   
-  footer!: FormFooter
+  public footer!: FormFooter
 
-  formInputFeilds!: HTMLElement[];
+  public formInputFeilds!: HTMLElement[];
 
-  container!: HTMLElement;
+  public container!: HTMLElement;
 
-  formTitle!: HTMLElement;
+  public formTitle!: HTMLElement;
 
-  formLineBreak!: HTMLElement;
+  public formLineBreak!: HTMLElement;
 
-  formContainer!: HTMLElement;
+  public formContainer!: HTMLElement;
 
-  formClickables!: HTMLElement;
+  public formClickables!: HTMLElement;
 
-  formSubmitButton!: HTMLElement;
+  public formSubmitButton!: HTMLElement;
 
-  formLink!: HTMLElement;
+  public formLink!: HTMLElement;
 
-  switchLink!: HTMLElement;
+  public switchLink!: HTMLElement;
   
   constructor(form: IFormParameters) {
     this.addFormParameters(form);

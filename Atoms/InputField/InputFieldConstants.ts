@@ -1,39 +1,43 @@
 import InputFeild from "./InputField";
-import { APP_CONSTANTS } from '../../STRINGS/apptext'
+import { INPUT_FEILD_STRINGS } from './InputFieldStrings'
+
+const loginPlaceholderStrings = INPUT_FEILD_STRINGS["LOGIN_INPUT_FEILDS"];
 
 const loginInputFeilds: HTMLElement[] = [
   new InputFeild(
     "email",
-    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["LOGIN_INPUT_FEILDS"]["EMAIL"],
+    loginPlaceholderStrings["EMAIL"],
     "login-email",
     "fa-regular fa-envelope"
   ).formInput,
   new InputFeild(
     "password",
-    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["LOGIN_INPUT_FEILDS"]["PASSWORD"],
+    loginPlaceholderStrings["PASSWORD"],
     "login-password",
     "fa-sharp fa-solid fa-shield-halved"
   ).formInput
 ]
 
+const registerPlaceholderStrings = INPUT_FEILD_STRINGS["REGISTER_INPUT_FEILDS"];
+
 const registerInputFeilds: HTMLElement[] = [
   new InputFeild(
     "email",
-    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["EMAIL"],
+    registerPlaceholderStrings["EMAIL"],
     "signup-email",
     "fa-regular fa-envelope"
   ).formInput,
-  new InputFeild("text", APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["USER_NAME"], "signup-name", "fa-solid fa-user")
+  new InputFeild("text", registerPlaceholderStrings["USER_NAME"], "signup-name", "fa-solid fa-user")
     .formInput,
   new InputFeild(
     "password",
-    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["PASSWORD"],
+    registerPlaceholderStrings["PASSWORD"],
     "signup-password",
     "fa-sharp fa-solid fa-shield-halved"
   ).formInput,
   new InputFeild(
     "password",
-    APP_CONSTANTS["ATOMS"]["INPUT_FEILD"]["REGISTER_INPUT_FEILDS"]["CONFIRM_PASSWORD"],
+    registerPlaceholderStrings["CONFIRM_PASSWORD"],
     "confirm-password",
     "fa-sharp fa-solid fa-shield-halved"
   ).formInput,

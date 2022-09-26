@@ -1,18 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const utilities_1 = require("../../Utilities/utilities");
-class Header {
-    constructor(text, className, type = "h3") {
+import { elementFactory } from "../../Utilities/utilities.js";
+export default class Header {
+    text;
+    className;
+    constructor(text, className) {
         this.text = text;
         this.className = className;
-        this.type = type;
     }
     addHeader() {
-        return (0, utilities_1.elementFactory)(this.type, { class: this.className }, this.text);
+        return elementFactory("h3", { class: this.className }, this.text);
     }
     get header() {
         return this.addHeader();
     }
 }
-exports.default = Header;
-//# sourceMappingURL=Header.js.map

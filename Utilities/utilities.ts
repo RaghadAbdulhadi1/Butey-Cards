@@ -3,8 +3,8 @@ interface AttributeCollection {
 }
 
 // HTML elements Blueprint
-export const elementFactory = <T>(type: string, attributes: AttributeCollection | null, ...children: (string | HTMLElement)[]): T | HTMLElement => {
-  const element = document.createElement(type) as HTMLElement;
+export const elementFactory = <K extends keyof HTMLElementTagNameMap>(type: K, attributes?: AttributeCollection, ...children: (string | HTMLElement)[]): HTMLElementTagNameMap[K] => {
+  const element: HTMLElementTagNameMap[K] = document.createElement(type);
   for (const key in attributes) {
     element.setAttribute(key, attributes[key]);
   }
@@ -24,7 +24,7 @@ export const getElementById = (id: string): HTMLElement | null => {
 };
 
 // GET Element by Class
-export const getElementByClassName = (className: string): HTMLElement | null => {
+export const getElementByClassName = <K extends keyof HTMLElementTagNameMap>(className: string): HTMLElementTagNameMap[K] | null=> {
   return document.querySelector(className);
 };
 
@@ -39,3 +39,4 @@ export const clearFormFeilds = (...fields: HTMLInputElement[]): void => {
     field.value = "";
   });
 };
+document.querySelector

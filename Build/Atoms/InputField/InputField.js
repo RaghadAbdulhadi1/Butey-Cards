@@ -1,23 +1,23 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const utilities_1 = require("../../Utilities/utilities");
-class InputFeild {
+import { elementFactory } from "../../Utilities/utilities.js";
+export default class InputFeild {
+    type;
+    placeholder;
+    className;
+    iconClass;
     constructor(type, placeholder, className, iconClass) {
         this.type = type;
         this.placeholder = placeholder;
         this.className = className;
         this.iconClass = iconClass;
     }
-    addFormInput() {
-        return (0, utilities_1.elementFactory)("div", { class: "input-feild" }, (0, utilities_1.elementFactory)("input", {
+    addFormInputFeild() {
+        return elementFactory("div", { class: "input-feild" }, elementFactory("input", {
             type: this.type,
             placeholder: this.placeholder,
             class: this.className,
-        }), (0, utilities_1.elementFactory)("i", { class: this.iconClass }));
+        }), elementFactory("i", { class: this.iconClass }));
     }
     get formInput() {
-        return this.addFormInput();
+        return this.addFormInputFeild();
     }
 }
-exports.default = InputFeild;
-//# sourceMappingURL=InputField.js.map

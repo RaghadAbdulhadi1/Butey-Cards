@@ -19,7 +19,7 @@ interface IFormSwitcher {
 }
 
 export default class FormSwitcher implements IFormSwitcher {
-  container: HTMLElement;
+  public container: HTMLElement;
 
   constructor() {
     new LoginForm();

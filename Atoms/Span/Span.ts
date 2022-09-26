@@ -1,23 +1,23 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface ISpan {
-  addSpan(): HTMLElement
+  addSpan(): HTMLSpanElement
 }
 
 export default class Span implements ISpan {
   constructor(private spanText: string, private innerText: string) {
   }
 
-  public addSpan(): HTMLElement {
-    return elementFactory<HTMLSpanElement>(
+  public addSpan(): HTMLSpanElement {
+    return elementFactory(
       "span",
       {},
       this.spanText,
-      elementFactory<HTMLAnchorElement>("a", {}, this.innerText)
+      elementFactory("a", {}, this.innerText)
     );
   }
   
-  public get span(): HTMLElement{
+  public get span(): HTMLSpanElement{
     return this.addSpan();
   }
 }

@@ -1,12 +1,12 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface ISelectFeild {
-  addSelectFeild(): HTMLElement
+  addSelectFeild(): HTMLSelectElement
 }
 
 export default class SelectFeild implements ISelectFeild {
-  public addSelectFeild(): HTMLElement {
-    return elementFactory<HTMLSelectElement>("select", { class: "countries", name: "countries" });
+  public addSelectFeild(): HTMLSelectElement {
+    return elementFactory("select", { class: "countries", name: "countries" });
   }
   
   public get select(): HTMLElement {

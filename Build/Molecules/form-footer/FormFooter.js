@@ -1,6 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class FormFooter {
+export default class FormFooter {
+    container;
+    formClickables;
+    formSubmitButton;
+    formLink;
+    switchLink;
     constructor(container, formClickables, formSubmitButton, formLink, switchLink) {
         this.container = container;
         this.formClickables = formClickables;
@@ -14,5 +17,3 @@ class FormFooter {
         this.switchLink = switchLink;
     }
 }
-exports.default = FormFooter;
-//# sourceMappingURL=FormFooter.js.map

@@ -1,6 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class FormHeader {
+export default class FormHeader {
+    container;
+    formTitle;
+    formLineBreak;
     constructor(container, formTitle, formLineBreak) {
         this.container = container;
         this.formTitle = formTitle;
@@ -18,5 +19,3 @@ class FormHeader {
         this.addLineBreak();
     }
 }
-exports.default = FormHeader;
-//# sourceMappingURL=FormHeader.js.map

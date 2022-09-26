@@ -1,8 +1,8 @@
 import Button from './Button';
-import { APP_CONSTANTS } from '../../STRINGS/apptext'
+import { BUTTONS_STRINGS } from './ButtonStrings'
 
-const loginSubmitButton:HTMLElement = new Button(APP_CONSTANTS["ATOMS"]["BUTTON"]["LOGIN_BUTTON"]).button;
-const registerSubmitButton: HTMLElement = new Button(APP_CONSTANTS["ATOMS"]["BUTTON"]["REGISTER_BUTTON"]).button;
+const loginSubmitButton:HTMLElement = new Button(BUTTONS_STRINGS["LOGIN_BUTTON"]).button;
+const registerSubmitButton: HTMLElement = new Button(BUTTONS_STRINGS["REGISTER_BUTTON"]).button;
 
 export {
     loginSubmitButton,

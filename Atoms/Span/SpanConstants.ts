@@ -1,8 +1,9 @@
 import Span from './Span';
+import { SPAN_STRINGS } from './SpanStrings';
 
 const termsAndConditions: HTMLElement = new Span(
-    "By Clicking on register, you agree on ",
-    "terms and conditions."
+  SPAN_STRINGS["REGISTER_CONFIRM_LINK"],
+  SPAN_STRINGS["TERMS_AND_CONDITIONS"]
   ).span;
 
 export {

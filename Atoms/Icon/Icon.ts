@@ -9,7 +9,7 @@ export default class Icon implements IIcon {
   }
 
   public addIcon(): HTMLElement {
-    return elementFactory<HTMLLinkElement>("i", { class: this.iconClass });
+    return elementFactory("i", { class: this.iconClass });
   }
   
   public get iconLink(): HTMLElement{

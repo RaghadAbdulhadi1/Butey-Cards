@@ -1,12 +1,19 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const FormHeader_1 = __importDefault(require("../../Molecules/form-header/FormHeader"));
-const FormBody_1 = __importDefault(require("../../Molecules/form-body/FormBody"));
-const FormFooter_1 = __importDefault(require("../../Molecules/form-footer/FormFooter"));
-class Form {
+import FormHeader from "../../Molecules/form-header/FormHeader.js";
+import FormBody from "../../Molecules/form-body/FormBody.js";
+import FormFooter from "../../Molecules/form-footer/FormFooter.js";
+export default class Form {
+    header;
+    body;
+    footer;
+    formInputFeilds;
+    container;
+    formTitle;
+    formLineBreak;
+    formContainer;
+    formClickables;
+    formSubmitButton;
+    formLink;
+    switchLink;
     constructor(form) {
         this.addFormParameters(form);
         this.renderForm();
@@ -23,10 +30,8 @@ class Form {
         this.switchLink = form.switchLink;
     }
     renderForm() {
-        this.header = new FormHeader_1.default(this.container, this.formTitle, this.formLineBreak);
-        this.body = new FormBody_1.default(this.container, this.formContainer, this.formInputFeilds);
-        this.footer = new FormFooter_1.default(this.container, this.formClickables, this.formSubmitButton, this.formLink, this.switchLink);
+        this.header = new FormHeader(this.container, this.formTitle, this.formLineBreak);
+        this.body = new FormBody(this.container, this.formContainer, this.formInputFeilds);
+        this.footer = new FormFooter(this.container, this.formClickables, this.formSubmitButton, this.formLink, this.switchLink);
     }
 }
-exports.default = Form;
-//# sourceMappingURL=Form.js.map

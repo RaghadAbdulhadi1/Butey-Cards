@@ -1,23 +1,23 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface IParagraphLink {
-  addParagraphLink(): HTMLElement
+  addParagraphLink(): HTMLParagraphElement
 }
 
 export default class ParagraphLink implements IParagraphLink {
   constructor(private paragraphText: string, private innerText: string, private className: string = "", private href: string = "#") {
   }
 
-  public addParagraphLink(): HTMLElement {
-    return elementFactory<HTMLParagraphElement>(
+  public addParagraphLink(): HTMLParagraphElement {
+    return elementFactory(
       "p",
       { class: this.paragraphText },
       this.paragraphText,
-      elementFactory<HTMLAnchorElement>("a", { class: this.className, href: this.href }, this.innerText)
+      elementFactory("a", { class: this.className, href: this.href }, this.innerText)
     );
   }
   
-  public get paragraphLink(): HTMLElement {
+  public get paragraphLink(): HTMLParagraphElement {
     return this.addParagraphLink();
   }
 }

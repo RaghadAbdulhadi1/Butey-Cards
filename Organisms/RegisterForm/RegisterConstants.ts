@@ -1,6 +1,6 @@
 import { registerFormTitle } from "../../Atoms/Text/TextConstants";
 import { registerLineBreak } from "../../Atoms/LineBreak/LineBreakConstants";
-import { registerInputFeilds } from "../../Atoms/InputField/InputFieldConstants";
+import { registerInputFeilds } from "../../Atoms/Div/DivConstants";
 import { registerSubmitButton } from "../../Atoms/Button/ButtonConstants";
 import { switchToLoginFormLink } from "../../Atoms/ParagraphLink/ParagraphLinkConstants";
 import {

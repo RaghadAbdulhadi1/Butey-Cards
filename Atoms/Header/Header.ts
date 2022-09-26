@@ -1,18 +1,18 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface IHeader {
-  addHeader(): HTMLElement;
+  addHeader(): HTMLHeadingElement;
 }
 
 export default class Header implements IHeader {
-  constructor(private text: string, private className: string, private type: string = "h3") {
+  constructor(private text: string, private className: string) {
   }
 
-  public addHeader(): HTMLElement {
-    return elementFactory<HTMLTitleElement>(this.type, { class: this.className }, this.text);
+  public addHeader(): HTMLHeadingElement {
+    return elementFactory("h3", { class: this.className }, this.text);
   }
   
-  public get header(): HTMLElement {
+  public get header(): HTMLHeadingElement {
     return this.addHeader();
   }
 }

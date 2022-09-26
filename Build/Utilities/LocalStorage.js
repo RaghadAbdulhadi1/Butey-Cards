@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class LocalStorage {
+export default class LocalStorage {
     addToLocalStorage(storageData) {
         if (window.localStorage !== undefined) {
             try {
@@ -17,5 +15,3 @@ class LocalStorage {
         return data;
     }
 }
-exports.default = LocalStorage;
-//# sourceMappingURL=LocalStorage.js.map

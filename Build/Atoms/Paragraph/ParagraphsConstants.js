@@ -1,31 +1,19 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.emailValidationContent = exports.userNameValidationContent = exports.confirmPasswordValidationContent = exports.charactersLetterPasswordValidationContent = exports.numbersLetterPasswordValidationContent = exports.capitalLetterPasswordValidationContent = exports.smallLetterPasswordValidationContent = exports.loginValidationContent = void 0;
-const Paragraph_1 = __importDefault(require("./Paragraph"));
-const apptext_1 = require("../../STRINGS/apptext");
+import Paragraph from "./Paragraph.js";
+import { VALIDATION_CONTENT } from './ParagraphStrings.js';
+const loginValidationContentStrings = VALIDATION_CONTENT["LOGIN_FORM"];
 const loginValidationContent = [
-    new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["LOGGED_IN_SUCCESS"], "", "success-failure")
+    new Paragraph(loginValidationContentStrings["LOGGED_IN_SUCCESS"], "", "success-failure")
         .paragraph,
-    new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["PASSWORD_CHECK"], "", "password-failure").paragraph,
-    new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["LOGIN_FORM"]["EMAIL_ADDRESS_CHECK"], "", "user-failure")
+    new Paragraph(loginValidationContentStrings["PASSWORD_CHECK"], "", "password-failure").paragraph,
+    new Paragraph(loginValidationContentStrings["EMAIL_ADDRESS_CHECK"], "", "user-failure")
         .paragraph,
 ];
-exports.loginValidationContent = loginValidationContent;
-const smallLetterPasswordValidationContent = new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["SMALL_LETTER_CHECK"], "letter", "invalid").paragraph;
-exports.smallLetterPasswordValidationContent = smallLetterPasswordValidationContent;
-const capitalLetterPasswordValidationContent = new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["CAPITAL_LETTER_CHECK"], "capital", "invalid").paragraph;
-exports.capitalLetterPasswordValidationContent = capitalLetterPasswordValidationContent;
-const numbersLetterPasswordValidationContent = new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["NUMBERS_CHECK"], "number", "invalid").paragraph;
-exports.numbersLetterPasswordValidationContent = numbersLetterPasswordValidationContent;
-const charactersLetterPasswordValidationContent = new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["PASSWORD_CHECK"]["CHARCHTERS_CHECK"], "characters", "invalid").paragraph;
-exports.charactersLetterPasswordValidationContent = charactersLetterPasswordValidationContent;
-const confirmPasswordValidationContent = new Paragraph_1.default("Passwords doesn't match", "", "confirm-failure").paragraph;
-exports.confirmPasswordValidationContent = confirmPasswordValidationContent;
-const userNameValidationContent = new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["USER_NAME_CHECK"], "small-letters", "invalid").paragraph;
-exports.userNameValidationContent = userNameValidationContent;
-const emailValidationContent = new Paragraph_1.default(apptext_1.APP_CONSTANTS["ATOMS"]["VALIDATION_CONTENT"]["REGISTER_FORM"]["EMAIL_ADDRESS_CHECK"], "email-val", "invalid").paragraph;
-exports.emailValidationContent = emailValidationContent;
-//# sourceMappingURL=ParagraphsConstants.js.map
+const registerValidationContentStrings = VALIDATION_CONTENT["REGISTER_FORM"];
+const smallLetterPasswordValidationContent = new Paragraph(registerValidationContentStrings["PASSWORD_CHECK"]["SMALL_LETTER_CHECK"], "letter", "invalid").paragraph;
+const capitalLetterPasswordValidationContent = new Paragraph(registerValidationContentStrings["PASSWORD_CHECK"]["CAPITAL_LETTER_CHECK"], "capital", "invalid").paragraph;
+const numbersLetterPasswordValidationContent = new Paragraph(registerValidationContentStrings["PASSWORD_CHECK"]["NUMBERS_CHECK"], "number", "invalid").paragraph;
+const charactersLetterPasswordValidationContent = new Paragraph(registerValidationContentStrings["PASSWORD_CHECK"]["CHARCHTERS_CHECK"], "characters", "invalid").paragraph;
+const confirmPasswordValidationContent = new Paragraph("Passwords doesn't match", "", "confirm-failure").paragraph;
+const userNameValidationContent = new Paragraph(registerValidationContentStrings["USER_NAME_CHECK"], "small-letters", "invalid").paragraph;
+const emailValidationContent = new Paragraph(registerValidationContentStrings["EMAIL_ADDRESS_CHECK"], "email-val", "invalid").paragraph;
+export { loginValidationContent, smallLetterPasswordValidationContent, capitalLetterPasswordValidationContent, numbersLetterPasswordValidationContent, charactersLetterPasswordValidationContent, confirmPasswordValidationContent, userNameValidationContent, emailValidationContent, };

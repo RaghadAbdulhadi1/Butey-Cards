@@ -1,22 +1,22 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface IContainer {
-  addContainer(): HTMLElement
+  addContainer(): HTMLDivElement
 }
 
 export default class Container implements IContainer {
   constructor(private className: string, private containerText: string = "", private id: string = "") {
   }
 
-  public addContainer(): HTMLElement {
-    return elementFactory<HTMLDivElement>(
+  public addContainer(): HTMLDivElement {
+    return elementFactory(
       "div",
       { class: this.className, id: this.id },
       this.containerText
     );
   }
   
-  public get container(): HTMLElement {
+  public get container(): HTMLDivElement {
     return this.addContainer();
   }
 }

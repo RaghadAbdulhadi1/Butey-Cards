@@ -12,15 +12,15 @@ interface ILoginForm {
 }
 
 export default class LoginForm extends Form implements ILoginForm{
-  email!: HTMLInputElement;
+  public email!: HTMLInputElement | null;
 
-  password!: HTMLInputElement;
+  public password!: HTMLInputElement | null;
 
-  success!: HTMLParagraphElement;
+  public success!: HTMLParagraphElement | null;
 
-  userFailure!: HTMLParagraphElement;
+  public userFailure!: HTMLParagraphElement | null;
 
-  passwordFailure!: HTMLParagraphElement;
+  public passwordFailure!: HTMLParagraphElement | null;
   
   constructor() {
     super(constants.loginParameters);
@@ -48,31 +48,35 @@ export default class LoginForm extends Form implements ILoginForm{
   }
 
   public validateLogin(e: Event): void {
-    e.preventDefault();
-    this.email = utils.getElementByClassName(".login-email") as HTMLInputElement;
-    this.password = utils.getElementByClassName(".login-password") as HTMLInputElement;
+    this.email = document.querySelector(".login-email");
+    this.password = document.querySelector(".login-password");
     const users = localStorage.getItem("Users") as string | null;
     const data = users ? JSON.parse(users) : {};
+    e.preventDefault();
+    if(this.email)
     if (data[this.email.value]) {
-      this.password = utils.getElementById("login-password") as HTMLInputElement;
+      this.password = document.querySelector(".login-password");
+      if(this.password)
       if (data[this.email.value].password === this.password.value) {
-        this.success = utils.getElementByClassName(".success-failure") as HTMLParagraphElement;
-        this.success.classList.remove("success-failure");
-        this.success.classList.add("success-succ");
-        this.userFailure.classList.remove("user-succ");
-        this.passwordFailure.classList.remove("password-succ");
+        if(this.success)
+        this.success = document.querySelector(".success-failure");
+        this.success?.classList.remove("success-failure");
+        this.success?.classList.add("success-succ");
+        this.userFailure?.classList.remove("user-succ");
+        this.passwordFailure?.classList.remove("password-succ");
         utils.clearFormFeilds(this.email, this.password);
       } else {
-        this.userFailure = utils.getElementByClassName(".user-failure") as HTMLParagraphElement;
-        this.passwordFailure = utils.getElementByClassName(".password-failure") as HTMLParagraphElement;
-        this.passwordFailure.classList.add("password-succ");
-        this.userFailure.classList.remove("user-succ");
+        this.userFailure = document.querySelector(".user-failure");
+        this.passwordFailure = document.querySelector(".password-failure");
+        this.passwordFailure?.classList.add("password-succ");
+        this.userFailure?.classList.remove("user-succ");
+        utils.clearFormFeilds(this.password);
       }
     } else {
-      this.passwordFailure = utils.getElementByClassName(".password-failure") as HTMLParagraphElement;
-      this.userFailure = utils.getElementByClassName(".user-failure") as HTMLParagraphElement;
-      this.userFailure.classList.add("user-succ");
-      this.passwordFailure.classList.remove("password-succ");
+      this.passwordFailure = document.querySelector(".password-failure");
+      this.userFailure = document.querySelector(".user-failure");
+      this.userFailure?.classList.add("user-succ");
+      this.passwordFailure?.classList.remove("password-succ");
     }
   }
   

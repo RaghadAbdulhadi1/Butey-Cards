@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.clearFormFeilds = exports.getClassesWithSameName = exports.getElementByClassName = exports.getElementById = exports.elementFactory = void 0;
-const elementFactory = (type, attributes, ...children) => {
+// HTML elements Blueprint
+export const elementFactory = (type, attributes, ...children) => {
     const element = document.createElement(type);
     for (const key in attributes) {
         element.setAttribute(key, attributes[key]);
@@ -16,23 +14,22 @@ const elementFactory = (type, attributes, ...children) => {
     });
     return element;
 };
-exports.elementFactory = elementFactory;
-const getElementById = (id) => {
+// Get Element by ID
+export const getElementById = (id) => {
     return document.getElementById(id);
 };
-exports.getElementById = getElementById;
-const getElementByClassName = (className) => {
+// GET Element by Class
+export const getElementByClassName = (className) => {
     return document.querySelector(className);
 };
-exports.getElementByClassName = getElementByClassName;
-const getClassesWithSameName = (className) => {
+// GET all classes with same name
+export const getClassesWithSameName = (className) => {
     return document.querySelectorAll(className);
 };
-exports.getClassesWithSameName = getClassesWithSameName;
-const clearFormFeilds = (...fields) => {
+// Clear Form Feilds
+export const clearFormFeilds = (...fields) => {
     fields.forEach((field) => {
         field.value = "";
     });
 };
-exports.clearFormFeilds = clearFormFeilds;
-//# sourceMappingURL=utilities.js.map
+document.querySelector;

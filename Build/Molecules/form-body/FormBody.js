@@ -1,6 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class FormBody {
+export default class FormBody {
+    container;
+    formContainer;
+    formInputFeilds;
     constructor(container, formContainer, formInputFeilds) {
         this.container = container;
         this.formContainer = formContainer;
@@ -12,5 +13,3 @@ class FormBody {
         this.container.appendChild(this.formContainer);
     }
 }
-exports.default = FormBody;
-//# sourceMappingURL=FormBody.js.map

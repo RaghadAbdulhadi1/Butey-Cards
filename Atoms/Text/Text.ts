@@ -1,18 +1,18 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface ITitle {
-  addText(): HTMLElement
+  addText(): HTMLDivElement
 }
 
 export default class Title implements ITitle {
   constructor(private className: string, private containerText: string) {
   }
 
-  public addText(): HTMLElement {
-    return elementFactory<HTMLDivElement>("div", { class: this.className }, this.containerText);
+  public addText(): HTMLDivElement {
+    return elementFactory("div", { class: this.className }, this.containerText);
   }
   
-  public get text(): HTMLElement{
+  public get text(): HTMLDivElement{
     return this.addText();
   }
 }

@@ -1,15 +1,15 @@
 import { elementFactory } from '../../Utilities/utilities';
 
 interface IRadioField {
-  addRadioChoice(): HTMLElement
+  addRadioChoice(): HTMLDivElement
 }
 
 export default class RadioField implements IRadioField {
   constructor(private radioText: string, private checkboxName: string) {
   }
 
-  public addRadioChoice(): HTMLElement {
-    return elementFactory<HTMLDivElement>(
+  public addRadioChoice(): HTMLDivElement {
+    return elementFactory(
       "div",
       { class: "checkboxes-gender" },
       elementFactory("input", {
@@ -17,11 +17,11 @@ export default class RadioField implements IRadioField {
         name: this.checkboxName,
         class: "gender",
       }),
-      elementFactory<HTMLLabelElement>("label", { class: "gender-label" }, this.radioText)
+      elementFactory("label", { class: "gender-label" }, this.radioText)
     );
   }
   
-  public get radioFeild(): HTMLElement {
+  public get radioFeild(): HTMLDivElement {
     return this.addRadioChoice();
   }
 }

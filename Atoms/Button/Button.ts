@@ -1,17 +1,17 @@
 import { elementFactory } from "../../Utilities/utilities";
 
 interface IButton {
-  addButton(): HTMLElement
+  addButton(): HTMLDivElement
 }
 export default class Button implements IButton {
   constructor(private value: string) {
   }
 
-  public addButton(): HTMLElement {
-    return elementFactory<HTMLDivElement>(
+  public addButton(): HTMLDivElement {
+    return elementFactory(
       "div",
       { class: "button" },
-      elementFactory<HTMLButtonElement>(
+      elementFactory(
         "button",
         {
           type: "button",
@@ -21,7 +21,7 @@ export default class Button implements IButton {
     );
   }
   
-  public get button(): HTMLElement {
+  public get button(): HTMLDivElement {
     return this.addButton();
   }
 }
